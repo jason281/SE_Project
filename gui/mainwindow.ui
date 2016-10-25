@@ -1,0 +1,765 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>588</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTabWidget" name="tabWidget">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>771</width>
+      <height>541</height>
+     </rect>
+    </property>
+    <property name="tabPosition">
+     <enum>QTabWidget::North</enum>
+    </property>
+    <property name="tabShape">
+     <enum>QTabWidget::Rounded</enum>
+    </property>
+    <property name="currentIndex">
+     <number>2</number>
+    </property>
+    <widget class="QWidget" name="tab">
+     <attribute name="title">
+      <string>請假</string>
+     </attribute>
+    </widget>
+    <widget class="QWidget" name="tab_2">
+     <attribute name="title">
+      <string>審核</string>
+     </attribute>
+    </widget>
+    <widget class="QWidget" name="tab_5">
+     <attribute name="title">
+      <string>今日上班員工</string>
+     </attribute>
+     <widget class="QTabWidget" name="tabWidget_2">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>20</y>
+        <width>721</width>
+        <height>471</height>
+       </rect>
+      </property>
+      <property name="currentIndex">
+       <number>1</number>
+      </property>
+      <widget class="QWidget" name="tab_4">
+       <attribute name="title">
+        <string>早班</string>
+       </attribute>
+       <widget class="QTableWidget" name="tableWidget_2">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>711</width>
+          <height>441</height>
+         </rect>
+        </property>
+        <property name="rowCount">
+         <number>12</number>
+        </property>
+        <property name="columnCount">
+         <number>4</number>
+        </property>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <column>
+         <property name="text">
+          <string>ID</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>姓名</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>職位</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>部門</string>
+         </property>
+        </column>
+        <item row="0" column="0">
+         <property name="text">
+          <string>A001</string>
+         </property>
+        </item>
+        <item row="0" column="2">
+         <property name="text">
+          <string>主任</string>
+         </property>
+        </item>
+        <item row="1" column="0">
+         <property name="text">
+          <string>A002</string>
+         </property>
+        </item>
+        <item row="1" column="2">
+         <property name="text">
+          <string>領班</string>
+         </property>
+        </item>
+        <item row="2" column="0">
+         <property name="text">
+          <string>A004</string>
+         </property>
+        </item>
+        <item row="2" column="2">
+         <property name="text">
+          <string>員工</string>
+         </property>
+        </item>
+        <item row="3" column="0">
+         <property name="text">
+          <string>A005</string>
+         </property>
+        </item>
+        <item row="3" column="2">
+         <property name="text">
+          <string>員工</string>
+         </property>
+        </item>
+        <item row="4" column="0">
+         <property name="text">
+          <string>A006</string>
+         </property>
+        </item>
+        <item row="4" column="2">
+         <property name="text">
+          <string>員工</string>
+         </property>
+        </item>
+        <item row="5" column="0">
+         <property name="text">
+          <string>A007</string>
+         </property>
+        </item>
+        <item row="5" column="2">
+         <property name="text">
+          <string>員工</string>
+         </property>
+        </item>
+        <item row="6" column="0">
+         <property name="text">
+          <string>A008</string>
+         </property>
+        </item>
+        <item row="6" column="2">
+         <property name="text">
+          <string>員工</string>
+         </property>
+        </item>
+        <item row="7" column="0">
+         <property name="text">
+          <string>A009</string>
+         </property>
+        </item>
+        <item row="7" column="2">
+         <property name="text">
+          <string>員工</string>
+         </property>
+        </item>
+        <item row="8" column="0">
+         <property name="text">
+          <string>A010</string>
+         </property>
+        </item>
+        <item row="8" column="2">
+         <property name="text">
+          <string>員工</string>
+         </property>
+        </item>
+        <item row="9" column="0">
+         <property name="text">
+          <string>A011</string>
+         </property>
+        </item>
+        <item row="9" column="2">
+         <property name="text">
+          <string>員工</string>
+         </property>
+        </item>
+        <item row="10" column="0">
+         <property name="text">
+          <string>A012</string>
+         </property>
+        </item>
+        <item row="10" column="2">
+         <property name="text">
+          <string>員工</string>
+         </property>
+        </item>
+        <item row="11" column="0">
+         <property name="text">
+          <string>A013</string>
+         </property>
+        </item>
+        <item row="11" column="2">
+         <property name="text">
+          <string>員工</string>
+         </property>
+        </item>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="tab_6">
+       <attribute name="title">
+        <string>晚班</string>
+       </attribute>
+       <widget class="QTableWidget" name="tableWidget_3">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>711</width>
+          <height>441</height>
+         </rect>
+        </property>
+        <property name="rowCount">
+         <number>12</number>
+        </property>
+        <property name="columnCount">
+         <number>4</number>
+        </property>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <column>
+         <property name="text">
+          <string>ID</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>姓名</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>職位</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>部門</string>
+         </property>
+        </column>
+        <item row="0" column="0">
+         <property name="text">
+          <string>A001</string>
+         </property>
+        </item>
+        <item row="0" column="2">
+         <property name="text">
+          <string>主任</string>
+         </property>
+        </item>
+        <item row="1" column="0">
+         <property name="text">
+          <string>A003</string>
+         </property>
+        </item>
+        <item row="1" column="2">
+         <property name="text">
+          <string>領班</string>
+         </property>
+        </item>
+        <item row="2" column="0">
+         <property name="text">
+          <string>A014</string>
+         </property>
+        </item>
+        <item row="2" column="2">
+         <property name="text">
+          <string>員工</string>
+         </property>
+        </item>
+        <item row="3" column="0">
+         <property name="text">
+          <string>A015</string>
+         </property>
+        </item>
+        <item row="3" column="2">
+         <property name="text">
+          <string>員工</string>
+         </property>
+        </item>
+        <item row="4" column="0">
+         <property name="text">
+          <string>A016</string>
+         </property>
+        </item>
+        <item row="4" column="2">
+         <property name="text">
+          <string>員工</string>
+         </property>
+        </item>
+        <item row="5" column="0">
+         <property name="text">
+          <string>A017</string>
+         </property>
+        </item>
+        <item row="5" column="2">
+         <property name="text">
+          <string>員工</string>
+         </property>
+        </item>
+        <item row="6" column="0">
+         <property name="text">
+          <string>A018</string>
+         </property>
+        </item>
+        <item row="6" column="2">
+         <property name="text">
+          <string>員工</string>
+         </property>
+        </item>
+        <item row="7" column="0">
+         <property name="text">
+          <string>A019</string>
+         </property>
+        </item>
+        <item row="7" column="2">
+         <property name="text">
+          <string>員工</string>
+         </property>
+        </item>
+        <item row="8" column="0">
+         <property name="text">
+          <string>A020</string>
+         </property>
+        </item>
+        <item row="8" column="2">
+         <property name="text">
+          <string>員工</string>
+         </property>
+        </item>
+        <item row="9" column="0">
+         <property name="text">
+          <string>A021</string>
+         </property>
+        </item>
+        <item row="9" column="2">
+         <property name="text">
+          <string>員工</string>
+         </property>
+        </item>
+        <item row="10" column="0">
+         <property name="text">
+          <string>A022</string>
+         </property>
+        </item>
+        <item row="10" column="2">
+         <property name="text">
+          <string>員工</string>
+         </property>
+        </item>
+        <item row="11" column="0">
+         <property name="text">
+          <string>A023</string>
+         </property>
+        </item>
+        <item row="11" column="2">
+         <property name="text">
+          <string>員工</string>
+         </property>
+        </item>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="tab_7">
+       <attribute name="title">
+        <string>請假人員</string>
+       </attribute>
+       <widget class="QTableWidget" name="tableWidget_4">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>711</width>
+          <height>441</height>
+         </rect>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_3">
+     <attribute name="title">
+      <string>員工一覽表</string>
+     </attribute>
+     <widget class="QTableWidget" name="tableWidget">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>20</y>
+        <width>711</width>
+        <height>461</height>
+       </rect>
+      </property>
+      <property name="rowCount">
+       <number>23</number>
+      </property>
+      <property name="columnCount">
+       <number>5</number>
+      </property>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <column>
+       <property name="text">
+        <string>ID</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>姓名</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>性別</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>職位</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>部門</string>
+       </property>
+      </column>
+      <item row="0" column="0">
+       <property name="text">
+        <string>A001</string>
+       </property>
+      </item>
+      <item row="0" column="3">
+       <property name="text">
+        <string>主任</string>
+       </property>
+      </item>
+      <item row="1" column="0">
+       <property name="text">
+        <string>A002</string>
+       </property>
+      </item>
+      <item row="1" column="3">
+       <property name="text">
+        <string>領班</string>
+       </property>
+      </item>
+      <item row="2" column="0">
+       <property name="text">
+        <string>A003</string>
+       </property>
+      </item>
+      <item row="2" column="3">
+       <property name="text">
+        <string>領班</string>
+       </property>
+      </item>
+      <item row="3" column="0">
+       <property name="text">
+        <string>A004</string>
+       </property>
+      </item>
+      <item row="3" column="3">
+       <property name="text">
+        <string>員工</string>
+       </property>
+      </item>
+      <item row="4" column="0">
+       <property name="text">
+        <string>A005</string>
+       </property>
+      </item>
+      <item row="4" column="3">
+       <property name="text">
+        <string>員工</string>
+       </property>
+      </item>
+      <item row="5" column="0">
+       <property name="text">
+        <string>A006</string>
+       </property>
+      </item>
+      <item row="5" column="3">
+       <property name="text">
+        <string>員工</string>
+       </property>
+      </item>
+      <item row="6" column="0">
+       <property name="text">
+        <string>A007</string>
+       </property>
+      </item>
+      <item row="6" column="3">
+       <property name="text">
+        <string>員工</string>
+       </property>
+      </item>
+      <item row="7" column="0">
+       <property name="text">
+        <string>A008</string>
+       </property>
+      </item>
+      <item row="7" column="3">
+       <property name="text">
+        <string>員工</string>
+       </property>
+      </item>
+      <item row="8" column="0">
+       <property name="text">
+        <string>A009</string>
+       </property>
+      </item>
+      <item row="8" column="3">
+       <property name="text">
+        <string>員工</string>
+       </property>
+      </item>
+      <item row="9" column="0">
+       <property name="text">
+        <string>A010</string>
+       </property>
+      </item>
+      <item row="9" column="3">
+       <property name="text">
+        <string>員工</string>
+       </property>
+      </item>
+      <item row="10" column="0">
+       <property name="text">
+        <string>A011</string>
+       </property>
+      </item>
+      <item row="10" column="3">
+       <property name="text">
+        <string>員工</string>
+       </property>
+      </item>
+      <item row="11" column="0">
+       <property name="text">
+        <string>A012</string>
+       </property>
+      </item>
+      <item row="11" column="3">
+       <property name="text">
+        <string>員工</string>
+       </property>
+      </item>
+      <item row="12" column="0">
+       <property name="text">
+        <string>A013</string>
+       </property>
+      </item>
+      <item row="12" column="3">
+       <property name="text">
+        <string>員工</string>
+       </property>
+      </item>
+      <item row="13" column="0">
+       <property name="text">
+        <string>A014</string>
+       </property>
+      </item>
+      <item row="13" column="3">
+       <property name="text">
+        <string>員工</string>
+       </property>
+      </item>
+      <item row="14" column="0">
+       <property name="text">
+        <string>A015</string>
+       </property>
+      </item>
+      <item row="14" column="3">
+       <property name="text">
+        <string>員工</string>
+       </property>
+      </item>
+      <item row="15" column="0">
+       <property name="text">
+        <string>A016</string>
+       </property>
+      </item>
+      <item row="15" column="3">
+       <property name="text">
+        <string>員工</string>
+       </property>
+      </item>
+      <item row="16" column="0">
+       <property name="text">
+        <string>A017</string>
+       </property>
+      </item>
+      <item row="16" column="3">
+       <property name="text">
+        <string>員工</string>
+       </property>
+      </item>
+      <item row="17" column="0">
+       <property name="text">
+        <string>A018</string>
+       </property>
+      </item>
+      <item row="17" column="3">
+       <property name="text">
+        <string>員工</string>
+       </property>
+      </item>
+      <item row="18" column="0">
+       <property name="text">
+        <string>A019</string>
+       </property>
+      </item>
+      <item row="18" column="3">
+       <property name="text">
+        <string>員工</string>
+       </property>
+      </item>
+      <item row="19" column="0">
+       <property name="text">
+        <string>A020</string>
+       </property>
+      </item>
+      <item row="19" column="3">
+       <property name="text">
+        <string>員工</string>
+       </property>
+      </item>
+      <item row="20" column="0">
+       <property name="text">
+        <string>A021</string>
+       </property>
+      </item>
+      <item row="20" column="3">
+       <property name="text">
+        <string>員工</string>
+       </property>
+      </item>
+      <item row="21" column="0">
+       <property name="text">
+        <string>A022</string>
+       </property>
+      </item>
+      <item row="21" column="3">
+       <property name="text">
+        <string>員工</string>
+       </property>
+      </item>
+      <item row="22" column="0">
+       <property name="text">
+        <string>A023</string>
+       </property>
+      </item>
+      <item row="22" column="3">
+       <property name="text">
+        <string>員工</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QToolButton" name="toolButton">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>490</y>
+        <width>51</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Add</string>
+      </property>
+     </widget>
+     <widget class="QToolButton" name="toolButton_2">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>490</y>
+        <width>51</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Remove</string>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
