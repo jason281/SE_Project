@@ -287,10 +287,37 @@
           </widget>
          </item>
          <item>
-          <widget class="QDateEdit" name="dateEdit_2"/>
+          <widget class="QDateEdit" name="dateEdit_2">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>16777215</height>
+            </size>
+           </property>
+          </widget>
          </item>
          <item>
-          <widget class="QTimeEdit" name="timeEdit"/>
+          <widget class="QTimeEdit" name="timeEdit">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>16777215</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
          </item>
         </layout>
        </item>
@@ -304,10 +331,37 @@
           </widget>
          </item>
          <item>
-          <widget class="QDateEdit" name="dateEdit_4"/>
+          <widget class="QDateEdit" name="dateEdit_4">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>16777215</height>
+            </size>
+           </property>
+          </widget>
          </item>
          <item>
-          <widget class="QTimeEdit" name="timeEdit_3"/>
+          <widget class="QTimeEdit" name="timeEdit_3">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>16777215</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
          </item>
         </layout>
        </item>
@@ -326,9 +380,6 @@
        <string>送出</string>
       </property>
      </widget>
-     <zorder>gridLayoutWidget_2</zorder>
-     <zorder>pushButton_7</zorder>
-     <zorder>timeEdit_3</zorder>
     </widget>
     <widget class="QWidget" name="tab_8">
      <attribute name="title">
@@ -376,6 +427,11 @@
       <column>
        <property name="text">
         <string>備註</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>申請時間</string>
        </property>
       </column>
       <column>
@@ -773,15 +829,30 @@
           <height>441</height>
          </rect>
         </property>
+        <column>
+         <property name="text">
+          <string>ID</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>姓名</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>請假類別</string>
+         </property>
+        </column>
        </widget>
       </widget>
      </widget>
      <widget class="QDateEdit" name="dateEdit">
       <property name="geometry">
        <rect>
-        <x>630</x>
+        <x>669</x>
         <y>10</y>
-        <width>110</width>
+        <width>71</width>
         <height>22</height>
        </rect>
       </property>

@@ -19,7 +19,7 @@
      <x>250</x>
      <y>160</y>
      <width>133</width>
-     <height>91</height>
+     <height>101</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -67,10 +67,23 @@
      <string>Remember me</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="login_button">
-    <property name="text">
-     <string>Login</string>
-    </property>
+   <widget class="QWidget" name="horizontalLayoutWidget">
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QPushButton" name="login_button">
+       <property name="text">
+        <string>Login</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton">
+       <property name="text">
+        <string>Setting</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
  </widget>
