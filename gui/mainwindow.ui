@@ -33,7 +33,7 @@
      <enum>QTabWidget::Rounded</enum>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>6</number>
     </property>
     <widget class="QWidget" name="tab_9">
      <attribute name="title">
@@ -1295,6 +1295,844 @@
       </property>
       <property name="text">
        <string>請假紀錄</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_10">
+     <attribute name="title">
+      <string>當周上班員工</string>
+     </attribute>
+     <widget class="QTableWidget" name="tableWidget_7">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>40</y>
+        <width>641</width>
+        <height>461</height>
+       </rect>
+      </property>
+      <row>
+       <property name="text">
+        <string>A001</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>A002</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>A003</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>A004</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>A005</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>A006</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>A007</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>A008</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>A009</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>A010</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>A011</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>A013</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>A014</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>A015</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>新增列</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>新增列</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>新增列</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>新增列</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>新增列</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>新增列</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>新增列</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>新增列</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>新增列</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>新增列</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>新增列</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>新增列</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>新增列</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>新增列</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>新增列</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>新增列</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>新增列</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>新增列</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>新增列</string>
+       </property>
+      </row>
+      <column>
+       <property name="text">
+        <string>週日</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>週一</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>週二</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>週三</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>週四</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>週五</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>週六</string>
+       </property>
+      </column>
+      <item row="0" column="0">
+       <property name="text">
+        <string>例休</string>
+       </property>
+       <property name="background">
+        <brush brushstyle="NoBrush">
+         <color alpha="255">
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </property>
+       <property name="foreground">
+        <brush brushstyle="NoBrush">
+         <color alpha="255">
+          <red>255</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </property>
+      </item>
+      <item row="0" column="1">
+       <property name="text">
+        <string>全天</string>
+       </property>
+      </item>
+      <item row="0" column="2">
+       <property name="text">
+        <string>全天</string>
+       </property>
+      </item>
+      <item row="0" column="3">
+       <property name="text">
+        <string>全天</string>
+       </property>
+      </item>
+      <item row="0" column="4">
+       <property name="text">
+        <string>全天</string>
+       </property>
+      </item>
+      <item row="0" column="5">
+       <property name="text">
+        <string>全天</string>
+       </property>
+      </item>
+      <item row="1" column="0">
+       <property name="text">
+        <string>例休</string>
+       </property>
+       <property name="foreground">
+        <brush brushstyle="NoBrush">
+         <color alpha="255">
+          <red>255</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </property>
+      </item>
+      <item row="1" column="1">
+       <property name="text">
+        <string>早班</string>
+       </property>
+      </item>
+      <item row="1" column="2">
+       <property name="text">
+        <string>早班</string>
+       </property>
+      </item>
+      <item row="1" column="3">
+       <property name="text">
+        <string>早班</string>
+       </property>
+      </item>
+      <item row="1" column="4">
+       <property name="text">
+        <string>出差</string>
+       </property>
+       <property name="foreground">
+        <brush brushstyle="NoBrush">
+         <color alpha="255">
+          <red>0</red>
+          <green>0</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </property>
+      </item>
+      <item row="1" column="5">
+       <property name="text">
+        <string>早班</string>
+       </property>
+      </item>
+      <item row="2" column="0">
+       <property name="text">
+        <string>例休</string>
+       </property>
+       <property name="foreground">
+        <brush brushstyle="NoBrush">
+         <color alpha="255">
+          <red>255</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </property>
+      </item>
+      <item row="2" column="1">
+       <property name="text">
+        <string>晚班</string>
+       </property>
+      </item>
+      <item row="2" column="2">
+       <property name="text">
+        <string>晚班</string>
+       </property>
+      </item>
+      <item row="2" column="3">
+       <property name="text">
+        <string>晚班</string>
+       </property>
+      </item>
+      <item row="2" column="4">
+       <property name="text">
+        <string>晚班</string>
+       </property>
+      </item>
+      <item row="2" column="5">
+       <property name="text">
+        <string>晚班</string>
+       </property>
+      </item>
+      <item row="3" column="0">
+       <property name="text">
+        <string>例休</string>
+       </property>
+       <property name="foreground">
+        <brush brushstyle="NoBrush">
+         <color alpha="255">
+          <red>255</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </property>
+      </item>
+      <item row="3" column="1">
+       <property name="text">
+        <string>早班</string>
+       </property>
+      </item>
+      <item row="3" column="2">
+       <property name="text">
+        <string>早班</string>
+       </property>
+      </item>
+      <item row="3" column="3">
+       <property name="text">
+        <string>早班</string>
+       </property>
+      </item>
+      <item row="3" column="4">
+       <property name="text">
+        <string>早班</string>
+       </property>
+      </item>
+      <item row="3" column="5">
+       <property name="text">
+        <string>早班</string>
+       </property>
+      </item>
+      <item row="4" column="0">
+       <property name="text">
+        <string>例休</string>
+       </property>
+       <property name="foreground">
+        <brush brushstyle="NoBrush">
+         <color alpha="255">
+          <red>255</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </property>
+      </item>
+      <item row="4" column="1">
+       <property name="text">
+        <string>早班</string>
+       </property>
+      </item>
+      <item row="4" column="2">
+       <property name="text">
+        <string>早班</string>
+       </property>
+      </item>
+      <item row="4" column="3">
+       <property name="text">
+        <string>早班</string>
+       </property>
+      </item>
+      <item row="4" column="4">
+       <property name="text">
+        <string>早班</string>
+       </property>
+      </item>
+      <item row="4" column="5">
+       <property name="text">
+        <string>早班</string>
+       </property>
+      </item>
+      <item row="5" column="0">
+       <property name="text">
+        <string>例休</string>
+       </property>
+       <property name="foreground">
+        <brush brushstyle="NoBrush">
+         <color alpha="255">
+          <red>255</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </property>
+      </item>
+      <item row="5" column="1">
+       <property name="text">
+        <string>早班</string>
+       </property>
+      </item>
+      <item row="5" column="2">
+       <property name="text">
+        <string>早班</string>
+       </property>
+      </item>
+      <item row="5" column="3">
+       <property name="text">
+        <string>早班</string>
+       </property>
+      </item>
+      <item row="5" column="4">
+       <property name="text">
+        <string>早班</string>
+       </property>
+      </item>
+      <item row="5" column="5">
+       <property name="text">
+        <string>早班</string>
+       </property>
+      </item>
+      <item row="6" column="0">
+       <property name="text">
+        <string>例休</string>
+       </property>
+       <property name="foreground">
+        <brush brushstyle="NoBrush">
+         <color alpha="255">
+          <red>255</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </property>
+      </item>
+      <item row="6" column="1">
+       <property name="text">
+        <string>早班</string>
+       </property>
+      </item>
+      <item row="6" column="2">
+       <property name="text">
+        <string>早班</string>
+       </property>
+      </item>
+      <item row="6" column="3">
+       <property name="text">
+        <string>早班</string>
+       </property>
+      </item>
+      <item row="6" column="4">
+       <property name="text">
+        <string>早班</string>
+       </property>
+      </item>
+      <item row="6" column="5">
+       <property name="text">
+        <string>早班</string>
+       </property>
+      </item>
+      <item row="7" column="0">
+       <property name="text">
+        <string>例休</string>
+       </property>
+       <property name="foreground">
+        <brush brushstyle="NoBrush">
+         <color alpha="255">
+          <red>255</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </property>
+      </item>
+      <item row="7" column="1">
+       <property name="text">
+        <string>早班</string>
+       </property>
+      </item>
+      <item row="7" column="2">
+       <property name="text">
+        <string>事假</string>
+       </property>
+       <property name="foreground">
+        <brush brushstyle="NoBrush">
+         <color alpha="255">
+          <red>255</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </property>
+      </item>
+      <item row="7" column="3">
+       <property name="text">
+        <string>早班</string>
+       </property>
+      </item>
+      <item row="7" column="4">
+       <property name="text">
+        <string>早班</string>
+       </property>
+      </item>
+      <item row="7" column="5">
+       <property name="text">
+        <string>早班</string>
+       </property>
+      </item>
+      <item row="8" column="0">
+       <property name="text">
+        <string>例休</string>
+       </property>
+       <property name="foreground">
+        <brush brushstyle="NoBrush">
+         <color alpha="255">
+          <red>255</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </property>
+      </item>
+      <item row="8" column="1">
+       <property name="text">
+        <string>早班</string>
+       </property>
+      </item>
+      <item row="8" column="2">
+       <property name="text">
+        <string>早班</string>
+       </property>
+      </item>
+      <item row="8" column="3">
+       <property name="text">
+        <string>早班</string>
+       </property>
+      </item>
+      <item row="8" column="4">
+       <property name="text">
+        <string>早班</string>
+       </property>
+      </item>
+      <item row="8" column="5">
+       <property name="text">
+        <string>早班</string>
+       </property>
+      </item>
+      <item row="9" column="0">
+       <property name="text">
+        <string>例休</string>
+       </property>
+       <property name="foreground">
+        <brush brushstyle="NoBrush">
+         <color alpha="255">
+          <red>255</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </property>
+      </item>
+      <item row="9" column="1">
+       <property name="text">
+        <string>早班</string>
+       </property>
+      </item>
+      <item row="9" column="2">
+       <property name="text">
+        <string>早班</string>
+       </property>
+      </item>
+      <item row="9" column="3">
+       <property name="text">
+        <string>早班</string>
+       </property>
+      </item>
+      <item row="9" column="4">
+       <property name="text">
+        <string>早班</string>
+       </property>
+      </item>
+      <item row="9" column="5">
+       <property name="text">
+        <string>早班</string>
+       </property>
+      </item>
+      <item row="10" column="0">
+       <property name="text">
+        <string>例休</string>
+       </property>
+       <property name="foreground">
+        <brush brushstyle="NoBrush">
+         <color alpha="255">
+          <red>255</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </property>
+      </item>
+      <item row="10" column="1">
+       <property name="text">
+        <string>早班</string>
+       </property>
+      </item>
+      <item row="10" column="2">
+       <property name="text">
+        <string>早班</string>
+       </property>
+      </item>
+      <item row="10" column="3">
+       <property name="text">
+        <string>補休</string>
+       </property>
+       <property name="foreground">
+        <brush brushstyle="NoBrush">
+         <color alpha="255">
+          <red>255</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </property>
+      </item>
+      <item row="10" column="4">
+       <property name="text">
+        <string>早班</string>
+       </property>
+      </item>
+      <item row="10" column="5">
+       <property name="text">
+        <string>早班</string>
+       </property>
+      </item>
+      <item row="11" column="0">
+       <property name="text">
+        <string>例休</string>
+       </property>
+       <property name="foreground">
+        <brush brushstyle="NoBrush">
+         <color alpha="255">
+          <red>255</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </property>
+      </item>
+      <item row="11" column="1">
+       <property name="text">
+        <string>早班</string>
+       </property>
+      </item>
+      <item row="11" column="2">
+       <property name="text">
+        <string>早班</string>
+       </property>
+      </item>
+      <item row="11" column="3">
+       <property name="text">
+        <string>早班</string>
+       </property>
+      </item>
+      <item row="11" column="4">
+       <property name="text">
+        <string>早班</string>
+       </property>
+      </item>
+      <item row="11" column="5">
+       <property name="text">
+        <string>早班</string>
+       </property>
+      </item>
+      <item row="12" column="0">
+       <property name="text">
+        <string>例休</string>
+       </property>
+       <property name="foreground">
+        <brush brushstyle="NoBrush">
+         <color alpha="255">
+          <red>255</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </property>
+      </item>
+      <item row="12" column="1">
+       <property name="text">
+        <string>病假</string>
+       </property>
+       <property name="foreground">
+        <brush brushstyle="NoBrush">
+         <color alpha="255">
+          <red>255</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </property>
+      </item>
+      <item row="12" column="2">
+       <property name="text">
+        <string>早班</string>
+       </property>
+      </item>
+      <item row="12" column="3">
+       <property name="text">
+        <string>早班</string>
+       </property>
+       <property name="foreground">
+        <brush brushstyle="NoBrush">
+         <color alpha="255">
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </property>
+      </item>
+      <item row="12" column="4">
+       <property name="text">
+        <string>早班</string>
+       </property>
+      </item>
+      <item row="12" column="5">
+       <property name="text">
+        <string>早班</string>
+       </property>
+      </item>
+      <item row="13" column="0">
+       <property name="text">
+        <string>例休</string>
+       </property>
+       <property name="foreground">
+        <brush brushstyle="NoBrush">
+         <color alpha="255">
+          <red>255</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </property>
+      </item>
+      <item row="13" column="1">
+       <property name="text">
+        <string>早班</string>
+       </property>
+      </item>
+      <item row="13" column="2">
+       <property name="text">
+        <string>早班</string>
+       </property>
+      </item>
+      <item row="13" column="3">
+       <property name="text">
+        <string>早班</string>
+       </property>
+      </item>
+      <item row="13" column="4">
+       <property name="text">
+        <string>早班</string>
+       </property>
+      </item>
+      <item row="13" column="5">
+       <property name="text">
+        <string>早班</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QDateEdit" name="dateEdit_3">
+      <property name="geometry">
+       <rect>
+        <x>540</x>
+        <y>10</y>
+        <width>110</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QToolButton" name="toolButton_5">
+      <property name="geometry">
+       <rect>
+        <x>500</x>
+        <y>10</y>
+        <width>31</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>日歷</string>
       </property>
      </widget>
     </widget>
