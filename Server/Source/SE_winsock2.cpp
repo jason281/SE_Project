@@ -31,5 +31,16 @@ bool SE_winsock2::initialize(){
 		WSACleanup();
 		return false;
 	}
+	std::cerr<<"ListenSocket create succeed\n";
+	iResult = bind( ListenSocket, result->ai_addr, (int)result->ai_addrlen);
+    if (iResult == SOCKET_ERROR) {
+        cerr<<"bind failed with error: "<< WSAGetLastError()<<endl;
+        freeaddrinfo(result);
+        closesocket(ListenSocket);
+        WSACleanup();
+        return false;
+    }
+    freeaddrinfo(result);
+    std::cerr<<"Bind succeed\n";
 	return true;
 }
