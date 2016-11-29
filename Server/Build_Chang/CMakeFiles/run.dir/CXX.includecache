@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/jason/Documents/GitHub/SE_Project/Server/Source/SE_winsock2.cpp
+iostream
+-
+windows.h
+-
+SE_winsock2.h
+C:/Users/jason/Documents/GitHub/SE_Project/Server/Source/SE_winsock2.h
+
+C:/Users/jason/Documents/GitHub/SE_Project/Server/Source/SE_winsock2.h
+ws2tcpip.h
+-
+WinSock2.h
+-
+
+C:/Users/jason/Documents/GitHub/SE_Project/Server/Source/main.cpp
+iostream
+-
+SE_winsock2.h
+C:/Users/jason/Documents/GitHub/SE_Project/Server/Source/SE_winsock2.h
+
