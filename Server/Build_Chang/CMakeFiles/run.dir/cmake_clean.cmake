@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/run.dir/main.obj"
   "CMakeFiles/run.dir/SE_winsock2.obj"
+  "CMakeFiles/run.dir/Client_thread.obj"
   "run.pdb"
   "run.exe"
   "run.exe.manifest"

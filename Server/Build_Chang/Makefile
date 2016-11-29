@@ -123,6 +123,21 @@ run/fast:
 .PHONY : run/fast
 
 # target to build an object file
+Client_thread.obj:
+	$(MAKE) -f CMakeFiles\run.dir\build.make CMakeFiles/run.dir/Client_thread.obj
+.PHONY : Client_thread.obj
+
+# target to preprocess a source file
+Client_thread.i:
+	$(MAKE) -f CMakeFiles\run.dir\build.make CMakeFiles/run.dir/Client_thread.i
+.PHONY : Client_thread.i
+
+# target to generate assembly for a file
+Client_thread.s:
+	$(MAKE) -f CMakeFiles\run.dir\build.make CMakeFiles/run.dir/Client_thread.s
+.PHONY : Client_thread.s
+
+# target to build an object file
 SE_winsock2.obj:
 	$(MAKE) -f CMakeFiles\run.dir\build.make CMakeFiles/run.dir/SE_winsock2.obj
 .PHONY : SE_winsock2.obj
@@ -161,6 +176,9 @@ help:
 	@echo ... run
 	@echo ... edit_cache
 	@echo ... rebuild_cache
+	@echo ... Client_thread.obj
+	@echo ... Client_thread.i
+	@echo ... Client_thread.s
 	@echo ... SE_winsock2.obj
 	@echo ... SE_winsock2.i
 	@echo ... SE_winsock2.s

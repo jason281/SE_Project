@@ -1,5 +1,4 @@
 #include <iostream>
-#include <windows.h>
 #include "SE_winsock2.h"
 #define DEFAULT_PORT "27015"
 using std::cerr;
@@ -42,5 +41,15 @@ bool SE_winsock2::initialize(){
     }
     freeaddrinfo(result);
     std::cerr<<"Bind succeed\n";
+    if ( listen( ListenSocket, SOMAXCONN ) == SOCKET_ERROR ) {
+	    cerr<<"Listen failed with error: "<< WSAGetLastError()<<endl;
+	    closesocket(ListenSocket);
+	    WSACleanup();
+	    return false;
+	}
+	std::cerr<<"Start Listening...\n";
 	return true;
+}
+SE_winsock2::my_Socket::my_Socket(SOCKET socket_):socket(socket_){
+	handle=CreateThread(NULL,0,Thread_Func,NULL,0,NULL);
 }
