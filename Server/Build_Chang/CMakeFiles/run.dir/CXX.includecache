@@ -6,6 +6,64 @@
 
 #IncludeRegexTransform: 
 
+C:/Program Files (x86)/MySQL/MySQL Connector C 6.1/include/my_alloc.h
+mysql/psi/psi_memory.h
+-
+
+C:/Program Files (x86)/MySQL/MySQL Connector C 6.1/include/my_list.h
+
+C:/Program Files (x86)/MySQL/MySQL Connector C 6.1/include/mysql.h
+sys/types.h
+-
+windows.h
+-
+winsock2.h
+-
+mysql_version.h
+C:/Program Files (x86)/MySQL/MySQL Connector C 6.1/include/mysql_version.h
+mysql_com.h
+C:/Program Files (x86)/MySQL/MySQL Connector C 6.1/include/mysql_com.h
+mysql_time.h
+C:/Program Files (x86)/MySQL/MySQL Connector C 6.1/include/mysql_time.h
+my_list.h
+C:/Program Files (x86)/MySQL/MySQL Connector C 6.1/include/my_list.h
+mysql/client_plugin.h
+C:/Program Files (x86)/MySQL/MySQL Connector C 6.1/include/mysql/client_plugin.h
+typelib.h
+C:/Program Files (x86)/MySQL/MySQL Connector C 6.1/include/typelib.h
+my_alloc.h
+C:/Program Files (x86)/MySQL/MySQL Connector C 6.1/include/my_alloc.h
+
+C:/Program Files (x86)/MySQL/MySQL Connector C 6.1/include/mysql/client_plugin.h
+stdarg.h
+-
+stdlib.h
+-
+mysql/plugin_auth_common.h
+-
+
+C:/Program Files (x86)/MySQL/MySQL Connector C 6.1/include/mysql/plugin_auth_common.h
+windows.h
+-
+
+C:/Program Files (x86)/MySQL/MySQL Connector C 6.1/include/mysql/psi/psi_base.h
+
+C:/Program Files (x86)/MySQL/MySQL Connector C 6.1/include/mysql/psi/psi_memory.h
+psi_base.h
+C:/Program Files (x86)/MySQL/MySQL Connector C 6.1/include/mysql/psi/psi_base.h
+
+C:/Program Files (x86)/MySQL/MySQL Connector C 6.1/include/mysql_com.h
+
+C:/Program Files (x86)/MySQL/MySQL Connector C 6.1/include/mysql_time.h
+
+C:/Program Files (x86)/MySQL/MySQL Connector C 6.1/include/mysql_version.h
+custom_conf.h
+-
+
+C:/Program Files (x86)/MySQL/MySQL Connector C 6.1/include/typelib.h
+my_alloc.h
+C:/Program Files (x86)/MySQL/MySQL Connector C 6.1/include/my_alloc.h
+
 C:/Users/jason/Documents/GitHub/SE_Project/Server/Source/Client_thread.cpp
 Client_thread.h
 C:/Users/jason/Documents/GitHub/SE_Project/Server/Source/Client_thread.h
@@ -16,27 +74,43 @@ windows.h
 WinSock2.h
 -
 
-C:/Users/jason/Documents/GitHub/SE_Project/Server/Source/SE_winsock2.cpp
+C:/Users/jason/Documents/GitHub/SE_Project/Server/Source/SE_Definition.h
+windows.h
+-
+winsock2.h
+-
+ws2tcpip.h
+-
+mysql.h
+-
 iostream
 -
+vector
+-
+
+C:/Users/jason/Documents/GitHub/SE_Project/Server/Source/SE_MySQL.cpp
+SE_MySQL.h
+C:/Users/jason/Documents/GitHub/SE_Project/Server/Source/SE_MySQL.h
+
+C:/Users/jason/Documents/GitHub/SE_Project/Server/Source/SE_MySQL.h
+SE_Definition.h
+C:/Users/jason/Documents/GitHub/SE_Project/Server/Source/SE_Definition.h
+
+C:/Users/jason/Documents/GitHub/SE_Project/Server/Source/SE_winsock2.cpp
 SE_winsock2.h
 C:/Users/jason/Documents/GitHub/SE_Project/Server/Source/SE_winsock2.h
 
 C:/Users/jason/Documents/GitHub/SE_Project/Server/Source/SE_winsock2.h
-ws2tcpip.h
--
-WinSock2.h
--
-windows.h
--
-vector
--
+SE_Definition.h
+C:/Users/jason/Documents/GitHub/SE_Project/Server/Source/SE_Definition.h
 Client_thread.h
 C:/Users/jason/Documents/GitHub/SE_Project/Server/Source/Client_thread.h
 
 C:/Users/jason/Documents/GitHub/SE_Project/Server/Source/main.cpp
-iostream
--
+SE_Definition.h
+C:/Users/jason/Documents/GitHub/SE_Project/Server/Source/SE_Definition.h
 SE_winsock2.h
 C:/Users/jason/Documents/GitHub/SE_Project/Server/Source/SE_winsock2.h
+SE_MySQL.h
+C:/Users/jason/Documents/GitHub/SE_Project/Server/Source/SE_MySQL.h
 

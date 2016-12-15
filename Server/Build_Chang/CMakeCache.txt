@@ -190,6 +190,24 @@ EXECUTABLE_OUTPUT_PATH:PATH=
 //Single output directory for building all libraries.
 LIBRARY_OUTPUT_PATH:PATH=
 
+//Path to a file.
+MYSQL_INCLUDE_DIR:PATH=C:/Program Files (x86)/MySQL/MySQL Connector C 6.1/include
+
+//Path to a library.
+MYSQL_LIBRARY_C:FILEPATH=C:/Program Files (x86)/MySQL/MySQL Connector C 6.1/lib/vs12/mysqlclient.lib
+
+//Path to a library.
+MYSQL_LIBRARY_L:FILEPATH=C:/Program Files (x86)/MySQL/MySQL Connector C 6.1/lib/libmysql.lib
+
+//Path to a library.
+MYSQL_TAOCRYPT:FILEPATH=MYSQL_TAOCRYPT-NOTFOUND
+
+//Path to a library.
+MYSQL_YASSL:FILEPATH=MYSQL_YASSL-NOTFOUND
+
+//Path to a library.
+MYSQL_ZLIB:FILEPATH=MYSQL_ZLIB-NOTFOUND
+
 //Value Computed by CMake
 SE_Server_BINARY_DIR:STATIC=C:/Users/jason/Documents/GitHub/SE_Project/Server/Build_Chang
 
@@ -333,4 +351,6 @@ CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 CMAKE_STRIP-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
+//Details about finding MySQL
+FIND_PACKAGE_MESSAGE_DETAILS_MySQL:INTERNAL=[C:/Program Files (x86)/MySQL/MySQL Connector C 6.1/include][C:/Program Files (x86)/MySQL/MySQL Connector C 6.1/lib/libmysql.lib;C:/Program Files (x86)/MySQL/MySQL Connector C 6.1/lib/vs12/mysqlclient.lib][v()]
 

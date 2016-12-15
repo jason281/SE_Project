@@ -4,7 +4,7 @@
 # compile CXX with C:/MinGW/bin/g++.exe
 CXX_FLAGS =  
 
-CXX_DEFINES = 
+CXX_DEFINES = -DDBUG_OFF
 
-CXX_INCLUDES = 
+CXX_INCLUDES = @CMakeFiles/run.dir/includes_CXX.rsp
 

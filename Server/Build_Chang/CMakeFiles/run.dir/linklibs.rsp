@@ -1,1 +1,1 @@
- -lwsock32 -lws2_32 -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 
+ -lwsock32 -lws2_32 "C:/Program Files (x86)/MySQL/MySQL Connector C 6.1/lib/libmysql.lib" "C:/Program Files (x86)/MySQL/MySQL Connector C 6.1/lib/vs12/mysqlclient.lib" -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 

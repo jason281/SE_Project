@@ -1,45 +1,32 @@
-#include <iostream>
 #include "SE_winsock2.h"
-#define DEFAULT_PORT "27015"
-using std::cerr;
-using std::endl;
-SE_winsock2::SE_winsock2():result(NULL),ptr(NULL){
-	ZeroMemory( &hints, sizeof(hints) );
-	hints.ai_family = AF_UNSPEC;
-	hints.ai_socktype = SOCK_STREAM;
-	hints.ai_protocol = IPPROTO_TCP;
+
+SE_winsock2::SE_winsock2(){
+	addr.sin_addr.s_addr = INADDR_ANY;
+	addr.sin_family = AF_INET;
+	addr.sin_port = htons(DEFAULT_PORT);
 	ListenSocket = INVALID_SOCKET;
 }
 bool SE_winsock2::initialize(){
 	int iResult;
 	while(iResult=WSAStartup(MAKEWORD(2,2), &wsaData)){
 		cerr<<"WSAStartup failed: "<<iResult<<endl;
-		Sleep(1000);
+		return false;
 	}
 	std::cerr<<"WSAStartup succeed\n";
-	if (iResult=getaddrinfo(NULL, DEFAULT_PORT, &hints, &result)) {
-	    cerr<<"getaddrinfo failed: "<<iResult<<endl;
-	    WSACleanup();
-	    return false;
-	}
-	std::cerr<<"getaddrinfo succeed\n";
-	ListenSocket = socket(result->ai_family, result->ai_socktype, result->ai_protocol);
+	ListenSocket = socket(AF_INET,SOCK_STREAM,NULL);
 	if (ListenSocket == INVALID_SOCKET) {
 		cerr<<"Error at socket(): "<<WSAGetLastError()<<endl;
-		freeaddrinfo(result);
 		WSACleanup();
 		return false;
 	}
 	std::cerr<<"ListenSocket create succeed\n";
-	iResult = bind( ListenSocket, result->ai_addr, (int)result->ai_addrlen);
+	iResult = bind( ListenSocket,(SOCKADDR*)&addr, sizeof(addr));
     if (iResult == SOCKET_ERROR) {
         cerr<<"bind failed with error: "<< WSAGetLastError()<<endl;
-        freeaddrinfo(result);
         closesocket(ListenSocket);
         WSACleanup();
         return false;
-    }
-    freeaddrinfo(result);
+    };
     std::cerr<<"Bind succeed\n";
     if ( listen( ListenSocket, SOMAXCONN ) == SOCKET_ERROR ) {
 	    cerr<<"Listen failed with error: "<< WSAGetLastError()<<endl;
@@ -48,8 +35,23 @@ bool SE_winsock2::initialize(){
 	    return false;
 	}
 	std::cerr<<"Start Listening...\n";
+	
+	SOCKET ClientSocket = INVALID_SOCKET;
+	SOCKADDR_IN Client_addr;
+	int addr_size=sizeof(Client_addr);
+	while(1){
+		cerr<<"Waiting for client to connect...\n";
+		if ( ClientSocket = accept(ListenSocket, (SOCKADDR*)&Client_addr, &addr_size) ) {
+			cerr<<"got connection from "<<inet_ntoa(Client_addr.sin_addr)<<endl;
+			Client_Socket_List.push_back(ClientSocket);
+			Client_Thread_List.push_back(CreateThread(NULL,0,Thread_Func,NULL,0,NULL));
+		}
+		else{
+		    cerr<<"accept failed: "<< WSAGetLastError()<<endl;
+		    closesocket(ListenSocket);
+		    WSACleanup();
+		    return false;
+		}
+	}
 	return true;
-}
-SE_winsock2::my_Socket::my_Socket(SOCKET socket_):socket(socket_){
-	handle=CreateThread(NULL,0,Thread_Func,NULL,0,NULL);
 }

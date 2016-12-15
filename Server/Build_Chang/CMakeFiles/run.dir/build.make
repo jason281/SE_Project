@@ -57,6 +57,7 @@ include CMakeFiles/run.dir/progress.make
 include CMakeFiles/run.dir/flags.make
 
 CMakeFiles/run.dir/main.obj: CMakeFiles/run.dir/flags.make
+CMakeFiles/run.dir/main.obj: CMakeFiles/run.dir/includes_CXX.rsp
 CMakeFiles/run.dir/main.obj: C:/Users/jason/Documents/GitHub/SE_Project/Server/Source/main.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\jason\Documents\GitHub\SE_Project\Server\Build_Chang\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/run.dir/main.obj"
 	C:\MinGW\bin\g++.exe   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\run.dir\main.obj -c C:\Users\jason\Documents\GitHub\SE_Project\Server\Source\main.cpp
@@ -81,6 +82,7 @@ CMakeFiles/run.dir/main.obj.provides.build: CMakeFiles/run.dir/main.obj
 
 
 CMakeFiles/run.dir/SE_winsock2.obj: CMakeFiles/run.dir/flags.make
+CMakeFiles/run.dir/SE_winsock2.obj: CMakeFiles/run.dir/includes_CXX.rsp
 CMakeFiles/run.dir/SE_winsock2.obj: C:/Users/jason/Documents/GitHub/SE_Project/Server/Source/SE_winsock2.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\jason\Documents\GitHub\SE_Project\Server\Build_Chang\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/run.dir/SE_winsock2.obj"
 	C:\MinGW\bin\g++.exe   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\run.dir\SE_winsock2.obj -c C:\Users\jason\Documents\GitHub\SE_Project\Server\Source\SE_winsock2.cpp
@@ -105,6 +107,7 @@ CMakeFiles/run.dir/SE_winsock2.obj.provides.build: CMakeFiles/run.dir/SE_winsock
 
 
 CMakeFiles/run.dir/Client_thread.obj: CMakeFiles/run.dir/flags.make
+CMakeFiles/run.dir/Client_thread.obj: CMakeFiles/run.dir/includes_CXX.rsp
 CMakeFiles/run.dir/Client_thread.obj: C:/Users/jason/Documents/GitHub/SE_Project/Server/Source/Client_thread.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\jason\Documents\GitHub\SE_Project\Server\Build_Chang\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/run.dir/Client_thread.obj"
 	C:\MinGW\bin\g++.exe   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\run.dir\Client_thread.obj -c C:\Users\jason\Documents\GitHub\SE_Project\Server\Source\Client_thread.cpp
@@ -128,11 +131,37 @@ CMakeFiles/run.dir/Client_thread.obj.provides: CMakeFiles/run.dir/Client_thread.
 CMakeFiles/run.dir/Client_thread.obj.provides.build: CMakeFiles/run.dir/Client_thread.obj
 
 
+CMakeFiles/run.dir/SE_MySQL.obj: CMakeFiles/run.dir/flags.make
+CMakeFiles/run.dir/SE_MySQL.obj: CMakeFiles/run.dir/includes_CXX.rsp
+CMakeFiles/run.dir/SE_MySQL.obj: C:/Users/jason/Documents/GitHub/SE_Project/Server/Source/SE_MySQL.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\jason\Documents\GitHub\SE_Project\Server\Build_Chang\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/run.dir/SE_MySQL.obj"
+	C:\MinGW\bin\g++.exe   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\run.dir\SE_MySQL.obj -c C:\Users\jason\Documents\GitHub\SE_Project\Server\Source\SE_MySQL.cpp
+
+CMakeFiles/run.dir/SE_MySQL.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/run.dir/SE_MySQL.i"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\jason\Documents\GitHub\SE_Project\Server\Source\SE_MySQL.cpp > CMakeFiles\run.dir\SE_MySQL.i
+
+CMakeFiles/run.dir/SE_MySQL.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/run.dir/SE_MySQL.s"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\jason\Documents\GitHub\SE_Project\Server\Source\SE_MySQL.cpp -o CMakeFiles\run.dir\SE_MySQL.s
+
+CMakeFiles/run.dir/SE_MySQL.obj.requires:
+
+.PHONY : CMakeFiles/run.dir/SE_MySQL.obj.requires
+
+CMakeFiles/run.dir/SE_MySQL.obj.provides: CMakeFiles/run.dir/SE_MySQL.obj.requires
+	$(MAKE) -f CMakeFiles\run.dir\build.make CMakeFiles/run.dir/SE_MySQL.obj.provides.build
+.PHONY : CMakeFiles/run.dir/SE_MySQL.obj.provides
+
+CMakeFiles/run.dir/SE_MySQL.obj.provides.build: CMakeFiles/run.dir/SE_MySQL.obj
+
+
 # Object files for target run
 run_OBJECTS = \
 "CMakeFiles/run.dir/main.obj" \
 "CMakeFiles/run.dir/SE_winsock2.obj" \
-"CMakeFiles/run.dir/Client_thread.obj"
+"CMakeFiles/run.dir/Client_thread.obj" \
+"CMakeFiles/run.dir/SE_MySQL.obj"
 
 # External object files for target run
 run_EXTERNAL_OBJECTS =
@@ -140,11 +169,14 @@ run_EXTERNAL_OBJECTS =
 run.exe: CMakeFiles/run.dir/main.obj
 run.exe: CMakeFiles/run.dir/SE_winsock2.obj
 run.exe: CMakeFiles/run.dir/Client_thread.obj
+run.exe: CMakeFiles/run.dir/SE_MySQL.obj
 run.exe: CMakeFiles/run.dir/build.make
+run.exe: C:/Program\ Files\ (x86)/MySQL/MySQL\ Connector\ C\ 6.1/lib/libmysql.lib
+run.exe: C:/Program\ Files\ (x86)/MySQL/MySQL\ Connector\ C\ 6.1/lib/vs12/mysqlclient.lib
 run.exe: CMakeFiles/run.dir/linklibs.rsp
 run.exe: CMakeFiles/run.dir/objects1.rsp
 run.exe: CMakeFiles/run.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\jason\Documents\GitHub\SE_Project\Server\Build_Chang\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable run.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\jason\Documents\GitHub\SE_Project\Server\Build_Chang\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable run.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\run.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -155,6 +187,7 @@ CMakeFiles/run.dir/build: run.exe
 CMakeFiles/run.dir/requires: CMakeFiles/run.dir/main.obj.requires
 CMakeFiles/run.dir/requires: CMakeFiles/run.dir/SE_winsock2.obj.requires
 CMakeFiles/run.dir/requires: CMakeFiles/run.dir/Client_thread.obj.requires
+CMakeFiles/run.dir/requires: CMakeFiles/run.dir/SE_MySQL.obj.requires
 
 .PHONY : CMakeFiles/run.dir/requires
 

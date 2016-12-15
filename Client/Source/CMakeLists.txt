@@ -1,0 +1,6 @@
+CMAKE_MINIMUM_REQUIRED(VERSION 2.4)
+PROJECT(SE_Client)
+ADD_EXECUTABLE(run main.cpp SE_winsock2.cpp)
+if(WIN32)
+	TARGET_LINK_LIBRARIES(run wsock32 ws2_32)
+endif()  

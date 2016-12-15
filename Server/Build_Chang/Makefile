@@ -138,6 +138,21 @@ Client_thread.s:
 .PHONY : Client_thread.s
 
 # target to build an object file
+SE_MySQL.obj:
+	$(MAKE) -f CMakeFiles\run.dir\build.make CMakeFiles/run.dir/SE_MySQL.obj
+.PHONY : SE_MySQL.obj
+
+# target to preprocess a source file
+SE_MySQL.i:
+	$(MAKE) -f CMakeFiles\run.dir\build.make CMakeFiles/run.dir/SE_MySQL.i
+.PHONY : SE_MySQL.i
+
+# target to generate assembly for a file
+SE_MySQL.s:
+	$(MAKE) -f CMakeFiles\run.dir\build.make CMakeFiles/run.dir/SE_MySQL.s
+.PHONY : SE_MySQL.s
+
+# target to build an object file
 SE_winsock2.obj:
 	$(MAKE) -f CMakeFiles\run.dir\build.make CMakeFiles/run.dir/SE_winsock2.obj
 .PHONY : SE_winsock2.obj
@@ -179,6 +194,9 @@ help:
 	@echo ... Client_thread.obj
 	@echo ... Client_thread.i
 	@echo ... Client_thread.s
+	@echo ... SE_MySQL.obj
+	@echo ... SE_MySQL.i
+	@echo ... SE_MySQL.s
 	@echo ... SE_winsock2.obj
 	@echo ... SE_winsock2.i
 	@echo ... SE_winsock2.s
