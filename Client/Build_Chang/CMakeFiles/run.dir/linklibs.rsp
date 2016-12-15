@@ -1,1 +1,1 @@
- -lwsock32 -lws2_32 -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 
+ -lwsock32 -lws2_32 D:/Qt/5.7/mingw53_32/lib/libQt5Widgets.a D:/Qt/5.7/mingw53_32/lib/libQt5Gui.a D:/Qt/5.7/mingw53_32/lib/libQt5Core.a -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 

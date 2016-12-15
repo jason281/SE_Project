@@ -1,3 +1,4 @@
 C:/Users/jason/Documents/GitHub/SE_Project/Client/Build_Chang/CMakeFiles/run.dir
 C:/Users/jason/Documents/GitHub/SE_Project/Client/Build_Chang/CMakeFiles/edit_cache.dir
 C:/Users/jason/Documents/GitHub/SE_Project/Client/Build_Chang/CMakeFiles/rebuild_cache.dir
+C:/Users/jason/Documents/GitHub/SE_Project/Client/Build_Chang/CMakeFiles/run_automoc.dir

@@ -190,6 +190,15 @@ EXECUTABLE_OUTPUT_PATH:PATH=
 //Single output directory for building all libraries.
 LIBRARY_OUTPUT_PATH:PATH=
 
+//The directory containing a CMake configuration file for Qt5Core.
+Qt5Core_DIR:PATH=D:/Qt/5.7/mingw53_32/lib/cmake/Qt5Core
+
+//The directory containing a CMake configuration file for Qt5Gui.
+Qt5Gui_DIR:PATH=D:/Qt/5.7/mingw53_32/lib/cmake/Qt5Gui
+
+//The directory containing a CMake configuration file for Qt5Widgets.
+Qt5Widgets_DIR:PATH=D:/Qt/5.7/mingw53_32/lib/cmake/Qt5Widgets
+
 //Value Computed by CMake
 SE_Client_BINARY_DIR:STATIC=C:/Users/jason/Documents/GitHub/SE_Project/Client/Build_Chang
 

@@ -1,9 +1,5 @@
-#include <iostream>
+#include "SE_Definition.h"
 #include "SE_winsock2.h"
-#define DEFAULT_IP "127.0.0.1"
-#define DEFAULT_PORT 99
-using std::cerr;
-using std::endl;
 SE_winsock2::SE_winsock2(){
 	ServerAddr.sin_family = AF_INET;
 	ServerAddr.sin_port = htons(DEFAULT_PORT);

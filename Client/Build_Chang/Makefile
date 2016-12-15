@@ -122,6 +122,19 @@ run/fast:
 	$(MAKE) -f CMakeFiles\run.dir\build.make CMakeFiles/run.dir/build
 .PHONY : run/fast
 
+#=============================================================================
+# Target rules for targets named run_automoc
+
+# Build rule for target.
+run_automoc: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 run_automoc
+.PHONY : run_automoc
+
+# fast build rule for target.
+run_automoc/fast:
+	$(MAKE) -f CMakeFiles\run_automoc.dir\build.make CMakeFiles/run_automoc.dir/build
+.PHONY : run_automoc/fast
+
 # target to build an object file
 SE_winsock2.obj:
 	$(MAKE) -f CMakeFiles\run.dir\build.make CMakeFiles/run.dir/SE_winsock2.obj
@@ -138,6 +151,21 @@ SE_winsock2.s:
 .PHONY : SE_winsock2.s
 
 # target to build an object file
+login.obj:
+	$(MAKE) -f CMakeFiles\run.dir\build.make CMakeFiles/run.dir/login.obj
+.PHONY : login.obj
+
+# target to preprocess a source file
+login.i:
+	$(MAKE) -f CMakeFiles\run.dir\build.make CMakeFiles/run.dir/login.i
+.PHONY : login.i
+
+# target to generate assembly for a file
+login.s:
+	$(MAKE) -f CMakeFiles\run.dir\build.make CMakeFiles/run.dir/login.s
+.PHONY : login.s
+
+# target to build an object file
 main.obj:
 	$(MAKE) -f CMakeFiles\run.dir\build.make CMakeFiles/run.dir/main.obj
 .PHONY : main.obj
@@ -152,6 +180,21 @@ main.s:
 	$(MAKE) -f CMakeFiles\run.dir\build.make CMakeFiles/run.dir/main.s
 .PHONY : main.s
 
+# target to build an object file
+run_automoc.obj:
+	$(MAKE) -f CMakeFiles\run.dir\build.make CMakeFiles/run.dir/run_automoc.obj
+.PHONY : run_automoc.obj
+
+# target to preprocess a source file
+run_automoc.i:
+	$(MAKE) -f CMakeFiles\run.dir\build.make CMakeFiles/run.dir/run_automoc.i
+.PHONY : run_automoc.i
+
+# target to generate assembly for a file
+run_automoc.s:
+	$(MAKE) -f CMakeFiles\run.dir\build.make CMakeFiles/run.dir/run_automoc.s
+.PHONY : run_automoc.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -161,12 +204,19 @@ help:
 	@echo ... run
 	@echo ... edit_cache
 	@echo ... rebuild_cache
+	@echo ... run_automoc
 	@echo ... SE_winsock2.obj
 	@echo ... SE_winsock2.i
 	@echo ... SE_winsock2.s
+	@echo ... login.obj
+	@echo ... login.i
+	@echo ... login.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
+	@echo ... run_automoc.obj
+	@echo ... run_automoc.i
+	@echo ... run_automoc.s
 .PHONY : help
 
 

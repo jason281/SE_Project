@@ -57,6 +57,7 @@ include CMakeFiles/run.dir/progress.make
 include CMakeFiles/run.dir/flags.make
 
 CMakeFiles/run.dir/main.obj: CMakeFiles/run.dir/flags.make
+CMakeFiles/run.dir/main.obj: CMakeFiles/run.dir/includes_CXX.rsp
 CMakeFiles/run.dir/main.obj: C:/Users/jason/Documents/GitHub/SE_Project/Client/Source/main.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\jason\Documents\GitHub\SE_Project\Client\Build_Chang\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/run.dir/main.obj"
 	C:\MinGW\bin\g++.exe   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\run.dir\main.obj -c C:\Users\jason\Documents\GitHub\SE_Project\Client\Source\main.cpp
@@ -81,6 +82,7 @@ CMakeFiles/run.dir/main.obj.provides.build: CMakeFiles/run.dir/main.obj
 
 
 CMakeFiles/run.dir/SE_winsock2.obj: CMakeFiles/run.dir/flags.make
+CMakeFiles/run.dir/SE_winsock2.obj: CMakeFiles/run.dir/includes_CXX.rsp
 CMakeFiles/run.dir/SE_winsock2.obj: C:/Users/jason/Documents/GitHub/SE_Project/Client/Source/SE_winsock2.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\jason\Documents\GitHub\SE_Project\Client\Build_Chang\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/run.dir/SE_winsock2.obj"
 	C:\MinGW\bin\g++.exe   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\run.dir\SE_winsock2.obj -c C:\Users\jason\Documents\GitHub\SE_Project\Client\Source\SE_winsock2.cpp
@@ -104,21 +106,78 @@ CMakeFiles/run.dir/SE_winsock2.obj.provides: CMakeFiles/run.dir/SE_winsock2.obj.
 CMakeFiles/run.dir/SE_winsock2.obj.provides.build: CMakeFiles/run.dir/SE_winsock2.obj
 
 
+CMakeFiles/run.dir/login.obj: CMakeFiles/run.dir/flags.make
+CMakeFiles/run.dir/login.obj: CMakeFiles/run.dir/includes_CXX.rsp
+CMakeFiles/run.dir/login.obj: C:/Users/jason/Documents/GitHub/SE_Project/Client/Source/login.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\jason\Documents\GitHub\SE_Project\Client\Build_Chang\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/run.dir/login.obj"
+	C:\MinGW\bin\g++.exe   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\run.dir\login.obj -c C:\Users\jason\Documents\GitHub\SE_Project\Client\Source\login.cpp
+
+CMakeFiles/run.dir/login.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/run.dir/login.i"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\jason\Documents\GitHub\SE_Project\Client\Source\login.cpp > CMakeFiles\run.dir\login.i
+
+CMakeFiles/run.dir/login.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/run.dir/login.s"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\jason\Documents\GitHub\SE_Project\Client\Source\login.cpp -o CMakeFiles\run.dir\login.s
+
+CMakeFiles/run.dir/login.obj.requires:
+
+.PHONY : CMakeFiles/run.dir/login.obj.requires
+
+CMakeFiles/run.dir/login.obj.provides: CMakeFiles/run.dir/login.obj.requires
+	$(MAKE) -f CMakeFiles\run.dir\build.make CMakeFiles/run.dir/login.obj.provides.build
+.PHONY : CMakeFiles/run.dir/login.obj.provides
+
+CMakeFiles/run.dir/login.obj.provides.build: CMakeFiles/run.dir/login.obj
+
+
+CMakeFiles/run.dir/run_automoc.obj: CMakeFiles/run.dir/flags.make
+CMakeFiles/run.dir/run_automoc.obj: CMakeFiles/run.dir/includes_CXX.rsp
+CMakeFiles/run.dir/run_automoc.obj: run_automoc.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\jason\Documents\GitHub\SE_Project\Client\Build_Chang\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/run.dir/run_automoc.obj"
+	C:\MinGW\bin\g++.exe   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\run.dir\run_automoc.obj -c C:\Users\jason\Documents\GitHub\SE_Project\Client\Build_Chang\run_automoc.cpp
+
+CMakeFiles/run.dir/run_automoc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/run.dir/run_automoc.i"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\jason\Documents\GitHub\SE_Project\Client\Build_Chang\run_automoc.cpp > CMakeFiles\run.dir\run_automoc.i
+
+CMakeFiles/run.dir/run_automoc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/run.dir/run_automoc.s"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\jason\Documents\GitHub\SE_Project\Client\Build_Chang\run_automoc.cpp -o CMakeFiles\run.dir\run_automoc.s
+
+CMakeFiles/run.dir/run_automoc.obj.requires:
+
+.PHONY : CMakeFiles/run.dir/run_automoc.obj.requires
+
+CMakeFiles/run.dir/run_automoc.obj.provides: CMakeFiles/run.dir/run_automoc.obj.requires
+	$(MAKE) -f CMakeFiles\run.dir\build.make CMakeFiles/run.dir/run_automoc.obj.provides.build
+.PHONY : CMakeFiles/run.dir/run_automoc.obj.provides
+
+CMakeFiles/run.dir/run_automoc.obj.provides.build: CMakeFiles/run.dir/run_automoc.obj
+
+
 # Object files for target run
 run_OBJECTS = \
 "CMakeFiles/run.dir/main.obj" \
-"CMakeFiles/run.dir/SE_winsock2.obj"
+"CMakeFiles/run.dir/SE_winsock2.obj" \
+"CMakeFiles/run.dir/login.obj" \
+"CMakeFiles/run.dir/run_automoc.obj"
 
 # External object files for target run
 run_EXTERNAL_OBJECTS =
 
 run.exe: CMakeFiles/run.dir/main.obj
 run.exe: CMakeFiles/run.dir/SE_winsock2.obj
+run.exe: CMakeFiles/run.dir/login.obj
+run.exe: CMakeFiles/run.dir/run_automoc.obj
 run.exe: CMakeFiles/run.dir/build.make
+run.exe: D:/Qt/5.7/mingw53_32/lib/libQt5Widgets.a
+run.exe: D:/Qt/5.7/mingw53_32/lib/libQt5Gui.a
+run.exe: D:/Qt/5.7/mingw53_32/lib/libQt5Core.a
 run.exe: CMakeFiles/run.dir/linklibs.rsp
 run.exe: CMakeFiles/run.dir/objects1.rsp
 run.exe: CMakeFiles/run.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\jason\Documents\GitHub\SE_Project\Client\Build_Chang\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable run.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\jason\Documents\GitHub\SE_Project\Client\Build_Chang\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable run.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\run.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -128,6 +187,8 @@ CMakeFiles/run.dir/build: run.exe
 
 CMakeFiles/run.dir/requires: CMakeFiles/run.dir/main.obj.requires
 CMakeFiles/run.dir/requires: CMakeFiles/run.dir/SE_winsock2.obj.requires
+CMakeFiles/run.dir/requires: CMakeFiles/run.dir/login.obj.requires
+CMakeFiles/run.dir/requires: CMakeFiles/run.dir/run_automoc.obj.requires
 
 .PHONY : CMakeFiles/run.dir/requires
 
