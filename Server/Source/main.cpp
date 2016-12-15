@@ -5,6 +5,12 @@
 
 
 int main(){
+	SE_MySQL database;
+	cout<<"Do you want to format the database(Y/N):";
+	char option;
+	cin.get(option);
+	if(option=='y' || option=='Y')
+		database.format();
 	SE_winsock2 my_sock;
 	if(!my_sock.initialize())
 		exit(-1);

@@ -13,10 +13,14 @@
 #include <mysql.h>
 #include <iostream>
 #include <vector>
+#include <string>
 #define DEFAULT_PORT 99
+#define MYSQL_USER_NAME "SE_Server"
+#define MYSQL_PASSWORD "000000"
 using std::cout;
 using std::cerr;
 using std::cin;
 using std::endl;
+using std::string;
 
 #endif

@@ -6,6 +6,8 @@
 class SE_MySQL{
 public:
 	SE_MySQL();
+	format();
+	query(string);
 private:
 	MYSQL *con;
 };
