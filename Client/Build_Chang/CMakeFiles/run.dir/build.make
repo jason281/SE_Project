@@ -171,9 +171,9 @@ run.exe: CMakeFiles/run.dir/SE_winsock2.obj
 run.exe: CMakeFiles/run.dir/login.obj
 run.exe: CMakeFiles/run.dir/run_automoc.obj
 run.exe: CMakeFiles/run.dir/build.make
-run.exe: D:/Qt/5.7/mingw53_32/lib/libQt5Widgets.a
-run.exe: D:/Qt/5.7/mingw53_32/lib/libQt5Gui.a
-run.exe: D:/Qt/5.7/mingw53_32/lib/libQt5Core.a
+run.exe: C:/Qt/5.7/mingw53_32/lib/libQt5Widgets.a
+run.exe: C:/Qt/5.7/mingw53_32/lib/libQt5Gui.a
+run.exe: C:/Qt/5.7/mingw53_32/lib/libQt5Core.a
 run.exe: CMakeFiles/run.dir/linklibs.rsp
 run.exe: CMakeFiles/run.dir/objects1.rsp
 run.exe: CMakeFiles/run.dir/link.txt

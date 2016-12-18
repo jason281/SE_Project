@@ -33,3 +33,33 @@ bool SE_winsock2::initialize(){
 	cerr<<"Connected Suceed\n";
 	return true;
 }
+bool SE_winsock2::SE_send(void* buf, size_t len){
+	int nLeft=len;
+	int idx=0, ret;
+	char* cbuf=(char*)buf;
+	while(nLeft > 0){
+		ret = send(ConnectSocket, &cbuf[idx], nLeft, 0);
+		if(ret == SOCKET_ERROR){
+			cerr<<"Send "<<idx<<" Error\n";
+			return false;
+		}
+		nLeft -= ret;
+		idx += ret;
+	}
+	return true;
+}
+bool SE_winsock2::SE_recv(void* buf, size_t len){
+	int nLeft=len;
+	int idx=0, ret;
+	char* cbuf=(char*)buf;
+	while(nLeft > 0){
+		ret = recv(ConnectSocket, &cbuf[idx], nLeft, 0);
+		if(ret == SOCKET_ERROR){
+			cerr<<"Recv "<<idx<<" Error\n";
+			return false;
+		}
+		nLeft -= ret;
+		idx += ret;
+	}
+	return true;
+}

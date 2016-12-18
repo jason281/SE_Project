@@ -15,6 +15,7 @@
 #include <string>
 #define DEFAULT_IP "127.0.0.1"
 #define DEFAULT_PORT 99
+
 using std::cout;
 using std::cerr;
 using std::cin;

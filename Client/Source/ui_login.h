@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'loginlE6476.ui'
+** Form generated from reading UI file 'loginHp5424.ui'
 **
-** Created by: Qt User Interface Compiler version 5.7.0
+** Created by: Qt User Interface Compiler version 5.6.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef LOGINLE6476_H
-#define LOGINLE6476_H
+#ifndef LOGINHP5424_H
+#define LOGINHP5424_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
@@ -33,7 +33,7 @@ public:
     QWidget *horizontalLayoutWidget;
     QHBoxLayout *horizontalLayout;
     QPushButton *login_button;
-    QPushButton *pushButton;
+    QPushButton *setting_button;
 
     void setupUi(QWidget *Login)
     {
@@ -70,10 +70,10 @@ public:
 
         horizontalLayout->addWidget(login_button);
 
-        pushButton = new QPushButton(horizontalLayoutWidget);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
+        setting_button = new QPushButton(horizontalLayoutWidget);
+        setting_button->setObjectName(QStringLiteral("setting_button"));
 
-        horizontalLayout->addWidget(pushButton);
+        horizontalLayout->addWidget(setting_button);
 
         splitter->addWidget(horizontalLayoutWidget);
 
@@ -91,7 +91,7 @@ public:
         password->setPlaceholderText(QApplication::translate("Login", "password", 0));
         remember->setText(QApplication::translate("Login", "Remember me", 0));
         login_button->setText(QApplication::translate("Login", "Login", 0));
-        pushButton->setText(QApplication::translate("Login", "Setting", 0));
+        setting_button->setText(QApplication::translate("Login", "Setting", 0));
     } // retranslateUi
 
 };
@@ -102,4 +102,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // LOGINLE6476_H
+#endif // LOGINHP5424_H

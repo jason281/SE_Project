@@ -6,7 +6,7 @@ int main(int argc,char* argv[]){
 	if(!my_sock.initialize())
 		return -1;
 	QApplication a(argc,argv);
-	Login w(0);
+	Login w(0, &my_sock);
 	w.show();
-	return 0;
+	return a.exec();
 }

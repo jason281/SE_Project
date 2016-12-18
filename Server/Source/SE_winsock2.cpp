@@ -43,8 +43,7 @@ bool SE_winsock2::initialize(){
 		cerr<<"Waiting for client to connect...\n";
 		if ( ClientSocket = accept(ListenSocket, (SOCKADDR*)&Client_addr, &addr_size) ) {
 			cerr<<"got connection from "<<inet_ntoa(Client_addr.sin_addr)<<endl;
-			Client_Socket_List.push_back(ClientSocket);
-			Client_Thread_List.push_back(CreateThread(NULL,0,Thread_Func,NULL,0,NULL));
+			Client_List.push_back(new Client_Service(ClientSocket,Client_addr));
 		}
 		else{
 		    cerr<<"accept failed: "<< WSAGetLastError()<<endl;
@@ -52,6 +51,39 @@ bool SE_winsock2::initialize(){
 		    WSACleanup();
 		    return false;
 		}
+	}
+	return true;
+}
+SE_winsock2::Client_Service::Client_Service(SOCKET sock, SOCKADDR_IN addr):Client_Socket(sock),Client_addr(addr){
+	thread = CreateThread(NULL,0,Thread_Func,this,0,NULL);
+}
+bool SE_winsock2::Client_Service::SE_send(void* buf, size_t len){
+	int nLeft=len;
+	int idx=0, ret;
+	char* cbuf=(char*)buf;
+	while(nLeft > 0){
+		ret = send(Client_Socket, &cbuf[idx], nLeft, 0);
+		if(ret == SOCKET_ERROR){
+			cerr<<"Send "<<idx<<" Error\n";
+			return false;
+		}
+		nLeft -= ret;
+		idx += ret;
+	}
+	return true;
+}
+bool SE_winsock2::Client_Service::SE_recv(void* buf, size_t len){
+	int nLeft=len;
+	int idx=0, ret;
+	char* cbuf=(char*)buf;
+	while(nLeft > 0){
+		ret = recv(Client_Socket, &cbuf[idx], nLeft, 0);
+		if(ret == SOCKET_ERROR){
+			cerr<<"Recv "<<idx<<" Error\n";
+			return false;
+		}
+		nLeft -= ret;
+		idx += ret;
 	}
 	return true;
 }

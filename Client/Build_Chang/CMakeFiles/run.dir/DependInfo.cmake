@@ -23,11 +23,11 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "."
   "C:/Users/jason/Documents/GitHub/SE_Project/Client/Source"
-  "D:/Qt/5.7/mingw53_32/include"
-  "D:/Qt/5.7/mingw53_32/include/QtWidgets"
-  "D:/Qt/5.7/mingw53_32/include/QtGui"
-  "D:/Qt/5.7/mingw53_32/include/QtCore"
-  "D:/Qt/5.7/mingw53_32/./mkspecs/win32-g++"
+  "C:/Qt/5.7/mingw53_32/include"
+  "C:/Qt/5.7/mingw53_32/include/QtWidgets"
+  "C:/Qt/5.7/mingw53_32/include/QtGui"
+  "C:/Qt/5.7/mingw53_32/include/QtCore"
+  "C:/Qt/5.7/mingw53_32/./mkspecs/win32-g++"
   )
 
 # Targets to which this target links.
