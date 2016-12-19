@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/run.dir/main.obj"
   "CMakeFiles/run.dir/SE_winsock2.obj"
   "CMakeFiles/run.dir/login.obj"
+  "CMakeFiles/run.dir/mainwindow.obj"
+  "CMakeFiles/run.dir/setting.obj"
   "CMakeFiles/run.dir/run_automoc.obj"
   "run.pdb"
   "run.exe"

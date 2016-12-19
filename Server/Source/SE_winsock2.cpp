@@ -1,6 +1,6 @@
 #include "SE_winsock2.h"
 
-SE_winsock2::SE_winsock2(){
+SE_winsock2::SE_winsock2(SE_MySQL* db):database(db){
 	addr.sin_addr.s_addr = INADDR_ANY;
 	addr.sin_family = AF_INET;
 	addr.sin_port = htons(DEFAULT_PORT);
@@ -43,7 +43,7 @@ bool SE_winsock2::initialize(){
 		cerr<<"Waiting for client to connect...\n";
 		if ( ClientSocket = accept(ListenSocket, (SOCKADDR*)&Client_addr, &addr_size) ) {
 			cerr<<"got connection from "<<inet_ntoa(Client_addr.sin_addr)<<endl;
-			Client_List.push_back(new Client_Service(ClientSocket,Client_addr));
+			Client_List.push_back(new Client_Service(ClientSocket,Client_addr,database));
 		}
 		else{
 		    cerr<<"accept failed: "<< WSAGetLastError()<<endl;
@@ -54,8 +54,8 @@ bool SE_winsock2::initialize(){
 	}
 	return true;
 }
-SE_winsock2::Client_Service::Client_Service(SOCKET sock, SOCKADDR_IN addr):Client_Socket(sock),Client_addr(addr){
-	thread = CreateThread(NULL,0,Thread_Func,this,0,NULL);
+SE_winsock2::Client_Service::Client_Service(SOCKET sock, SOCKADDR_IN addr,SE_MySQL* db):Client_Socket(sock),Client_addr(addr),database(db){
+	thread = CreateThread(NULL,0,Thread_Func,new thread_par(this,db),0,NULL);
 }
 bool SE_winsock2::Client_Service::SE_send(void* buf, size_t len){
 	int nLeft=len;

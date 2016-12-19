@@ -16,11 +16,16 @@ SE_MySQL::SE_MySQL(){
 	}
 	cerr << "Database login succeed" << endl;
 }
-SE_MySQL::query(string text){
+void SE_MySQL::query(string text){
 	if(mysql_query(con,text.c_str()))
 		cerr << mysql_error(con) << endl;
 }
-SE_MySQL::format(){
+void SE_MySQL::query(wstring text){
+	string s(text.begin(),text.end());
+	if(mysql_query(con,s.c_str()))
+		cerr << mysql_error(con) << endl;
+}
+void SE_MySQL::format(){
 	query("DROP DATABASE IF EXISTS se_database;");
 	query("CREATE DATABASE se_database;");
 	query("USE se_database;");
@@ -39,4 +44,13 @@ SE_MySQL::format(){
 		query("INSERT INTO employee VALUES('A0"+string(1,i/10+48)+string(1,i%10+48)+"','00000000',3,1,NULL,NULL,NULL);");
 	for(int i=14;i<24;i++)
 		query("INSERT INTO employee VALUES('A0"+string(1,i/10+48)+string(1,i%10+48)+"','00000000',3,2,NULL,NULL,NULL);");
+}
+vector<MYSQL_ROW> SE_MySQL::retrive(){
+	vector<MYSQL_ROW> r;
+	MYSQL_RES *result = mysql_store_result(con);
+	int num_fields = mysql_num_fields(result);
+	MYSQL_ROW row;
+	while ((row = mysql_fetch_row(result)))
+		r.push_back(row);
+	return r;
 }

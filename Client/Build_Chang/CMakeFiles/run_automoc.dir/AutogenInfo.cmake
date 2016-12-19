@@ -1,4 +1,4 @@
-set(AM_SOURCES "C:/Users/jason/Documents/GitHub/SE_Project/Client/Source/main.cpp;C:/Users/jason/Documents/GitHub/SE_Project/Client/Source/SE_winsock2.cpp;C:/Users/jason/Documents/GitHub/SE_Project/Client/Source/login.cpp" )
+set(AM_SOURCES "C:/Users/jason/Documents/GitHub/SE_Project/Client/Source/main.cpp;C:/Users/jason/Documents/GitHub/SE_Project/Client/Source/SE_winsock2.cpp;C:/Users/jason/Documents/GitHub/SE_Project/Client/Source/login.cpp;C:/Users/jason/Documents/GitHub/SE_Project/Client/Source/mainwindow.cpp;C:/Users/jason/Documents/GitHub/SE_Project/Client/Source/setting.cpp" )
 set(AM_RCC_SOURCES  )
 set(AM_RCC_INPUTS )
 set(AM_SKIP_MOC "" )

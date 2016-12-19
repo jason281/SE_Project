@@ -3,7 +3,6 @@
 #include "SE_winsock2.h"
 #include "SE_MySQL.h"
 
-
 int main(){
 	SE_MySQL database;
 	cout<<"Do you want to format the database(Y/N):";
@@ -11,7 +10,7 @@ int main(){
 	cin.get(option);
 	if(option=='y' || option=='Y')
 		database.format();
-	SE_winsock2 my_sock;
+	SE_winsock2 my_sock(&database);
 	if(!my_sock.initialize())
 		exit(-1);
 	cin.get();

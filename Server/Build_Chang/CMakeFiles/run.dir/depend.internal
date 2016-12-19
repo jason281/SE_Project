@@ -16,6 +16,7 @@ CMakeFiles/run.dir/Client_thread.obj
  C:/Users/jason/Documents/GitHub/SE_Project/Server/Source/Client_thread.cpp
  C:/Users/jason/Documents/GitHub/SE_Project/Server/Source/Client_thread.h
  C:/Users/jason/Documents/GitHub/SE_Project/Server/Source/SE_Definition.h
+ C:/Users/jason/Documents/GitHub/SE_Project/Server/Source/SE_MySQL.h
  C:/Users/jason/Documents/GitHub/SE_Project/Server/Source/SE_winsock2.h
 CMakeFiles/run.dir/SE_MySQL.obj
  C:/Program Files (x86)/MySQL/MySQL Connector C 6.1/include/my_alloc.h
@@ -46,6 +47,7 @@ CMakeFiles/run.dir/SE_winsock2.obj
  C:/Program Files (x86)/MySQL/MySQL Connector C 6.1/include/typelib.h
  C:/Users/jason/Documents/GitHub/SE_Project/Server/Source/Client_thread.h
  C:/Users/jason/Documents/GitHub/SE_Project/Server/Source/SE_Definition.h
+ C:/Users/jason/Documents/GitHub/SE_Project/Server/Source/SE_MySQL.h
  C:/Users/jason/Documents/GitHub/SE_Project/Server/Source/SE_winsock2.cpp
  C:/Users/jason/Documents/GitHub/SE_Project/Server/Source/SE_winsock2.h
 CMakeFiles/run.dir/main.obj

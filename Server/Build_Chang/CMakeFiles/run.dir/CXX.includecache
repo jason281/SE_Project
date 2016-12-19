@@ -67,12 +67,14 @@ C:/Program Files (x86)/MySQL/MySQL Connector C 6.1/include/my_alloc.h
 C:/Users/jason/Documents/GitHub/SE_Project/Server/Source/Client_thread.cpp
 Client_thread.h
 C:/Users/jason/Documents/GitHub/SE_Project/Server/Source/Client_thread.h
-SE_winsock2.h
-C:/Users/jason/Documents/GitHub/SE_Project/Server/Source/SE_winsock2.h
 
 C:/Users/jason/Documents/GitHub/SE_Project/Server/Source/Client_thread.h
 SE_Definition.h
 C:/Users/jason/Documents/GitHub/SE_Project/Server/Source/SE_Definition.h
+SE_winsock2.h
+C:/Users/jason/Documents/GitHub/SE_Project/Server/Source/SE_winsock2.h
+SE_MySQL.h
+C:/Users/jason/Documents/GitHub/SE_Project/Server/Source/SE_MySQL.h
 
 C:/Users/jason/Documents/GitHub/SE_Project/Server/Source/SE_Definition.h
 windows.h
@@ -107,6 +109,8 @@ SE_Definition.h
 C:/Users/jason/Documents/GitHub/SE_Project/Server/Source/SE_Definition.h
 Client_thread.h
 C:/Users/jason/Documents/GitHub/SE_Project/Server/Source/Client_thread.h
+SE_MySQL.h
+C:/Users/jason/Documents/GitHub/SE_Project/Server/Source/SE_MySQL.h
 
 C:/Users/jason/Documents/GitHub/SE_Project/Server/Source/main.cpp
 SE_Definition.h

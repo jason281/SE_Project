@@ -18,9 +18,12 @@
 #define MYSQL_USER_NAME "SE_Server"
 #define MYSQL_PASSWORD "000000"
 using std::cout;
+using std::wcout;
 using std::cerr;
 using std::cin;
 using std::endl;
+using std::vector;
 using std::string;
+using std::wstring;
 
 #endif

@@ -6,8 +6,10 @@
 class SE_MySQL{
 public:
 	SE_MySQL();
-	format();
-	query(string);
+	void format();
+	void query(string);
+	void query(wstring);
+	vector<MYSQL_ROW> retrive();
 private:
 	MYSQL *con;
 };

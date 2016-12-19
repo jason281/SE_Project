@@ -181,6 +181,21 @@ main.s:
 .PHONY : main.s
 
 # target to build an object file
+mainwindow.obj:
+	$(MAKE) -f CMakeFiles\run.dir\build.make CMakeFiles/run.dir/mainwindow.obj
+.PHONY : mainwindow.obj
+
+# target to preprocess a source file
+mainwindow.i:
+	$(MAKE) -f CMakeFiles\run.dir\build.make CMakeFiles/run.dir/mainwindow.i
+.PHONY : mainwindow.i
+
+# target to generate assembly for a file
+mainwindow.s:
+	$(MAKE) -f CMakeFiles\run.dir\build.make CMakeFiles/run.dir/mainwindow.s
+.PHONY : mainwindow.s
+
+# target to build an object file
 run_automoc.obj:
 	$(MAKE) -f CMakeFiles\run.dir\build.make CMakeFiles/run.dir/run_automoc.obj
 .PHONY : run_automoc.obj
@@ -194,6 +209,21 @@ run_automoc.i:
 run_automoc.s:
 	$(MAKE) -f CMakeFiles\run.dir\build.make CMakeFiles/run.dir/run_automoc.s
 .PHONY : run_automoc.s
+
+# target to build an object file
+setting.obj:
+	$(MAKE) -f CMakeFiles\run.dir\build.make CMakeFiles/run.dir/setting.obj
+.PHONY : setting.obj
+
+# target to preprocess a source file
+setting.i:
+	$(MAKE) -f CMakeFiles\run.dir\build.make CMakeFiles/run.dir/setting.i
+.PHONY : setting.i
+
+# target to generate assembly for a file
+setting.s:
+	$(MAKE) -f CMakeFiles\run.dir\build.make CMakeFiles/run.dir/setting.s
+.PHONY : setting.s
 
 # Help Target
 help:
@@ -214,9 +244,15 @@ help:
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
+	@echo ... mainwindow.obj
+	@echo ... mainwindow.i
+	@echo ... mainwindow.s
 	@echo ... run_automoc.obj
 	@echo ... run_automoc.i
 	@echo ... run_automoc.s
+	@echo ... setting.obj
+	@echo ... setting.i
+	@echo ... setting.s
 .PHONY : help
 
 

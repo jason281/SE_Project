@@ -1,12 +1,12 @@
 #include "SE_Definition.h"
 #include "SE_winsock2.h"
 SE_winsock2::SE_winsock2(){
-	ServerAddr.sin_family = AF_INET;
-	ServerAddr.sin_port = htons(DEFAULT_PORT);
-	ServerAddr.sin_addr.s_addr = inet_addr(DEFAULT_IP);
-	ConnectSocket = INVALID_SOCKET;
 }
-bool SE_winsock2::initialize(){
+bool SE_winsock2::initialize(const char* server_addr=DEFAULT_IP,int server_port=DEFAULT_PORT){
+	ServerAddr.sin_family = AF_INET;
+	ServerAddr.sin_port = htons(server_port);
+	ServerAddr.sin_addr.s_addr = inet_addr(server_addr);
+	ConnectSocket = INVALID_SOCKET;
 	int iResult;
 	while(iResult=WSAStartup(MAKEWORD(2,2), &wsaData)){
 		cerr<<"WSAStartup failed: "<<iResult<<endl;

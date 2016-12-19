@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'settingJz6476.ui'
+** Form generated from reading UI file 'settingmU5864.ui'
 **
-** Created by: Qt User Interface Compiler version 5.7.0
+** Created by: Qt User Interface Compiler version 5.6.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef SETTINGJZ6476_H
-#define SETTINGJZ6476_H
+#ifndef SETTINGMU5864_H
+#define SETTINGMU5864_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
@@ -18,6 +18,7 @@
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
+#include <QtWidgets/QSpinBox>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -28,9 +29,9 @@ public:
     QWidget *gridLayoutWidget;
     QGridLayout *gridLayout;
     QLabel *label;
-    QLineEdit *lineEdit;
+    QLineEdit *server_ip;
     QLabel *label_2;
-    QLineEdit *lineEdit_2;
+    QSpinBox *server_port;
     QDialogButtonBox *buttonBox;
 
     void setupUi(QWidget *Setting)
@@ -49,21 +50,20 @@ public:
 
         gridLayout->addWidget(label, 0, 0, 1, 1);
 
-        lineEdit = new QLineEdit(gridLayoutWidget);
-        lineEdit->setObjectName(QStringLiteral("lineEdit"));
+        server_ip = new QLineEdit(gridLayoutWidget);
+        server_ip->setObjectName(QStringLiteral("server_ip"));
 
-        gridLayout->addWidget(lineEdit, 0, 1, 1, 1);
+        gridLayout->addWidget(server_ip, 0, 1, 1, 1);
 
         label_2 = new QLabel(gridLayoutWidget);
         label_2->setObjectName(QStringLiteral("label_2"));
 
         gridLayout->addWidget(label_2, 1, 0, 1, 1);
 
-        lineEdit_2 = new QLineEdit(gridLayoutWidget);
-        lineEdit_2->setObjectName(QStringLiteral("lineEdit_2"));
-        lineEdit_2->setMaximumSize(QSize(50, 16777215));
+        server_port = new QSpinBox(gridLayoutWidget);
+        server_port->setObjectName(QStringLiteral("server_port"));
 
-        gridLayout->addWidget(lineEdit_2, 1, 1, 1, 1);
+        gridLayout->addWidget(server_port, 1, 1, 1, 1);
 
         buttonBox = new QDialogButtonBox(Setting);
         buttonBox->setObjectName(QStringLiteral("buttonBox"));
@@ -78,7 +78,7 @@ public:
     void retranslateUi(QWidget *Setting)
     {
         Setting->setWindowTitle(QApplication::translate("Setting", "Form", 0));
-        label->setText(QApplication::translate("Setting", "\344\274\272\346\234\215\345\231\250ID:", 0));
+        label->setText(QApplication::translate("Setting", "\344\274\272\346\234\215\345\231\250IP:", 0));
         label_2->setText(QApplication::translate("Setting", "\351\200\232\350\250\212\345\237\240:", 0));
     } // retranslateUi
 
@@ -90,4 +90,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // SETTINGJZ6476_H
+#endif // SETTINGMU5864_H
