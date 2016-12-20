@@ -6,6 +6,8 @@ MainWindow::MainWindow(QWidget *parent = NULL,SE_winsock2 *ptr = NULL)
 {
 	ui->setupUi(this);
 	connect(ui->info_save_button, SIGNAL (released()), this, SLOT (info_submit()));
+	connect(ui->Emp_Name, SIGNAL (returnPressed()), this, SLOT (info_submit()));
+	connect(ui->branch, SIGNAL (returnPressed()), this, SLOT (info_submit()));
 }
 MainWindow::~MainWindow(){
 	delete ui;
@@ -76,5 +78,11 @@ void MainWindow::refresh_six(){
 }
 
 void MainWindow::info_submit(){
-	//info.Emp_Name=
+	strcpy(info.Emp_Name,ui->Emp_Name->text().toUtf8().constData());
+	info.Gender=ui->Gender->currentIndex();
+	strcpy(info.branch,ui->branch->text().toUtf8().constData());
+	
+	short operation=3;
+	socket_ptr->SE_send(&operation,sizeof(short));
+	socket_ptr->SE_send(&info,sizeof(Client_Info));
 }

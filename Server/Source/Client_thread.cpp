@@ -61,5 +61,16 @@ DWORD WINAPI Thread_Func(void* lpParam){
 		else if(operation==2){						//2 : Retrive Client Information
 			Client->SE_send(&Client->info,sizeof(Client_Info));
 		}
+		else if(operation==3){						//3 : Modify personal information
+			Client->SE_recv(&Client->info,sizeof(Client_Info));
+			string query("UPDATE se_database.employee SET ");
+			if(strcmp("",Client->info.Emp_Name))
+				query=query+"Emp_Name = '"+Client->info.Emp_Name+"',";
+			if(strcmp("",Client->info.branch))
+			query=query+"branch = '"+Client->info.branch+"',";
+			query=query+"Gender = "+string(1,Client->info.Gender+48);
+			query=query+" WHERE ID = '"+Client->info.ID+"';";
+			database->query(query);
+		}
 	}
 }
