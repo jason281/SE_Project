@@ -262,6 +262,7 @@ CMakeFiles/run.dir/login.obj
  C:/Users/jason/Documents/GitHub/SE_Project/Client/Source/SE_winsock2.h
  C:/Users/jason/Documents/GitHub/SE_Project/Client/Source/login.cpp
  C:/Users/jason/Documents/GitHub/SE_Project/Client/Source/login.h
+ C:/Users/jason/Documents/GitHub/SE_Project/Client/Source/mainwindow.h
  C:/Users/jason/Documents/GitHub/SE_Project/Client/Source/setting.h
  C:/Users/jason/Documents/GitHub/SE_Project/Client/Source/ui_login.h
 CMakeFiles/run.dir/main.obj
@@ -376,6 +377,7 @@ CMakeFiles/run.dir/main.obj
  C:/Users/jason/Documents/GitHub/SE_Project/Client/Source/SE_winsock2.h
  C:/Users/jason/Documents/GitHub/SE_Project/Client/Source/login.h
  C:/Users/jason/Documents/GitHub/SE_Project/Client/Source/main.cpp
+ C:/Users/jason/Documents/GitHub/SE_Project/Client/Source/mainwindow.h
  C:/Users/jason/Documents/GitHub/SE_Project/Client/Source/setting.h
 CMakeFiles/run.dir/mainwindow.obj
  C:/Qt/5.7/mingw53_32/include/QtCore/QDate

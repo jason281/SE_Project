@@ -54,3 +54,33 @@ vector<MYSQL_ROW> SE_MySQL::retrive(){
 		r.push_back(row);
 	return r;
 }
+Client_Info SE_MySQL::get_Info(string ID){
+	Client_Info result;
+	string query_="SELECT * FROM se_database.employee WHERE ID = '"+ID+"'";
+	query(query_);
+	vector<MYSQL_ROW> result_=retrive();
+	if(!result_.size())
+		return result;
+	strcpy(result.ID,result_[0][0]);
+	result.Emp_position=strtol(result_[0][2],NULL,10);
+	result.Default_time=strtol(result_[0][3],NULL,10);
+	if(result_[0][4])
+		strcpy(result.Emp_Name,result_[0][4]);
+	else
+		strcpy(result.Emp_Name,"");
+	if(result_[0][5])
+		result.Gender=strtol(result_[0][5],NULL,10);
+	else
+		result.Gender=0;
+	if(result_[0][6])
+		strcpy(result.branch,result_[0][6]);
+	else
+		strcpy(result.branch,"");
+	cout<<"===Client Info===\n";
+	cout<<"Client_ID: "<<result.ID<<endl;
+	cout<<"Client_position: "<<result.Emp_position<<endl;
+	cout<<"Client_Default_time: "<<result.Default_time<<endl;
+	cout<<"Client_Name: "<<result.Emp_Name<<endl;
+	cout<<"Client_Gender: "<<result.Gender<<endl;
+	cout<<"Client_branch: "<<result.branch<<endl;
+}

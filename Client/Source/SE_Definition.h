@@ -13,6 +13,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <ctime>
 #define DEFAULT_IP "127.0.0.1"
 #define DEFAULT_PORT 99
 
@@ -21,5 +22,14 @@ using std::cerr;
 using std::cin;
 using std::endl;
 using std::string;
+
+struct Client_Info{
+	char ID[256];
+	short Emp_position;
+	short Default_time;
+	char Emp_Name[256];
+	short Gender;
+	char branch[256];
+};
 
 #endif

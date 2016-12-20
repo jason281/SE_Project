@@ -5,4 +5,5 @@
 #include "SE_MySQL.h"
 
 DWORD WINAPI Thread_Func(void*);
+
 #endif

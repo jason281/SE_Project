@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "SE_winsock2.h"
 #include "setting.h"
+#include "mainwindow.h"
 
 namespace Ui{
 	class Login;
@@ -13,6 +14,7 @@ class Login : public QMainWindow{
 public:
 	explicit Login(QWidget *,SE_winsock2*);
 	~Login();
+	void setMainWindow(MainWindow*);
 private slots:
 	void button_login_pressed();
 	void setting_show();
@@ -21,6 +23,7 @@ private:
 	int server_port;
 	Ui::Login *ui;
 	Setting setting_window;
+	MainWindow* mainwindow_window;
 	SE_winsock2* socket_ptr;
 };
 

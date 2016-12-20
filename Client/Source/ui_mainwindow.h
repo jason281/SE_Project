@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'mainwindowKr6476.ui'
+** Form generated from reading UI file 'mainwindowqn6688.ui'
 **
-** Created by: Qt User Interface Compiler version 5.7.0
+** Created by: Qt User Interface Compiler version 5.6.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef MAINWINDOWKR6476_H
-#define MAINWINDOWKR6476_H
+#ifndef MAINWINDOWQN6688_H
+#define MAINWINDOWQN6688_H
 
 #include <QtCore/QDate>
 #include <QtCore/QVariant>
@@ -44,22 +44,22 @@ public:
     QWidget *gridLayoutWidget;
     QGridLayout *gridLayout;
     QLabel *label_4;
-    QLineEdit *lineEdit_4;
-    QLineEdit *lineEdit_6;
+    QLineEdit *Emp_Name;
+    QLineEdit *Emp_position;
     QLabel *label_3;
-    QLineEdit *lineEdit_3;
+    QLineEdit *ID;
     QLabel *label_6;
-    QComboBox *comboBox;
+    QComboBox *Gender;
     QLabel *label_5;
     QLabel *label_7;
-    QLineEdit *lineEdit_5;
-    QPushButton *pushButton;
-    QPushButton *pushButton_2;
+    QLineEdit *branch;
+    QPushButton *info_save_button;
+    QPushButton *passwd_modify_button;
     QWidget *tab;
     QWidget *gridLayoutWidget_2;
     QGridLayout *gridLayout_2;
     QLabel *label_2;
-    QLineEdit *lineEdit;
+    QLineEdit *ID_two;
     QLabel *label;
     QLabel *label_8;
     QLabel *label_10;
@@ -69,14 +69,12 @@ public:
     QTextEdit *textEdit_2;
     QTextEdit *textEdit;
     QHBoxLayout *horizontalLayout_2;
-    QToolButton *toolButton_4;
-    QDateEdit *dateEdit_2;
-    QTimeEdit *timeEdit;
+    QDateEdit *start_date;
+    QTimeEdit *start_time;
     QSpacerItem *horizontalSpacer;
     QHBoxLayout *horizontalLayout_4;
-    QToolButton *toolButton_6;
-    QDateEdit *dateEdit_4;
-    QTimeEdit *timeEdit_3;
+    QDateEdit *end_date;
+    QTimeEdit *end_time;
     QSpacerItem *horizontalSpacer_2;
     QPushButton *pushButton_7;
     QWidget *tab_8;
@@ -103,8 +101,7 @@ public:
     QPushButton *pushButton_5;
     QWidget *tab_10;
     QTableWidget *tableWidget_7;
-    QDateEdit *dateEdit_3;
-    QToolButton *toolButton_5;
+    QDateEdit *dateEditWeek;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -134,40 +131,40 @@ public:
 
         gridLayout->addWidget(label_4, 0, 0, 1, 1);
 
-        lineEdit_4 = new QLineEdit(gridLayoutWidget);
-        lineEdit_4->setObjectName(QStringLiteral("lineEdit_4"));
-        lineEdit_4->setMaximumSize(QSize(100, 16777215));
+        Emp_Name = new QLineEdit(gridLayoutWidget);
+        Emp_Name->setObjectName(QStringLiteral("Emp_Name"));
+        Emp_Name->setMaximumSize(QSize(100, 16777215));
 
-        gridLayout->addWidget(lineEdit_4, 1, 1, 1, 1);
+        gridLayout->addWidget(Emp_Name, 1, 1, 1, 1);
 
-        lineEdit_6 = new QLineEdit(gridLayoutWidget);
-        lineEdit_6->setObjectName(QStringLiteral("lineEdit_6"));
-        lineEdit_6->setEnabled(false);
+        Emp_position = new QLineEdit(gridLayoutWidget);
+        Emp_position->setObjectName(QStringLiteral("Emp_position"));
+        Emp_position->setEnabled(false);
 
-        gridLayout->addWidget(lineEdit_6, 3, 1, 1, 1);
+        gridLayout->addWidget(Emp_position, 3, 1, 1, 1);
 
         label_3 = new QLabel(gridLayoutWidget);
         label_3->setObjectName(QStringLiteral("label_3"));
 
         gridLayout->addWidget(label_3, 1, 0, 1, 1);
 
-        lineEdit_3 = new QLineEdit(gridLayoutWidget);
-        lineEdit_3->setObjectName(QStringLiteral("lineEdit_3"));
-        lineEdit_3->setEnabled(false);
-        lineEdit_3->setMaximumSize(QSize(50, 16777215));
+        ID = new QLineEdit(gridLayoutWidget);
+        ID->setObjectName(QStringLiteral("ID"));
+        ID->setEnabled(false);
+        ID->setMaximumSize(QSize(50, 16777215));
 
-        gridLayout->addWidget(lineEdit_3, 0, 1, 1, 1);
+        gridLayout->addWidget(ID, 0, 1, 1, 1);
 
         label_6 = new QLabel(gridLayoutWidget);
         label_6->setObjectName(QStringLiteral("label_6"));
 
         gridLayout->addWidget(label_6, 3, 0, 1, 1);
 
-        comboBox = new QComboBox(gridLayoutWidget);
-        comboBox->setObjectName(QStringLiteral("comboBox"));
-        comboBox->setMaximumSize(QSize(50, 16777215));
+        Gender = new QComboBox(gridLayoutWidget);
+        Gender->setObjectName(QStringLiteral("Gender"));
+        Gender->setMaximumSize(QSize(60, 16777215));
 
-        gridLayout->addWidget(comboBox, 2, 1, 1, 1);
+        gridLayout->addWidget(Gender, 2, 1, 1, 1);
 
         label_5 = new QLabel(gridLayoutWidget);
         label_5->setObjectName(QStringLiteral("label_5"));
@@ -179,17 +176,17 @@ public:
 
         gridLayout->addWidget(label_7, 4, 0, 1, 1);
 
-        lineEdit_5 = new QLineEdit(gridLayoutWidget);
-        lineEdit_5->setObjectName(QStringLiteral("lineEdit_5"));
+        branch = new QLineEdit(gridLayoutWidget);
+        branch->setObjectName(QStringLiteral("branch"));
 
-        gridLayout->addWidget(lineEdit_5, 4, 1, 1, 1);
+        gridLayout->addWidget(branch, 4, 1, 1, 1);
 
-        pushButton = new QPushButton(tab_9);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(300, 360, 75, 23));
-        pushButton_2 = new QPushButton(tab_9);
-        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
-        pushButton_2->setGeometry(QRect(400, 360, 75, 23));
+        info_save_button = new QPushButton(tab_9);
+        info_save_button->setObjectName(QStringLiteral("info_save_button"));
+        info_save_button->setGeometry(QRect(300, 360, 75, 23));
+        passwd_modify_button = new QPushButton(tab_9);
+        passwd_modify_button->setObjectName(QStringLiteral("passwd_modify_button"));
+        passwd_modify_button->setGeometry(QRect(400, 360, 75, 23));
         tabWidget->addTab(tab_9, QString());
         tab = new QWidget();
         tab->setObjectName(QStringLiteral("tab"));
@@ -204,12 +201,12 @@ public:
 
         gridLayout_2->addWidget(label_2, 2, 0, 1, 1);
 
-        lineEdit = new QLineEdit(gridLayoutWidget_2);
-        lineEdit->setObjectName(QStringLiteral("lineEdit"));
-        lineEdit->setEnabled(false);
-        lineEdit->setMaximumSize(QSize(100, 16777215));
+        ID_two = new QLineEdit(gridLayoutWidget_2);
+        ID_two->setObjectName(QStringLiteral("ID_two"));
+        ID_two->setEnabled(false);
+        ID_two->setMaximumSize(QSize(100, 16777215));
 
-        gridLayout_2->addWidget(lineEdit, 0, 1, 1, 1);
+        gridLayout_2->addWidget(ID_two, 0, 1, 1, 1);
 
         label = new QLabel(gridLayoutWidget_2);
         label->setObjectName(QStringLiteral("label"));
@@ -228,7 +225,7 @@ public:
 
         comboBox_2 = new QComboBox(gridLayoutWidget_2);
         comboBox_2->setObjectName(QStringLiteral("comboBox_2"));
-        comboBox_2->setMaximumSize(QSize(50, 16777215));
+        comboBox_2->setMaximumSize(QSize(60, 16777215));
 
         gridLayout_2->addWidget(comboBox_2, 1, 1, 1, 1);
 
@@ -254,22 +251,18 @@ public:
 
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
-        toolButton_4 = new QToolButton(gridLayoutWidget_2);
-        toolButton_4->setObjectName(QStringLiteral("toolButton_4"));
+        start_date = new QDateEdit(gridLayoutWidget_2);
+        start_date->setObjectName(QStringLiteral("start_date"));
+        start_date->setMaximumSize(QSize(16777215, 16777215));
+        start_date->setCalendarPopup(true);
 
-        horizontalLayout_2->addWidget(toolButton_4);
+        horizontalLayout_2->addWidget(start_date);
 
-        dateEdit_2 = new QDateEdit(gridLayoutWidget_2);
-        dateEdit_2->setObjectName(QStringLiteral("dateEdit_2"));
-        dateEdit_2->setMaximumSize(QSize(16777215, 16777215));
+        start_time = new QTimeEdit(gridLayoutWidget_2);
+        start_time->setObjectName(QStringLiteral("start_time"));
+        start_time->setMaximumSize(QSize(16777215, 16777215));
 
-        horizontalLayout_2->addWidget(dateEdit_2);
-
-        timeEdit = new QTimeEdit(gridLayoutWidget_2);
-        timeEdit->setObjectName(QStringLiteral("timeEdit"));
-        timeEdit->setMaximumSize(QSize(16777215, 16777215));
-
-        horizontalLayout_2->addWidget(timeEdit);
+        horizontalLayout_2->addWidget(start_time);
 
         horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
@@ -280,22 +273,18 @@ public:
 
         horizontalLayout_4 = new QHBoxLayout();
         horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
-        toolButton_6 = new QToolButton(gridLayoutWidget_2);
-        toolButton_6->setObjectName(QStringLiteral("toolButton_6"));
+        end_date = new QDateEdit(gridLayoutWidget_2);
+        end_date->setObjectName(QStringLiteral("end_date"));
+        end_date->setMaximumSize(QSize(16777215, 16777215));
+        end_date->setCalendarPopup(true);
 
-        horizontalLayout_4->addWidget(toolButton_6);
+        horizontalLayout_4->addWidget(end_date);
 
-        dateEdit_4 = new QDateEdit(gridLayoutWidget_2);
-        dateEdit_4->setObjectName(QStringLiteral("dateEdit_4"));
-        dateEdit_4->setMaximumSize(QSize(16777215, 16777215));
+        end_time = new QTimeEdit(gridLayoutWidget_2);
+        end_time->setObjectName(QStringLiteral("end_time"));
+        end_time->setMaximumSize(QSize(16777215, 16777215));
 
-        horizontalLayout_4->addWidget(dateEdit_4);
-
-        timeEdit_3 = new QTimeEdit(gridLayoutWidget_2);
-        timeEdit_3->setObjectName(QStringLiteral("timeEdit_3"));
-        timeEdit_3->setMaximumSize(QSize(16777215, 16777215));
-
-        horizontalLayout_4->addWidget(timeEdit_3);
+        horizontalLayout_4->addWidget(end_time);
 
         horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
@@ -478,12 +467,10 @@ public:
         tableWidget_7->setHorizontalHeaderItem(6, __qtablewidgetitem36);
         tableWidget_7->setObjectName(QStringLiteral("tableWidget_7"));
         tableWidget_7->setGeometry(QRect(30, 40, 641, 461));
-        dateEdit_3 = new QDateEdit(tab_10);
-        dateEdit_3->setObjectName(QStringLiteral("dateEdit_3"));
-        dateEdit_3->setGeometry(QRect(540, 10, 110, 22));
-        toolButton_5 = new QToolButton(tab_10);
-        toolButton_5->setObjectName(QStringLiteral("toolButton_5"));
-        toolButton_5->setGeometry(QRect(500, 10, 31, 21));
+        dateEditWeek = new QDateEdit(tab_10);
+        dateEditWeek->setObjectName(QStringLiteral("dateEditWeek"));
+        dateEditWeek->setGeometry(QRect(540, 10, 110, 22));
+        dateEditWeek->setCalendarPopup(true);
         tabWidget->addTab(tab_10, QString());
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
@@ -507,19 +494,20 @@ public:
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
         label_4->setText(QApplication::translate("MainWindow", "ID:", 0));
-        lineEdit_6->setText(QApplication::translate("MainWindow", "\344\270\273\344\273\273", 0));
+        Emp_position->setText(QApplication::translate("MainWindow", "\344\270\273\344\273\273", 0));
         label_3->setText(QApplication::translate("MainWindow", "\345\247\223\345\220\215:", 0));
-        lineEdit_3->setText(QApplication::translate("MainWindow", "A001", 0));
+        ID->setText(QApplication::translate("MainWindow", "A001", 0));
         label_6->setText(QApplication::translate("MainWindow", "\350\201\267\344\275\215:", 0));
-        comboBox->clear();
-        comboBox->insertItems(0, QStringList()
+        Gender->clear();
+        Gender->insertItems(0, QStringList()
+         << QApplication::translate("MainWindow", "\350\253\213\351\201\270\346\223\207", 0)
          << QApplication::translate("MainWindow", "\347\224\267", 0)
          << QApplication::translate("MainWindow", "\345\245\263", 0)
         );
         label_5->setText(QApplication::translate("MainWindow", "\346\200\247\345\210\245:", 0));
         label_7->setText(QApplication::translate("MainWindow", "\351\203\250\351\226\200:", 0));
-        pushButton->setText(QApplication::translate("MainWindow", "\345\204\262\345\255\230", 0));
-        pushButton_2->setText(QApplication::translate("MainWindow", "\344\277\256\346\224\271\345\257\206\347\242\274", 0));
+        info_save_button->setText(QApplication::translate("MainWindow", "\345\204\262\345\255\230", 0));
+        passwd_modify_button->setText(QApplication::translate("MainWindow", "\344\277\256\346\224\271\345\257\206\347\242\274", 0));
         tabWidget->setTabText(tabWidget->indexOf(tab_9), QApplication::translate("MainWindow", "\345\200\213\344\272\272\350\263\207\346\226\231", 0));
         label_2->setText(QApplication::translate("MainWindow", "\351\226\213\345\247\213\346\231\202\351\226\223", 0));
         label->setText(QApplication::translate("MainWindow", "ID:", 0));
@@ -527,6 +515,7 @@ public:
         label_10->setText(QApplication::translate("MainWindow", "\350\253\213\345\201\207\344\272\213\347\224\261", 0));
         comboBox_2->clear();
         comboBox_2->insertItems(0, QStringList()
+         << QApplication::translate("MainWindow", "\350\253\213\351\201\270\346\223\207", 0)
          << QApplication::translate("MainWindow", "\347\227\205\345\201\207", 0)
          << QApplication::translate("MainWindow", "\344\272\213\345\201\207", 0)
          << QApplication::translate("MainWindow", "\350\243\234\344\277\256", 0)
@@ -534,8 +523,6 @@ public:
         );
         label_9->setText(QApplication::translate("MainWindow", "\350\253\213\345\201\207\351\241\236\345\210\245", 0));
         label_11->setText(QApplication::translate("MainWindow", "\345\202\231\350\250\273", 0));
-        toolButton_4->setText(QApplication::translate("MainWindow", "\346\227\245\346\255\267", 0));
-        toolButton_6->setText(QApplication::translate("MainWindow", "\346\227\245\346\255\267", 0));
         pushButton_7->setText(QApplication::translate("MainWindow", "\351\200\201\345\207\272", 0));
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("MainWindow", "\350\253\213\345\201\207", 0));
         QTableWidgetItem *___qtablewidgetitem = tableWidget_6->horizontalHeaderItem(0);
@@ -626,7 +613,6 @@ public:
         ___qtablewidgetitem35->setText(QApplication::translate("MainWindow", "\351\200\261\344\272\224", 0));
         QTableWidgetItem *___qtablewidgetitem36 = tableWidget_7->horizontalHeaderItem(6);
         ___qtablewidgetitem36->setText(QApplication::translate("MainWindow", "\351\200\261\345\205\255", 0));
-        toolButton_5->setText(QApplication::translate("MainWindow", "\346\227\245\346\255\267", 0));
         tabWidget->setTabText(tabWidget->indexOf(tab_10), QApplication::translate("MainWindow", "\347\225\266\345\221\250\344\270\212\347\217\255\345\223\241\345\267\245", 0));
     } // retranslateUi
 
@@ -638,4 +624,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // MAINWINDOWKR6476_H
+#endif // MAINWINDOWQN6688_H

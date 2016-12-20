@@ -10,6 +10,7 @@ public:
 	void query(string);
 	void query(wstring);
 	vector<MYSQL_ROW> retrive();
+	Client_Info get_Info(string);
 private:
 	MYSQL *con;
 };

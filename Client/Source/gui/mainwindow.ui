@@ -57,7 +57,7 @@
         </widget>
        </item>
        <item row="1" column="1">
-        <widget class="QLineEdit" name="lineEdit_4">
+        <widget class="QLineEdit" name="Emp_Name">
          <property name="maximumSize">
           <size>
            <width>100</width>
@@ -67,7 +67,7 @@
         </widget>
        </item>
        <item row="3" column="1">
-        <widget class="QLineEdit" name="lineEdit_6">
+        <widget class="QLineEdit" name="Emp_position">
          <property name="enabled">
           <bool>false</bool>
          </property>
@@ -84,7 +84,7 @@
         </widget>
        </item>
        <item row="0" column="1">
-        <widget class="QLineEdit" name="lineEdit_3">
+        <widget class="QLineEdit" name="ID">
          <property name="enabled">
           <bool>false</bool>
          </property>
@@ -107,13 +107,18 @@
         </widget>
        </item>
        <item row="2" column="1">
-        <widget class="QComboBox" name="comboBox">
+        <widget class="QComboBox" name="Gender">
          <property name="maximumSize">
           <size>
-           <width>50</width>
+           <width>60</width>
            <height>16777215</height>
           </size>
          </property>
+         <item>
+          <property name="text">
+           <string>請選擇</string>
+          </property>
+         </item>
          <item>
           <property name="text">
            <string>男</string>
@@ -141,11 +146,11 @@
         </widget>
        </item>
        <item row="4" column="1">
-        <widget class="QLineEdit" name="lineEdit_5"/>
+        <widget class="QLineEdit" name="branch"/>
        </item>
       </layout>
      </widget>
-     <widget class="QPushButton" name="pushButton">
+     <widget class="QPushButton" name="info_save_button">
       <property name="geometry">
        <rect>
         <x>300</x>
@@ -158,7 +163,7 @@
        <string>儲存</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_2">
+     <widget class="QPushButton" name="passwd_modify_button">
       <property name="geometry">
        <rect>
         <x>400</x>
@@ -194,7 +199,7 @@
         </widget>
        </item>
        <item row="0" column="1">
-        <widget class="QLineEdit" name="lineEdit">
+        <widget class="QLineEdit" name="ID_two">
          <property name="enabled">
           <bool>false</bool>
          </property>
@@ -231,10 +236,15 @@
         <widget class="QComboBox" name="comboBox_2">
          <property name="maximumSize">
           <size>
-           <width>50</width>
+           <width>60</width>
            <height>16777215</height>
           </size>
          </property>
+         <item>
+          <property name="text">
+           <string>請選擇</string>
+          </property>
+         </item>
          <item>
           <property name="text">
            <string>病假</string>
@@ -280,24 +290,20 @@
        <item row="2" column="1">
         <layout class="QHBoxLayout" name="horizontalLayout_2">
          <item>
-          <widget class="QToolButton" name="toolButton_4">
-           <property name="text">
-            <string>日歷</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QDateEdit" name="dateEdit_2">
+          <widget class="QDateEdit" name="start_date">
            <property name="maximumSize">
             <size>
              <width>16777215</width>
              <height>16777215</height>
             </size>
            </property>
+           <property name="calendarPopup">
+            <bool>true</bool>
+           </property>
           </widget>
          </item>
          <item>
-          <widget class="QTimeEdit" name="timeEdit">
+          <widget class="QTimeEdit" name="start_time">
            <property name="maximumSize">
             <size>
              <width>16777215</width>
@@ -324,24 +330,20 @@
        <item row="3" column="1">
         <layout class="QHBoxLayout" name="horizontalLayout_4">
          <item>
-          <widget class="QToolButton" name="toolButton_6">
-           <property name="text">
-            <string>日歷</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QDateEdit" name="dateEdit_4">
+          <widget class="QDateEdit" name="end_date">
            <property name="maximumSize">
             <size>
              <width>16777215</width>
              <height>16777215</height>
             </size>
            </property>
+           <property name="calendarPopup">
+            <bool>true</bool>
+           </property>
           </widget>
          </item>
          <item>
-          <widget class="QTimeEdit" name="timeEdit_3">
+          <widget class="QTimeEdit" name="end_time">
            <property name="maximumSize">
             <size>
              <width>16777215</width>
@@ -826,7 +828,7 @@
        </property>
       </column>
      </widget>
-     <widget class="QDateEdit" name="dateEdit_3">
+     <widget class="QDateEdit" name="dateEditWeek">
       <property name="geometry">
        <rect>
         <x>540</x>
@@ -835,18 +837,8 @@
         <height>22</height>
        </rect>
       </property>
-     </widget>
-     <widget class="QToolButton" name="toolButton_5">
-      <property name="geometry">
-       <rect>
-        <x>500</x>
-        <y>10</y>
-        <width>31</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>日歷</string>
+      <property name="calendarPopup">
+       <bool>true</bool>
       </property>
      </widget>
     </widget>

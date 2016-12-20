@@ -3,28 +3,42 @@ bool login(SE_winsock2::Client_Service* Client,SE_MySQL* database){
 	while(1){
 		size_t len;
 		Client->SE_recv((void*)&len, sizeof(size_t));
+		cout<<"Recv len:"<<len<<endl;
 		wchar_t text[len];
 		Client->SE_recv((void*)text, len*sizeof(wchar_t));
 		
-		wstring q(L"SELECT Passwd FROM se_database.employee WHERE ID = '");
-		q=q+text+L"'";
+		wstring q(text);
+		string t=string(q.begin(),q.end());
+		strcpy(Client->info.ID, t.c_str());
+		q=L"SELECT Passwd FROM se_database.employee WHERE ID = '"+q+L"'";
 		database->query(q);
 		//wcout<<q<<endl;
 		vector<MYSQL_ROW> result=database->retrive();
-		char* passwd=result[0][0];
 		//cout<<result[0][0]<<endl;
 		
 		Client->SE_recv((void*)&len, sizeof(size_t));
+		//cout<<"Passwd len:"<<len<<endl;
 		wchar_t passwd_r[len];
 		Client->SE_recv((void*)passwd_r, len*sizeof(wchar_t));
 		wstring temp(passwd_r);
 		string temp2(temp.begin(),temp.end());
 		
-		if(!strcmp(passwd,temp2.c_str())){
-			wcout<<L"User "<<text<<L" login succeed!\n";
-			break;
+		if(result.size()){
+			if(!strcmp(result[0][0],temp2.c_str())){
+				wcout<<L"User "<<text<<L" login succeed!\n";
+				break;
+			}
 		}
+		else
+			cout<<"No Passwd\n";
+		short status=0; //for login failed
+		Client->SE_send(&status, sizeof(short));
 	}
+	short status=1; //for login succeed
+	Client->SE_send(&status, sizeof(short));
+	//get client info
+	Client->info=database->get_Info(string(Client->info.ID));
+	
 	return true;
 }
 
@@ -32,7 +46,20 @@ DWORD WINAPI Thread_Func(void* lpParam){
 	thread_par* par= (thread_par*)lpParam;
 	SE_winsock2::Client_Service* Client = par->sock;
 	SE_MySQL* database = par->database;
-	if(!login(Client,database)){
-		return 0;
+	short operation;
+	while(1){
+		operation=0;
+		Client->SE_recv(&operation,sizeof(short));
+		cout<<"Operation : "<<operation<<endl;
+		if(operation==0)							//0 : Leave
+			return 0;
+		else if(operation==1){						//1 : Login
+			if(!login(Client,database)){
+				return 1;
+			}
+		}
+		else if(operation==2){						//2 : Retrive Client Information
+			Client->SE_send(&Client->info,sizeof(Client_Info));
+		}
 	}
 }

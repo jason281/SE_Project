@@ -33,6 +33,9 @@ bool SE_winsock2::initialize(const char* server_addr=DEFAULT_IP,int server_port=
 	cerr<<"Connected Suceed\n";
 	return true;
 }
+bool SE_winsock2::testifconnect(){
+	return (ConnectSocket!=INVALID_SOCKET);
+}
 bool SE_winsock2::SE_send(void* buf, size_t len){
 	int nLeft=len;
 	int idx=0, ret;
