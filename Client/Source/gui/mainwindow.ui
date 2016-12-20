@@ -233,7 +233,7 @@
         </widget>
        </item>
        <item row="1" column="1">
-        <widget class="QComboBox" name="comboBox_2">
+        <widget class="QComboBox" name="r_type">
          <property name="maximumSize">
           <size>
            <width>60</width>
@@ -282,10 +282,10 @@
         </widget>
        </item>
        <item row="5" column="1">
-        <widget class="QTextEdit" name="textEdit_2"/>
+        <widget class="QTextEdit" name="ps"/>
        </item>
        <item row="4" column="1">
-        <widget class="QTextEdit" name="textEdit"/>
+        <widget class="QTextEdit" name="reason"/>
        </item>
        <item row="2" column="1">
         <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -369,7 +369,7 @@
        </item>
       </layout>
      </widget>
-     <widget class="QPushButton" name="pushButton_7">
+     <widget class="QPushButton" name="submit">
       <property name="geometry">
        <rect>
         <x>540</x>

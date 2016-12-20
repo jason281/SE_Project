@@ -5,7 +5,7 @@ if(COMMAND cmake_policy)
 	cmake_policy(SET CMP0003 NEW)
 	cmake_policy(SET CMP0023 NEW)
 endif(COMMAND cmake_policy)
-
+ADD_DEFINITIONS(-std=c++11)
 #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -static-libgcc \"${MYSQL_LIBRARY_DIR}/libmysql.lib\" \"${MYSQL_LIBRARY_DIR}/mysqlclient.lib\"" )
 #SET( CMAKE_LINKER_FLAGS "-static-libgcc \"C:\\Program Files\\MySQL\\MySQL Server 5.7\\lib\\libmysql.lib\" " )
 #add_library(sql SHARED IMPORTED)

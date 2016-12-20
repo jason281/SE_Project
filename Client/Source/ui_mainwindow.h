@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'mainwindowqn6688.ui'
+** Form generated from reading UI file 'mainwindowfw6688.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.6.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef MAINWINDOWQN6688_H
-#define MAINWINDOWQN6688_H
+#ifndef MAINWINDOWFW6688_H
+#define MAINWINDOWFW6688_H
 
 #include <QtCore/QDate>
 #include <QtCore/QVariant>
@@ -63,11 +63,11 @@ public:
     QLabel *label;
     QLabel *label_8;
     QLabel *label_10;
-    QComboBox *comboBox_2;
+    QComboBox *r_type;
     QLabel *label_9;
     QLabel *label_11;
-    QTextEdit *textEdit_2;
-    QTextEdit *textEdit;
+    QTextEdit *ps;
+    QTextEdit *reason;
     QHBoxLayout *horizontalLayout_2;
     QDateEdit *start_date;
     QTimeEdit *start_time;
@@ -76,7 +76,7 @@ public:
     QDateEdit *end_date;
     QTimeEdit *end_time;
     QSpacerItem *horizontalSpacer_2;
-    QPushButton *pushButton_7;
+    QPushButton *submit;
     QWidget *tab_8;
     QTableWidget *tableWidget_6;
     QPushButton *pushButton_6;
@@ -223,11 +223,11 @@ public:
 
         gridLayout_2->addWidget(label_10, 4, 0, 1, 1);
 
-        comboBox_2 = new QComboBox(gridLayoutWidget_2);
-        comboBox_2->setObjectName(QStringLiteral("comboBox_2"));
-        comboBox_2->setMaximumSize(QSize(60, 16777215));
+        r_type = new QComboBox(gridLayoutWidget_2);
+        r_type->setObjectName(QStringLiteral("r_type"));
+        r_type->setMaximumSize(QSize(60, 16777215));
 
-        gridLayout_2->addWidget(comboBox_2, 1, 1, 1, 1);
+        gridLayout_2->addWidget(r_type, 1, 1, 1, 1);
 
         label_9 = new QLabel(gridLayoutWidget_2);
         label_9->setObjectName(QStringLiteral("label_9"));
@@ -239,15 +239,15 @@ public:
 
         gridLayout_2->addWidget(label_11, 5, 0, 1, 1);
 
-        textEdit_2 = new QTextEdit(gridLayoutWidget_2);
-        textEdit_2->setObjectName(QStringLiteral("textEdit_2"));
+        ps = new QTextEdit(gridLayoutWidget_2);
+        ps->setObjectName(QStringLiteral("ps"));
 
-        gridLayout_2->addWidget(textEdit_2, 5, 1, 1, 1);
+        gridLayout_2->addWidget(ps, 5, 1, 1, 1);
 
-        textEdit = new QTextEdit(gridLayoutWidget_2);
-        textEdit->setObjectName(QStringLiteral("textEdit"));
+        reason = new QTextEdit(gridLayoutWidget_2);
+        reason->setObjectName(QStringLiteral("reason"));
 
-        gridLayout_2->addWidget(textEdit, 4, 1, 1, 1);
+        gridLayout_2->addWidget(reason, 4, 1, 1, 1);
 
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
@@ -293,9 +293,9 @@ public:
 
         gridLayout_2->addLayout(horizontalLayout_4, 3, 1, 1, 1);
 
-        pushButton_7 = new QPushButton(tab);
-        pushButton_7->setObjectName(QStringLiteral("pushButton_7"));
-        pushButton_7->setGeometry(QRect(540, 470, 75, 23));
+        submit = new QPushButton(tab);
+        submit->setObjectName(QStringLiteral("submit"));
+        submit->setGeometry(QRect(540, 470, 75, 23));
         tabWidget->addTab(tab, QString());
         tab_8 = new QWidget();
         tab_8->setObjectName(QStringLiteral("tab_8"));
@@ -513,8 +513,8 @@ public:
         label->setText(QApplication::translate("MainWindow", "ID:", 0));
         label_8->setText(QApplication::translate("MainWindow", "\347\265\220\346\235\237\346\231\202\351\226\223", 0));
         label_10->setText(QApplication::translate("MainWindow", "\350\253\213\345\201\207\344\272\213\347\224\261", 0));
-        comboBox_2->clear();
-        comboBox_2->insertItems(0, QStringList()
+        r_type->clear();
+        r_type->insertItems(0, QStringList()
          << QApplication::translate("MainWindow", "\350\253\213\351\201\270\346\223\207", 0)
          << QApplication::translate("MainWindow", "\347\227\205\345\201\207", 0)
          << QApplication::translate("MainWindow", "\344\272\213\345\201\207", 0)
@@ -523,7 +523,7 @@ public:
         );
         label_9->setText(QApplication::translate("MainWindow", "\350\253\213\345\201\207\351\241\236\345\210\245", 0));
         label_11->setText(QApplication::translate("MainWindow", "\345\202\231\350\250\273", 0));
-        pushButton_7->setText(QApplication::translate("MainWindow", "\351\200\201\345\207\272", 0));
+        submit->setText(QApplication::translate("MainWindow", "\351\200\201\345\207\272", 0));
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("MainWindow", "\350\253\213\345\201\207", 0));
         QTableWidgetItem *___qtablewidgetitem = tableWidget_6->horizontalHeaderItem(0);
         ___qtablewidgetitem->setText(QApplication::translate("MainWindow", "ID", 0));
@@ -624,4 +624,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // MAINWINDOWQN6688_H
+#endif // MAINWINDOWFW6688_H

@@ -87,6 +87,8 @@ mysql.h
 -
 iostream
 -
+stdio.h
+-
 cstdlib
 -
 vector

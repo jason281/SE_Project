@@ -8,6 +8,7 @@ MainWindow::MainWindow(QWidget *parent = NULL,SE_winsock2 *ptr = NULL)
 	connect(ui->info_save_button, SIGNAL (released()), this, SLOT (info_submit()));
 	connect(ui->Emp_Name, SIGNAL (returnPressed()), this, SLOT (info_submit()));
 	connect(ui->branch, SIGNAL (returnPressed()), this, SLOT (info_submit()));
+	connect(ui->submit, SIGNAL (released()), this, SLOT (record_submit()));
 }
 MainWindow::~MainWindow(){
 	delete ui;
@@ -53,12 +54,17 @@ void MainWindow::refresh_zero(){
 }
 void MainWindow::refresh_one(){
 	ui->ID_two->setText(QString(info.ID));
+	if(info.Emp_position!=1)
+		ui->r_type->removeItem(4);
+	ui->r_type->setCurrentIndex(0);
 	time_t t = time(0);
 	struct tm * now = localtime( & t );
 	ui->start_date->setDate(QDate(now->tm_year + 1900,now->tm_mon + 1,now->tm_mday));
 	ui->end_date->setDate(QDate(now->tm_year + 1900,now->tm_mon + 1,now->tm_mday));
 	ui->start_time->setTime(QTime(0,0));
 	ui->end_time->setTime(QTime(23,59));
+	ui->reason->clear();
+	ui->ps->clear();
 }
 void MainWindow::refresh_two(){
 	
@@ -81,8 +87,36 @@ void MainWindow::info_submit(){
 	strcpy(info.Emp_Name,ui->Emp_Name->text().toUtf8().constData());
 	info.Gender=ui->Gender->currentIndex();
 	strcpy(info.branch,ui->branch->text().toUtf8().constData());
-	
+	//cout<<"Record submitted\n";
 	short operation=3;
 	socket_ptr->SE_send(&operation,sizeof(short));
 	socket_ptr->SE_send(&info,sizeof(Client_Info));
+}
+void MainWindow::record_submit(){
+	Record r;
+	r.ID=-1;
+	strcpy(r.applied_ID,info.ID);
+	r.r_type=ui->r_type->currentIndex();
+	r.start.tm_year =ui->start_date->date().year()-1990;
+	r.start.tm_mon  =ui->start_date->date().month()-1;
+	r.start.tm_mday =ui->start_date->date().day();
+	r.start.tm_hour =ui->start_time->time().hour();
+	r.start.tm_min  =ui->start_time->time().minute();
+	r.start.tm_sec  =ui->start_time->time().second();
+	r.end.tm_year =ui->end_date->date().year()-1990;
+	r.end.tm_mon  =ui->end_date->date().month()-1;
+	r.end.tm_mday =ui->end_date->date().day();
+	r.end.tm_hour =ui->end_time->time().hour();
+	r.end.tm_min  =ui->end_time->time().minute();
+	r.end.tm_sec  =ui->end_time->time().second();
+	strcpy(r.reason,ui->reason->toPlainText().toUtf8().constData());
+	strcpy(r.ps    ,    ui->ps->toPlainText().toUtf8().constData());
+	time_t t = time(0);
+	r.now = *localtime( & t );
+	r.r_status=1;
+	
+	short operation=4;
+	socket_ptr->SE_send(&operation,sizeof(short));
+	socket_ptr->SE_send(&r,sizeof(Record));
+	refresh_one();
 }

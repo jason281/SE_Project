@@ -41,6 +41,20 @@ bool login(SE_winsock2::Client_Service* Client,SE_MySQL* database){
 	
 	return true;
 }
+void insert_record(SE_winsock2::Client_Service* Client,SE_MySQL* database){
+	Record r;
+	Client->SE_recv(&r,sizeof(Record));
+	r.ID= ++database->record_ID;
+	string query("INSERT INTO se_database.record VALUES(");
+	query=query+std::to_string(r.ID)+",'"+r.applied_ID+"',"+std::to_string(r.r_type)+",'";
+	query=query+std::to_string(r.start.tm_year+1990)+"-"+std::to_string(r.start.tm_mon+1)+"-"+std::to_string(r.start.tm_mday)+" "+std::to_string(r.start.tm_hour)+":"+std::to_string(r.start.tm_min)+":"+std::to_string(r.start.tm_sec)+"','";
+	query=query+std::to_string(r.end.tm_year+1990)+"-"+std::to_string(r.end.tm_mon+1)+"-"+std::to_string(r.end.tm_mday)+" "+std::to_string(r.end.tm_hour)+":"+std::to_string(r.end.tm_min)+":"+std::to_string(r.end.tm_sec)+"','";
+	query=query+r.reason+"','"+r.ps+"','";
+	query=query+std::to_string(r.now.tm_year+1990)+"-"+std::to_string(r.now.tm_mon+1)+"-"+std::to_string(r.now.tm_mday)+" "+std::to_string(r.now.tm_hour)+":"+std::to_string(r.now.tm_min)+":"+std::to_string(r.now.tm_sec)+"',";
+	query=query+std::to_string(r.r_status)+");";
+	cout<<query<<endl;
+	database->query(query);
+}
 
 DWORD WINAPI Thread_Func(void* lpParam){
 	thread_par* par= (thread_par*)lpParam;
@@ -71,6 +85,9 @@ DWORD WINAPI Thread_Func(void* lpParam){
 			query=query+"Gender = "+string(1,Client->info.Gender+48);
 			query=query+" WHERE ID = '"+Client->info.ID+"';";
 			database->query(query);
+		}
+		else if(operation==4){						//4 : Record the application
+			insert_record(Client,database);
 		}
 	}
 }

@@ -16,6 +16,15 @@ SE_MySQL::SE_MySQL(){
 	}
 	cerr << "Database login succeed" << endl;
 }
+void SE_MySQL::initialize(){
+	query(string("SELECT MAX(ID) FROM se_database.record;"));
+	vector<MYSQL_ROW> result=retrive();
+	if(result[0][0]==NULL)
+		record_ID=0;
+	else
+		record_ID=atoi(result[0][0]);
+	cout<<"Record_ID: "<<record_ID<<endl;
+}
 void SE_MySQL::query(string text){
 	if(mysql_query(con,text.c_str()))
 		cerr << mysql_error(con) << endl;
@@ -37,6 +46,16 @@ void SE_MySQL::format(){
 				"Emp_Name text,"+
 				"Gender bool,"+
 				"branch text);");
+	query(string("CREATE TABLE record(")+
+				"ID int NOT NULL UNIQUE,"+
+				"applier_ID char(255) NOT NULL,"
+				"r_type int,"+
+				"start_time DATETIME,"+
+				"end_time DATETIME,"+
+				"reason text,"+
+				"ps text,"+
+				"applied_time DATETIME,"+
+				"r_status int);");
 	query("INSERT INTO employee VALUES('A001','00000000',1,3,NULL,NULL,NULL);");
 	query("INSERT INTO employee VALUES('A002','00000000',2,1,NULL,NULL,NULL);");
 	query("INSERT INTO employee VALUES('A003','00000000',2,2,NULL,NULL,NULL);");

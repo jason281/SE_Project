@@ -23,6 +23,7 @@ public:
 	void refresh_six();
 private slots:
 	void info_submit();
+	void record_submit();
 private:
 	Client_Info info;
 	Ui::MainWindow *ui;

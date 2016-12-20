@@ -10,5 +10,17 @@ Emp_Name text,
 Gender bool,
 branch text
 );
-INSERT INTO employee
-VALUES('A001','00000000',1,3,NULL,NULL,NULL);
+CREATE TABLE record(
+ID int NOT NULL UNIQUE,
+applier_ID char(255) NOT NULL,
+r_type int,
+start_date DATE,
+start_time TIME,
+end_date DATE,
+end_time TIME,
+reason text,
+ps text,
+applied_date DATE,
+applied_time TIME,
+r_status int
+);

@@ -10,6 +10,7 @@ int main(){
 	cin.get(option);
 	if(option=='y' || option=='Y')
 		database.format();
+	database.initialize();
 	SE_winsock2 my_sock(&database);
 	if(!my_sock.initialize())
 		exit(-1);

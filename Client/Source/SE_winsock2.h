@@ -12,7 +12,7 @@ public:
 	bool SE_recv(void*, size_t);
 private:
 	WSADATA wsaData;
-	SOCKADDR_IN ServerAddr; 
+	SOCKADDR_IN ServerAddr;
 	SOCKET ConnectSocket;
 };
 #endif

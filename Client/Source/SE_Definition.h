@@ -31,5 +31,16 @@ struct Client_Info{
 	short Gender;
 	char branch[256];
 };
+struct Record{
+	int ID;
+	char applied_ID[256];
+	short r_type;
+	struct tm start;
+	struct tm end;
+	char reason[2048];
+	char ps[2048];
+	struct tm now;
+	short r_status;
+};
 
 #endif
