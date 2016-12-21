@@ -1,45 +1,42 @@
 #include "Client_thread.h"
 bool login(SE_winsock2::Client_Service* Client,SE_MySQL* database){
-	while(1){
-		size_t len;
-		Client->SE_recv((void*)&len, sizeof(size_t));
-		cout<<"Recv len:"<<len<<endl;
-		wchar_t text[len];
-		Client->SE_recv((void*)text, len*sizeof(wchar_t));
-		
-		wstring q(text);
-		string t=string(q.begin(),q.end());
-		strcpy(Client->info.ID, t.c_str());
-		q=L"SELECT Passwd FROM se_database.employee WHERE ID = '"+q+L"'";
-		database->query(q);
-		//wcout<<q<<endl;
-		vector<MYSQL_ROW> result=database->retrive();
-		//cout<<result[0][0]<<endl;
-		
-		Client->SE_recv((void*)&len, sizeof(size_t));
-		//cout<<"Passwd len:"<<len<<endl;
-		wchar_t passwd_r[len];
-		Client->SE_recv((void*)passwd_r, len*sizeof(wchar_t));
-		wstring temp(passwd_r);
-		string temp2(temp.begin(),temp.end());
-		
-		if(result.size()){
-			if(!strcmp(result[0][0],temp2.c_str())){
-				wcout<<L"User "<<text<<L" login succeed!\n";
-				break;
-			}
+	size_t len;
+	Client->SE_recv((void*)&len, sizeof(size_t));
+	cout<<"Recv len:"<<len<<endl;
+	wchar_t text[len];
+	Client->SE_recv((void*)text, len*sizeof(wchar_t));
+	
+	wstring q(text);
+	string t=string(q.begin(),q.end());
+	strcpy(Client->info.ID, t.c_str());
+	q=L"SELECT Passwd FROM se_database.employee WHERE ID = '"+q+L"'";
+	database->query(q);
+	//wcout<<q<<endl;
+	vector<MYSQL_ROW> result=database->retrive();
+	//cout<<result[0][0]<<endl;
+	
+	Client->SE_recv((void*)&len, sizeof(size_t));
+	//cout<<"Passwd len:"<<len<<endl;
+	wchar_t passwd_r[len];
+	Client->SE_recv((void*)passwd_r, len*sizeof(wchar_t));
+	wstring temp(passwd_r);
+	string temp2(temp.begin(),temp.end());
+	
+	if(result.size()){
+		if(!strcmp(result[0][0],temp2.c_str())){
+			wcout<<L"User "<<text<<L" login succeed!\n";
+			short status=1; //for login succeed
+			Client->SE_send(&status, sizeof(short));
+			//get client info
+			Client->info=database->get_Info(string(Client->info.ID));
+			return true;
 		}
-		else
-			cout<<"No Passwd\n";
+	}
+	else{
 		short status=0; //for login failed
 		Client->SE_send(&status, sizeof(short));
+		return true;
 	}
-	short status=1; //for login succeed
-	Client->SE_send(&status, sizeof(short));
-	//get client info
-	Client->info=database->get_Info(string(Client->info.ID));
-	
-	return true;
 }
 void insert_record(SE_winsock2::Client_Service* Client,SE_MySQL* database){
 	Record r;
@@ -226,6 +223,16 @@ DWORD WINAPI Thread_Func(void* lpParam){
 		else if(operation==10){						//10: get all employee info
 			if(Client->info.Emp_position==1)
 				query_all_info(Client,database);
+		}
+		else if(operation==11){						//11: remove employee
+			size_t len;
+			Client->SE_recv(&len,sizeof(size_t));
+			char buff[256];
+			Client->SE_recv(buff,len);
+			string query("DELETE FROM se_database.employee WHERE ID = '");
+			query=query+buff+"';";
+			if(Client->info.Emp_position==1)
+				database->query(query);
 		}
 	}
 }

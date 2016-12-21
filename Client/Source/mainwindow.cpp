@@ -13,6 +13,7 @@ MainWindow::MainWindow(QWidget *parent = NULL,SE_winsock2 *ptr = NULL)
 	connect(ui->cancel_button, SIGNAL (released()), this, SLOT (cancellation()));
 	connect(ui->approve_button, SIGNAL (released()), this, SLOT (approval()));
 	connect(ui->reject_button, SIGNAL (released()), this, SLOT (rejection()));
+	connect(ui->remove_button, SIGNAL (released()), this, SLOT (remove_employee()));
 }
 MainWindow::~MainWindow(){
 	delete ui;
@@ -123,6 +124,7 @@ void MainWindow::refresh_three(){
 	time_t t = time(0);
 	struct tm * now = localtime( & t );
 	ui->dateEdit->setDate(QDate(now->tm_year + 1900,now->tm_mon + 1,now->tm_mday));
+	
 }
 void MainWindow::refresh_four(){
 	short operation=7;
@@ -235,4 +237,15 @@ void MainWindow::rejection(){
 	int RID=ui->tableWidget_5->item(ui->tableWidget_5->currentRow(),0)->text().toInt();
 	socket_ptr->SE_send(&RID,sizeof(int));
 	refresh_four();
+}
+void MainWindow::remove_employee(){
+	if(ui->tableWidget->currentRow()==-1)
+		return;
+	short operation=11;
+	socket_ptr->SE_send(&operation,sizeof(short));
+	string id(ui->tableWidget->item(ui->tableWidget->currentRow(),0)->text().toUtf8().constData());
+	size_t len=id.size()+1;
+	socket_ptr->SE_send(&len,sizeof(size_t));
+	socket_ptr->SE_send(id.c_str(),len);
+	refresh_five();
 }

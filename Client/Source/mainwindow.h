@@ -30,6 +30,7 @@ private slots:
 	void cancellation();
 	void approval();
 	void rejection();
+	void remove_employee();
 private:
 	Client_Info info;
 	Ui::MainWindow *ui;

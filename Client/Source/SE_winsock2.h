@@ -8,7 +8,7 @@ public:
 	SE_winsock2();
 	bool initialize(const char*,int);
 	bool testifconnect();
-	bool SE_send(void*, size_t);
+	bool SE_send(const void*, size_t);
 	bool SE_recv(void*, size_t);
 private:
 	WSADATA wsaData;
