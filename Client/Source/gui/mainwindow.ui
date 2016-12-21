@@ -401,6 +401,11 @@
       </property>
       <column>
        <property name="text">
+        <string>RID</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
         <string>ID</string>
        </property>
       </column>
@@ -440,7 +445,7 @@
        </property>
       </column>
      </widget>
-     <widget class="QPushButton" name="pushButton_6">
+     <widget class="QPushButton" name="cancel_button">
       <property name="geometry">
        <rect>
         <x>660</x>
@@ -625,6 +630,11 @@
       </property>
       <column>
        <property name="text">
+        <string>RID</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
         <string>ID</string>
        </property>
       </column>
@@ -653,8 +663,18 @@
         <string>備註</string>
        </property>
       </column>
+      <column>
+       <property name="text">
+        <string>新增欄位</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>狀態</string>
+       </property>
+      </column>
      </widget>
-     <widget class="QPushButton" name="pushButton_3">
+     <widget class="QPushButton" name="approve_button">
       <property name="geometry">
        <rect>
         <x>570</x>
@@ -667,7 +687,7 @@
        <string>通過</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_4">
+     <widget class="QPushButton" name="reject_button">
       <property name="geometry">
        <rect>
         <x>650</x>
@@ -726,7 +746,7 @@
        </property>
       </column>
      </widget>
-     <widget class="QToolButton" name="toolButton">
+     <widget class="QToolButton" name="add_button">
       <property name="geometry">
        <rect>
         <x>30</x>
@@ -739,7 +759,7 @@
        <string>Add</string>
       </property>
      </widget>
-     <widget class="QToolButton" name="toolButton_2">
+     <widget class="QToolButton" name="remove_button">
       <property name="geometry">
        <rect>
         <x>90</x>
@@ -752,7 +772,7 @@
        <string>Remove</string>
       </property>
      </widget>
-     <widget class="QToolButton" name="toolButton_3">
+     <widget class="QToolButton" name="modify_button">
       <property name="geometry">
        <rect>
         <x>150</x>

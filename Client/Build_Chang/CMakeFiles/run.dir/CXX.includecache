@@ -1609,6 +1609,8 @@ C:/Users/jason/Documents/GitHub/SE_Project/Client/Source/ui_mainwindow.h
 C:/Users/jason/Documents/GitHub/SE_Project/Client/Source/mainwindow.h
 QMainWindow
 -
+QTableWidget
+-
 SE_winsock2.h
 C:/Users/jason/Documents/GitHub/SE_Project/Client/Source/SE_winsock2.h
 

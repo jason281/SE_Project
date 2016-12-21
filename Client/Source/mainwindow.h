@@ -2,6 +2,7 @@
 #define __MAINWINDOW_H__
 
 #include <QMainWindow>
+#include <QTableWidget>
 #include "SE_winsock2.h"
 
 namespace Ui{
@@ -13,6 +14,7 @@ public:
 	explicit MainWindow(QWidget *,SE_winsock2*);
 	~MainWindow();
 	void retrive_info();
+	void fetch_record(QTableWidget*);
 	void refresh();
 	void refresh_zero();
 	void refresh_one();
@@ -22,8 +24,12 @@ public:
 	void refresh_five();
 	void refresh_six();
 private slots:
+	void refresh_tab(int);
 	void info_submit();
 	void record_submit();
+	void cancellation();
+	void approval();
+	void rejection();
 private:
 	Client_Info info;
 	Ui::MainWindow *ui;

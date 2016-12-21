@@ -5,10 +5,14 @@ MainWindow::MainWindow(QWidget *parent = NULL,SE_winsock2 *ptr = NULL)
 	: QMainWindow(parent), ui(new Ui::MainWindow), socket_ptr(ptr)
 {
 	ui->setupUi(this);
+	connect(ui->tabWidget, SIGNAL (currentChanged(int)), this, SLOT(refresh_tab(int)));
 	connect(ui->info_save_button, SIGNAL (released()), this, SLOT (info_submit()));
 	connect(ui->Emp_Name, SIGNAL (returnPressed()), this, SLOT (info_submit()));
 	connect(ui->branch, SIGNAL (returnPressed()), this, SLOT (info_submit()));
 	connect(ui->submit, SIGNAL (released()), this, SLOT (record_submit()));
+	connect(ui->cancel_button, SIGNAL (released()), this, SLOT (cancellation()));
+	connect(ui->approve_button, SIGNAL (released()), this, SLOT (approval()));
+	connect(ui->reject_button, SIGNAL (released()), this, SLOT (rejection()));
 }
 MainWindow::~MainWindow(){
 	delete ui;
@@ -17,6 +21,49 @@ void MainWindow::retrive_info(){
 	short operation = 2;
 	socket_ptr->SE_send(&operation, sizeof(short));
 	socket_ptr->SE_recv(&info, sizeof(Client_Info));
+}
+void MainWindow::fetch_record(QTableWidget* table){
+	int count;
+	socket_ptr->SE_recv(&count,sizeof(int));
+	table->setRowCount( count );
+	for(int i=0;i<count;i++){
+		Record r;
+		socket_ptr->SE_recv(&r,sizeof(Record));
+		for(int j=0;j<table->columnCount();j++)
+			//if(table->itemAt(i,j)==0)
+				table->setItem(i,j,new QTableWidgetItem());
+		string temp=std::to_string(r.ID);
+		table->item(i,0)->setText(QString(temp.c_str()));
+		table->item(i,1)->setText(QString(r.applied_ID));
+		switch(r.r_type){
+		case 1:
+			table->item(i,2)->setText(QString::fromWCharArray(L"病假"));break;
+		case 2:
+			table->item(i,2)->setText(QString::fromWCharArray(L"事假"));break;
+		case 3:
+			table->item(i,2)->setText(QString::fromWCharArray(L"補修"));break;
+		case 4:
+			table->item(i,2)->setText(QString::fromWCharArray(L"出差"));break;
+		}
+		QDateTime time(QDate(r.start.tm_year+1900,r.start.tm_mon+1,r.start.tm_mday),QTime(r.start.tm_hour,r.start.tm_min));
+		table->item(i,3)->setText(time.toString(Qt::ISODate));
+		time=QDateTime(QDate(r.end.tm_year+1900,r.end.tm_mon+1,r.end.tm_mday),QTime(r.end.tm_hour,r.end.tm_min));
+		table->item(i,4)->setText(time.toString(Qt::ISODate));
+		table->item(i,5)->setText(QString(r.reason));
+		table->item(i,6)->setText(QString(r.ps));
+		time=QDateTime(QDate(r.now.tm_year+1900,r.now.tm_mon+1,r.now.tm_mday),QTime(r.now.tm_hour,r.now.tm_min,r.now.tm_sec));
+		table->item(i,7)->setText(time.toString(Qt::ISODate));
+		switch(r.r_status){
+		case 1:
+			table->item(i,8)->setText(QString::fromWCharArray(L"待審核"));break;
+		case 2:
+			table->item(i,8)->setText(QString::fromWCharArray(L"已取消"));break;
+		case 3:
+			table->item(i,8)->setText(QString::fromWCharArray(L"駁回"));break;
+		case 4:
+			table->item(i,8)->setText(QString::fromWCharArray(L"通過"));break;
+		}
+	}
 }
 void MainWindow::refresh(){
 	if(info.Emp_position!=1){
@@ -67,7 +114,10 @@ void MainWindow::refresh_one(){
 	ui->ps->clear();
 }
 void MainWindow::refresh_two(){
-	
+	short operation=5;
+	socket_ptr->SE_send(&operation,sizeof(short));
+	fetch_record(ui->tableWidget_6);
+	return;
 }
 void MainWindow::refresh_three(){
 	time_t t = time(0);
@@ -75,14 +125,27 @@ void MainWindow::refresh_three(){
 	ui->dateEdit->setDate(QDate(now->tm_year + 1900,now->tm_mon + 1,now->tm_mday));
 }
 void MainWindow::refresh_four(){
-	
+	short operation=7;
+	socket_ptr->SE_send(&operation,sizeof(short));
+	fetch_record(ui->tableWidget_5);
+	return;
 }
 void MainWindow::refresh_five(){
 	
 }
 void MainWindow::refresh_six(){
 }
-
+void MainWindow::refresh_tab(int index){
+	switch(index){
+	case 0:	refresh_zero() ;	break;
+	case 1:	refresh_one()  ;	break;
+	case 2:	refresh_two()  ;	break;
+	case 3:	refresh_three();	break;
+	case 4:	refresh_four() ;	break;
+	case 5:	refresh_five() ;	break;
+	case 6:	refresh_six()  ;	break;
+	}
+}
 void MainWindow::info_submit(){
 	strcpy(info.Emp_Name,ui->Emp_Name->text().toUtf8().constData());
 	info.Gender=ui->Gender->currentIndex();
@@ -119,4 +182,31 @@ void MainWindow::record_submit(){
 	socket_ptr->SE_send(&operation,sizeof(short));
 	socket_ptr->SE_send(&r,sizeof(Record));
 	refresh_one();
+}
+void MainWindow::cancellation(){
+	if(ui->tableWidget_6->currentRow()==-1)
+		return;
+	short operation=6;
+	socket_ptr->SE_send(&operation,sizeof(short));
+	int RID=ui->tableWidget_6->item(ui->tableWidget_6->currentRow(),0)->text().toInt();
+	socket_ptr->SE_send(&RID,sizeof(int));
+	refresh_two();
+}
+void MainWindow::approval(){
+	if(ui->tableWidget_5->currentRow()==-1)
+		return;
+	short operation=8;
+	socket_ptr->SE_send(&operation,sizeof(short));
+	int RID=ui->tableWidget_5->item(ui->tableWidget_5->currentRow(),0)->text().toInt();
+	socket_ptr->SE_send(&RID,sizeof(int));
+	refresh_four();
+}
+void MainWindow::rejection(){
+	if(ui->tableWidget_5->currentRow()==-1)
+		return;
+	short operation=9;
+	socket_ptr->SE_send(&operation,sizeof(short));
+	int RID=ui->tableWidget_5->item(ui->tableWidget_5->currentRow(),0)->text().toInt();
+	socket_ptr->SE_send(&RID,sizeof(int));
+	refresh_four();
 }

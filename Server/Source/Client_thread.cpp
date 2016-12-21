@@ -47,12 +47,103 @@ void insert_record(SE_winsock2::Client_Service* Client,SE_MySQL* database){
 	r.ID= ++database->record_ID;
 	string query("INSERT INTO se_database.record VALUES(");
 	query=query+std::to_string(r.ID)+",'"+r.applied_ID+"',"+std::to_string(r.r_type)+",'";
-	query=query+std::to_string(r.start.tm_year+1990)+"-"+std::to_string(r.start.tm_mon+1)+"-"+std::to_string(r.start.tm_mday)+" "+std::to_string(r.start.tm_hour)+":"+std::to_string(r.start.tm_min)+":"+std::to_string(r.start.tm_sec)+"','";
-	query=query+std::to_string(r.end.tm_year+1990)+"-"+std::to_string(r.end.tm_mon+1)+"-"+std::to_string(r.end.tm_mday)+" "+std::to_string(r.end.tm_hour)+":"+std::to_string(r.end.tm_min)+":"+std::to_string(r.end.tm_sec)+"','";
+	query=query+std::to_string(r.start.tm_year+1900)+"-"+std::to_string(r.start.tm_mon+1)+"-"+std::to_string(r.start.tm_mday)+" "+std::to_string(r.start.tm_hour)+":"+std::to_string(r.start.tm_min)+":"+std::to_string(r.start.tm_sec)+"','";
+	query=query+std::to_string(r.end.tm_year+1900)+"-"+std::to_string(r.end.tm_mon+1)+"-"+std::to_string(r.end.tm_mday)+" "+std::to_string(r.end.tm_hour)+":"+std::to_string(r.end.tm_min)+":"+std::to_string(r.end.tm_sec)+"','";
 	query=query+r.reason+"','"+r.ps+"','";
-	query=query+std::to_string(r.now.tm_year+1990)+"-"+std::to_string(r.now.tm_mon+1)+"-"+std::to_string(r.now.tm_mday)+" "+std::to_string(r.now.tm_hour)+":"+std::to_string(r.now.tm_min)+":"+std::to_string(r.now.tm_sec)+"',";
+	query=query+std::to_string(r.now.tm_year+1900)+"-"+std::to_string(r.now.tm_mon+1)+"-"+std::to_string(r.now.tm_mday)+" "+std::to_string(r.now.tm_hour)+":"+std::to_string(r.now.tm_min)+":"+std::to_string(r.now.tm_sec)+"',";
 	query=query+std::to_string(r.r_status)+");";
 	cout<<query<<endl;
+	database->query(query);
+}
+void record_query(SE_winsock2::Client_Service* Client,SE_MySQL* database,const char* query_ID){
+	string query("SELECT COUNT(*) FROM se_database.record WHERE applier_ID = '");
+	query=query+query_ID+"';";
+	database->query(query);
+	vector<MYSQL_ROW> result=database->retrive();
+	int count=strtol(result[0][0],NULL,10);
+	Client->SE_send(&count,sizeof(int));
+	query=string("SELECT * FROM se_database.record WHERE applier_ID = '");
+	query=query+query_ID+"';";
+	database->query(query);
+	result=database->retrive();
+	for(int i=0;i<count;i++){
+		Record r;
+		r.ID=strtol(result.at(i)[0],NULL,10);
+		strcpy(r.applied_ID,result.at(i)[1]);
+		r.r_type=strtol(result.at(i)[2],NULL,10);
+		r.start.tm_year =strtol(strtok(result.at(i)[3]," -:"),NULL,10)-1900;
+		r.start.tm_mon  =strtol(strtok(NULL," -:"),NULL,10)-1;
+		r.start.tm_mday =strtol(strtok(NULL," -:"),NULL,10);
+		r.start.tm_hour =strtol(strtok(NULL," -:"),NULL,10);
+		r.start.tm_min  =strtol(strtok(NULL," -:"),NULL,10);
+		r.start.tm_sec  =strtol(strtok(NULL," -:"),NULL,10);
+		r.end.tm_year =strtol(strtok(result.at(i)[4]," -:"),NULL,10)-1900;
+		r.end.tm_mon  =strtol(strtok(NULL," -:"),NULL,10)-1;
+		r.end.tm_mday =strtol(strtok(NULL," -:"),NULL,10);
+		r.end.tm_hour =strtol(strtok(NULL," -:"),NULL,10);
+		r.end.tm_min  =strtol(strtok(NULL," -:"),NULL,10);
+		r.end.tm_sec  =strtol(strtok(NULL," -:"),NULL,10);
+		strcpy(r.reason,result.at(i)[5]);
+		strcpy(r.ps    ,result.at(i)[6]);
+		r.now.tm_year =strtol(strtok(result.at(i)[7]," -:"),NULL,10)-1900;
+		r.now.tm_mon  =strtol(strtok(NULL," -:"),NULL,10)-1;
+		r.now.tm_mday =strtol(strtok(NULL," -:"),NULL,10);
+		r.now.tm_hour =strtol(strtok(NULL," -:"),NULL,10);
+		r.now.tm_min  =strtol(strtok(NULL," -:"),NULL,10);
+		r.now.tm_sec  =strtol(strtok(NULL," -:"),NULL,10);
+		r.r_status=strtol(result.at(i)[8],NULL,10);
+		Client->SE_send(&r,sizeof(Record));
+	}
+}
+void query_pending_record(SE_winsock2::Client_Service* Client,SE_MySQL* database){
+	string query("SELECT COUNT(*) FROM se_database.record WHERE r_status = 1;");
+	database->query(query);
+	vector<MYSQL_ROW> result=database->retrive();
+	int count=strtol(result[0][0],NULL,10);
+	Client->SE_send(&count,sizeof(int));
+	query=string("SELECT * FROM se_database.record WHERE r_status = 1;");
+	database->query(query);
+	result=database->retrive();
+	for(int i=0;i<count;i++){
+		Record r;
+		r.ID=strtol(result.at(i)[0],NULL,10);
+		strcpy(r.applied_ID,result.at(i)[1]);
+		r.r_type=strtol(result.at(i)[2],NULL,10);
+		r.start.tm_year =strtol(strtok(result.at(i)[3]," -:"),NULL,10)-1900;
+		r.start.tm_mon  =strtol(strtok(NULL," -:"),NULL,10)-1;
+		r.start.tm_mday =strtol(strtok(NULL," -:"),NULL,10);
+		r.start.tm_hour =strtol(strtok(NULL," -:"),NULL,10);
+		r.start.tm_min  =strtol(strtok(NULL," -:"),NULL,10);
+		r.start.tm_sec  =strtol(strtok(NULL," -:"),NULL,10);
+		r.end.tm_year =strtol(strtok(result.at(i)[4]," -:"),NULL,10)-1900;
+		r.end.tm_mon  =strtol(strtok(NULL," -:"),NULL,10)-1;
+		r.end.tm_mday =strtol(strtok(NULL," -:"),NULL,10);
+		r.end.tm_hour =strtol(strtok(NULL," -:"),NULL,10);
+		r.end.tm_min  =strtol(strtok(NULL," -:"),NULL,10);
+		r.end.tm_sec  =strtol(strtok(NULL," -:"),NULL,10);
+		strcpy(r.reason,result.at(i)[5]);
+		strcpy(r.ps    ,result.at(i)[6]);
+		r.now.tm_year =strtol(strtok(result.at(i)[7]," -:"),NULL,10)-1900;
+		r.now.tm_mon  =strtol(strtok(NULL," -:"),NULL,10)-1;
+		r.now.tm_mday =strtol(strtok(NULL," -:"),NULL,10);
+		r.now.tm_hour =strtol(strtok(NULL," -:"),NULL,10);
+		r.now.tm_min  =strtol(strtok(NULL," -:"),NULL,10);
+		r.now.tm_sec  =strtol(strtok(NULL," -:"),NULL,10);
+		r.r_status=strtol(result.at(i)[8],NULL,10);
+		Client->SE_send(&r,sizeof(Record));
+	}
+}
+void modify_status(SE_MySQL* database,const int RID,const int goal_status,const char* Client_ID){
+	string query("SELECT * FROM se_database.record WHERE ID = ");
+	query=query+std::to_string(RID)+";";
+	database->query(query);
+	MYSQL_ROW result=database->retrive().at(0);
+	if(strcmp(result[8],"1"))
+		return;						//modification invalid
+	if(goal_status==2 && strcmp(result[1],Client_ID))
+		return;						//permision denied
+	query=string("UPDATE se_database.record SET r_status = ");
+	query=query+std::to_string(goal_status)+" WHERE ID = "+std::to_string(RID)+";";
 	database->query(query);
 }
 
@@ -88,6 +179,29 @@ DWORD WINAPI Thread_Func(void* lpParam){
 		}
 		else if(operation==4){						//4 : Record the application
 			insert_record(Client,database);
+		}
+		else if(operation==5){						//5 : Query all record by Client
+			record_query(Client,database,Client->info.ID);
+		}
+		else if(operation==6){						//6 : cancellation
+			int RID;
+			Client->SE_recv(&RID,sizeof(int));
+			modify_status(database,RID,2,Client->info.ID);
+		}
+		else if(operation==7){						//7 : query pending record
+			query_pending_record(Client,database);
+		}
+		else if(operation==8){						//8 : approval
+			int RID;
+			Client->SE_recv(&RID,sizeof(int));
+			if(Client->info.Emp_position==1||Client->info.Emp_position==2)
+				modify_status(database,RID,4,Client->info.ID);
+		}
+		else if(operation==9){						//9 : rejection
+			int RID;
+			Client->SE_recv(&RID,sizeof(int));
+			if(Client->info.Emp_position==1||Client->info.Emp_position==2)
+				modify_status(database,RID,3,Client->info.ID);
 		}
 	}
 }

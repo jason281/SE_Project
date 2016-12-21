@@ -5,6 +5,7 @@ if(COMMAND cmake_policy)
 cmake_policy(SET CMP0003 NEW)
 cmake_policy(SET CMP0020 NEW)
 endif(COMMAND cmake_policy)
+ADD_DEFINITIONS(-std=c++11)
 
 #Qt
 SET(CMAKE_INCLUDE_CURRENT_DIR ON)
