@@ -146,6 +146,20 @@ void modify_status(SE_MySQL* database,const int RID,const int goal_status,const 
 	query=query+std::to_string(goal_status)+" WHERE ID = "+std::to_string(RID)+";";
 	database->query(query);
 }
+void query_all_info(SE_winsock2::Client_Service* Client,SE_MySQL* database){
+	string query("SELECT COUNT(*) FROM se_database.employee;");
+	database->query(query);
+	vector<MYSQL_ROW> result=database->retrive();
+	int count=strtol(result[0][0],NULL,10);
+	Client->SE_send(&count,sizeof(int));
+	query=string("SELECT ID FROM se_database.employee;");
+	database->query(query);
+	result=database->retrive();
+	for(int i=0;i<count;i++){
+		Client_Info information=database->get_Info(string(result[i][0]));
+		Client->SE_send(&information,sizeof(Client_Info));
+	}
+}
 
 DWORD WINAPI Thread_Func(void* lpParam){
 	thread_par* par= (thread_par*)lpParam;
@@ -167,14 +181,19 @@ DWORD WINAPI Thread_Func(void* lpParam){
 			Client->SE_send(&Client->info,sizeof(Client_Info));
 		}
 		else if(operation==3){						//3 : Modify personal information
-			Client->SE_recv(&Client->info,sizeof(Client_Info));
+			Client_Info temp;
+			Client->SE_recv(&temp,sizeof(Client_Info));
+			if(!strcmp(temp.ID,Client->info.ID))
+				Client->info=temp;
+			else if(Client->info.Emp_position!=1)
+				continue;
 			string query("UPDATE se_database.employee SET ");
-			if(strcmp("",Client->info.Emp_Name))
-				query=query+"Emp_Name = '"+Client->info.Emp_Name+"',";
-			if(strcmp("",Client->info.branch))
-			query=query+"branch = '"+Client->info.branch+"',";
-			query=query+"Gender = "+string(1,Client->info.Gender+48);
-			query=query+" WHERE ID = '"+Client->info.ID+"';";
+			if(strcmp("",temp.Emp_Name))
+				query=query+"Emp_Name = '"+temp.Emp_Name+"',";
+			if(strcmp("",temp.branch))
+			query=query+"branch = '"+temp.branch+"',";
+			query=query+"Gender = "+std::to_string(temp.Gender);
+			query=query+" WHERE ID = '"+temp.ID+"';";
 			database->query(query);
 		}
 		else if(operation==4){						//4 : Record the application
@@ -189,7 +208,8 @@ DWORD WINAPI Thread_Func(void* lpParam){
 			modify_status(database,RID,2,Client->info.ID);
 		}
 		else if(operation==7){						//7 : query pending record
-			query_pending_record(Client,database);
+			if(Client->info.Emp_position==1||Client->info.Emp_position==2)
+				query_pending_record(Client,database);
 		}
 		else if(operation==8){						//8 : approval
 			int RID;
@@ -202,6 +222,10 @@ DWORD WINAPI Thread_Func(void* lpParam){
 			Client->SE_recv(&RID,sizeof(int));
 			if(Client->info.Emp_position==1||Client->info.Emp_position==2)
 				modify_status(database,RID,3,Client->info.ID);
+		}
+		else if(operation==10){						//10: get all employee info
+			if(Client->info.Emp_position==1)
+				query_all_info(Client,database);
 		}
 	}
 }

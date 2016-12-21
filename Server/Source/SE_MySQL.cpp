@@ -95,11 +95,4 @@ Client_Info SE_MySQL::get_Info(string ID){
 		strcpy(result.branch,result_[0][6]);
 	else
 		strcpy(result.branch,"");
-	cout<<"===Client Info===\n";
-	cout<<"Client_ID: "<<result.ID<<endl;
-	cout<<"Client_position: "<<result.Emp_position<<endl;
-	cout<<"Client_Default_time: "<<result.Default_time<<endl;
-	cout<<"Client_Name: "<<result.Emp_Name<<endl;
-	cout<<"Client_Gender: "<<result.Gender<<endl;
-	cout<<"Client_branch: "<<result.branch<<endl;
 }

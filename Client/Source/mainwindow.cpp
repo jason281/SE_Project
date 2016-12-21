@@ -131,9 +131,35 @@ void MainWindow::refresh_four(){
 	return;
 }
 void MainWindow::refresh_five(){
-	
+	short operation=10;
+	socket_ptr->SE_send(&operation,sizeof(short));
+	int count;
+	socket_ptr->SE_recv(&count,sizeof(int));
+	ui->tableWidget->setRowCount( count );
+	for(int i=0;i<count;i++){
+		Client_Info information;
+		socket_ptr->SE_recv(&information,sizeof(Client_Info));
+		for(int j=0;j<ui->tableWidget->columnCount();j++)
+			//if(table->itemAt(i,j)==0)
+				ui->tableWidget->setItem(i,j,new QTableWidgetItem());
+		ui->tableWidget->item(i,0)->setText(QString(information.ID));
+		ui->tableWidget->item(i,1)->setText(QString(information.Emp_Name));
+		if(information.Gender==1)
+			ui->tableWidget->item(i,2)->setText(QString(QString::fromWCharArray(L"男")));
+		else if(information.Gender==2)
+			ui->tableWidget->item(i,2)->setText(QString(QString::fromWCharArray(L"女")));
+		
+		if(information.Emp_position==1)
+			ui->tableWidget->item(i,3)->setText(QString(QString::fromWCharArray(L"主任")));
+		else if(information.Emp_position==2)
+			ui->tableWidget->item(i,3)->setText(QString(QString::fromWCharArray(L"領班")));
+		else if(information.Emp_position==3)
+			ui->tableWidget->item(i,3)->setText(QString(QString::fromWCharArray(L"員工")));
+		ui->tableWidget->item(i,4)->setText(QString(information.branch));
+	}
 }
 void MainWindow::refresh_six(){
+	
 }
 void MainWindow::refresh_tab(int index){
 	switch(index){
