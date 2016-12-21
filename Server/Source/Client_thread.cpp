@@ -234,5 +234,57 @@ DWORD WINAPI Thread_Func(void* lpParam){
 			if(Client->info.Emp_position==1)
 				database->query(query);
 		}
+		else if(operation==12){						//12: add employee
+			Client_Info i;
+			Client->SE_recv(&i,sizeof(Client_Info));
+			string query("SELECT COUNT(*) FROM se_database.employee WHERE ID = '");
+			query=query+i.ID+"';";
+			database->query(query);
+			char* result= database->retrive().at(0)[0];
+			if(strcmp(result,"0")){
+				short status=0;
+				Client->SE_send(&status,sizeof(short));
+				continue;
+			}
+			query=string("INSERT INTO se_database.employee VALUES('");
+			query=query+i.ID+"','00000000',"+std::to_string(i.Emp_position)+","+std::to_string(i.Default_time)+",";
+			if(i.Emp_Name[0]=='\0')
+				query+="NULL,";
+			else
+				query=query+"'"+i.Emp_Name+"',";
+			if(i.Gender==0)
+				query+="NULL,";
+			else
+				query+=std::to_string(i.Gender)+",";
+			if(i.branch[0]=='\0')
+				query+="NULL);";
+			else
+				query=query+"'"+i.branch+"');";
+			database->query(query);
+			short status=1;
+			Client->SE_send(&status,sizeof(short));
+		}
+		else if(operation==13){						//13: modify employee
+			Client_Info i;
+			Client->SE_recv(&i,sizeof(Client_Info));
+			string query("UPDATE se_database.employee SET Emp_position=");
+			query+=std::to_string(i.Emp_position)+",Default_time="+std::to_string(i.Default_time)+",Emp_Name=";
+			if(i.Emp_Name[0]=='\0')
+				query+="NULL,Gender=";
+			else
+				query=query+"'"+i.Emp_Name+"',Gender=";
+			if(i.Gender==0)
+				query+="NULL,branch=";
+			else
+				query+=std::to_string(i.Gender)+",branch=";
+			if(i.branch[0]=='\0')
+				query+="NULL";
+			else
+				query=query+"'"+i.branch+"'";
+			query=query+" WHERE ID='"+i.ID+"';";
+			database->query(query);
+			short status=1;
+			Client->SE_send(&status,sizeof(short));
+		}
 	}
 }

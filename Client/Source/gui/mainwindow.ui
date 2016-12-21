@@ -665,7 +665,7 @@
       </column>
       <column>
        <property name="text">
-        <string>新增欄位</string>
+        <string>申請時間</string>
        </property>
       </column>
       <column>

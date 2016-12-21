@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'mainwindowsy6688.ui'
+** Form generated from reading UI file 'mainwindowfX7524.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.6.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef MAINWINDOWSY6688_H
-#define MAINWINDOWSY6688_H
+#ifndef MAINWINDOWFX7524_H
+#define MAINWINDOWFX7524_H
 
 #include <QtCore/QDate>
 #include <QtCore/QVariant>
@@ -425,8 +425,8 @@ public:
         tab_3 = new QWidget();
         tab_3->setObjectName(QStringLiteral("tab_3"));
         tableWidget = new QTableWidget(tab_3);
-        if (tableWidget->columnCount() < 5)
-            tableWidget->setColumnCount(5);
+        if (tableWidget->columnCount() < 6)
+            tableWidget->setColumnCount(6);
         QTableWidgetItem *__qtablewidgetitem29 = new QTableWidgetItem();
         tableWidget->setHorizontalHeaderItem(0, __qtablewidgetitem29);
         QTableWidgetItem *__qtablewidgetitem30 = new QTableWidgetItem();
@@ -437,10 +437,12 @@ public:
         tableWidget->setHorizontalHeaderItem(3, __qtablewidgetitem32);
         QTableWidgetItem *__qtablewidgetitem33 = new QTableWidgetItem();
         tableWidget->setHorizontalHeaderItem(4, __qtablewidgetitem33);
+        QTableWidgetItem *__qtablewidgetitem34 = new QTableWidgetItem();
+        tableWidget->setHorizontalHeaderItem(5, __qtablewidgetitem34);
         tableWidget->setObjectName(QStringLiteral("tableWidget"));
         tableWidget->setGeometry(QRect(30, 20, 711, 461));
         tableWidget->setRowCount(0);
-        tableWidget->setColumnCount(5);
+        tableWidget->setColumnCount(6);
         add_button = new QToolButton(tab_3);
         add_button->setObjectName(QStringLiteral("add_button"));
         add_button->setGeometry(QRect(30, 490, 51, 21));
@@ -459,20 +461,20 @@ public:
         tableWidget_7 = new QTableWidget(tab_10);
         if (tableWidget_7->columnCount() < 7)
             tableWidget_7->setColumnCount(7);
-        QTableWidgetItem *__qtablewidgetitem34 = new QTableWidgetItem();
-        tableWidget_7->setHorizontalHeaderItem(0, __qtablewidgetitem34);
         QTableWidgetItem *__qtablewidgetitem35 = new QTableWidgetItem();
-        tableWidget_7->setHorizontalHeaderItem(1, __qtablewidgetitem35);
+        tableWidget_7->setHorizontalHeaderItem(0, __qtablewidgetitem35);
         QTableWidgetItem *__qtablewidgetitem36 = new QTableWidgetItem();
-        tableWidget_7->setHorizontalHeaderItem(2, __qtablewidgetitem36);
+        tableWidget_7->setHorizontalHeaderItem(1, __qtablewidgetitem36);
         QTableWidgetItem *__qtablewidgetitem37 = new QTableWidgetItem();
-        tableWidget_7->setHorizontalHeaderItem(3, __qtablewidgetitem37);
+        tableWidget_7->setHorizontalHeaderItem(2, __qtablewidgetitem37);
         QTableWidgetItem *__qtablewidgetitem38 = new QTableWidgetItem();
-        tableWidget_7->setHorizontalHeaderItem(4, __qtablewidgetitem38);
+        tableWidget_7->setHorizontalHeaderItem(3, __qtablewidgetitem38);
         QTableWidgetItem *__qtablewidgetitem39 = new QTableWidgetItem();
-        tableWidget_7->setHorizontalHeaderItem(5, __qtablewidgetitem39);
+        tableWidget_7->setHorizontalHeaderItem(4, __qtablewidgetitem39);
         QTableWidgetItem *__qtablewidgetitem40 = new QTableWidgetItem();
-        tableWidget_7->setHorizontalHeaderItem(6, __qtablewidgetitem40);
+        tableWidget_7->setHorizontalHeaderItem(5, __qtablewidgetitem40);
+        QTableWidgetItem *__qtablewidgetitem41 = new QTableWidgetItem();
+        tableWidget_7->setHorizontalHeaderItem(6, __qtablewidgetitem41);
         tableWidget_7->setObjectName(QStringLiteral("tableWidget_7"));
         tableWidget_7->setGeometry(QRect(30, 40, 641, 461));
         dateEditWeek = new QDateEdit(tab_10);
@@ -610,25 +612,27 @@ public:
         ___qtablewidgetitem32->setText(QApplication::translate("MainWindow", "\350\201\267\344\275\215", 0));
         QTableWidgetItem *___qtablewidgetitem33 = tableWidget->horizontalHeaderItem(4);
         ___qtablewidgetitem33->setText(QApplication::translate("MainWindow", "\351\203\250\351\226\200", 0));
+        QTableWidgetItem *___qtablewidgetitem34 = tableWidget->horizontalHeaderItem(5);
+        ___qtablewidgetitem34->setText(QApplication::translate("MainWindow", "\351\240\220\350\250\255\347\217\255\345\210\245", 0));
         add_button->setText(QApplication::translate("MainWindow", "Add", 0));
         remove_button->setText(QApplication::translate("MainWindow", "Remove", 0));
         modify_button->setText(QApplication::translate("MainWindow", "Modify", 0));
         pushButton_5->setText(QApplication::translate("MainWindow", "\350\253\213\345\201\207\347\264\200\351\214\204", 0));
         tabWidget->setTabText(tabWidget->indexOf(tab_3), QApplication::translate("MainWindow", "\345\223\241\345\267\245\344\270\200\350\246\275\350\241\250", 0));
-        QTableWidgetItem *___qtablewidgetitem34 = tableWidget_7->horizontalHeaderItem(0);
-        ___qtablewidgetitem34->setText(QApplication::translate("MainWindow", "\351\200\261\346\227\245", 0));
-        QTableWidgetItem *___qtablewidgetitem35 = tableWidget_7->horizontalHeaderItem(1);
-        ___qtablewidgetitem35->setText(QApplication::translate("MainWindow", "\351\200\261\344\270\200", 0));
-        QTableWidgetItem *___qtablewidgetitem36 = tableWidget_7->horizontalHeaderItem(2);
-        ___qtablewidgetitem36->setText(QApplication::translate("MainWindow", "\351\200\261\344\272\214", 0));
-        QTableWidgetItem *___qtablewidgetitem37 = tableWidget_7->horizontalHeaderItem(3);
-        ___qtablewidgetitem37->setText(QApplication::translate("MainWindow", "\351\200\261\344\270\211", 0));
-        QTableWidgetItem *___qtablewidgetitem38 = tableWidget_7->horizontalHeaderItem(4);
-        ___qtablewidgetitem38->setText(QApplication::translate("MainWindow", "\351\200\261\345\233\233", 0));
-        QTableWidgetItem *___qtablewidgetitem39 = tableWidget_7->horizontalHeaderItem(5);
-        ___qtablewidgetitem39->setText(QApplication::translate("MainWindow", "\351\200\261\344\272\224", 0));
-        QTableWidgetItem *___qtablewidgetitem40 = tableWidget_7->horizontalHeaderItem(6);
-        ___qtablewidgetitem40->setText(QApplication::translate("MainWindow", "\351\200\261\345\205\255", 0));
+        QTableWidgetItem *___qtablewidgetitem35 = tableWidget_7->horizontalHeaderItem(0);
+        ___qtablewidgetitem35->setText(QApplication::translate("MainWindow", "\351\200\261\346\227\245", 0));
+        QTableWidgetItem *___qtablewidgetitem36 = tableWidget_7->horizontalHeaderItem(1);
+        ___qtablewidgetitem36->setText(QApplication::translate("MainWindow", "\351\200\261\344\270\200", 0));
+        QTableWidgetItem *___qtablewidgetitem37 = tableWidget_7->horizontalHeaderItem(2);
+        ___qtablewidgetitem37->setText(QApplication::translate("MainWindow", "\351\200\261\344\272\214", 0));
+        QTableWidgetItem *___qtablewidgetitem38 = tableWidget_7->horizontalHeaderItem(3);
+        ___qtablewidgetitem38->setText(QApplication::translate("MainWindow", "\351\200\261\344\270\211", 0));
+        QTableWidgetItem *___qtablewidgetitem39 = tableWidget_7->horizontalHeaderItem(4);
+        ___qtablewidgetitem39->setText(QApplication::translate("MainWindow", "\351\200\261\345\233\233", 0));
+        QTableWidgetItem *___qtablewidgetitem40 = tableWidget_7->horizontalHeaderItem(5);
+        ___qtablewidgetitem40->setText(QApplication::translate("MainWindow", "\351\200\261\344\272\224", 0));
+        QTableWidgetItem *___qtablewidgetitem41 = tableWidget_7->horizontalHeaderItem(6);
+        ___qtablewidgetitem41->setText(QApplication::translate("MainWindow", "\351\200\261\345\205\255", 0));
         tabWidget->setTabText(tabWidget->indexOf(tab_10), QApplication::translate("MainWindow", "\347\225\266\345\221\250\344\270\212\347\217\255\345\223\241\345\267\245", 0));
     } // retranslateUi
 
@@ -640,4 +644,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // MAINWINDOWSY6688_H
+#endif // MAINWINDOWFX7524_H

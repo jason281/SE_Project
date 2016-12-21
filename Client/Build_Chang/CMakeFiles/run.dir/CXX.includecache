@@ -1515,12 +1515,22 @@ QtGui/qevent.h
 -
 
 C:/Users/jason/Documents/GitHub/SE_Project/Client/Build_Chang/run_automoc.cpp
+run_automoc.dir/moc_add.cpp
+C:/Users/jason/Documents/GitHub/SE_Project/Client/Build_Chang/run_automoc.dir/moc_add.cpp
 run_automoc.dir/moc_login.cpp
 C:/Users/jason/Documents/GitHub/SE_Project/Client/Build_Chang/run_automoc.dir/moc_login.cpp
 run_automoc.dir/moc_mainwindow.cpp
 C:/Users/jason/Documents/GitHub/SE_Project/Client/Build_Chang/run_automoc.dir/moc_mainwindow.cpp
 run_automoc.dir/moc_setting.cpp
 C:/Users/jason/Documents/GitHub/SE_Project/Client/Build_Chang/run_automoc.dir/moc_setting.cpp
+
+C:/Users/jason/Documents/GitHub/SE_Project/Client/Build_Chang/run_automoc.dir/moc_add.cpp
+../../Source/add.h
+C:/Users/jason/Documents/GitHub/SE_Project/Client/Source/add.h
+QtCore/qbytearray.h
+-
+QtCore/qmetatype.h
+-
 
 C:/Users/jason/Documents/GitHub/SE_Project/Client/Build_Chang/run_automoc.dir/moc_login.cpp
 ../../Source/login.h
@@ -1574,6 +1584,20 @@ C:/Users/jason/Documents/GitHub/SE_Project/Client/Source/SE_winsock2.h
 SE_Definition.h
 C:/Users/jason/Documents/GitHub/SE_Project/Client/Source/SE_Definition.h
 
+C:/Users/jason/Documents/GitHub/SE_Project/Client/Source/add.cpp
+add.h
+C:/Users/jason/Documents/GitHub/SE_Project/Client/Source/add.h
+mainwindow.h
+C:/Users/jason/Documents/GitHub/SE_Project/Client/Source/mainwindow.h
+ui_add.h
+C:/Users/jason/Documents/GitHub/SE_Project/Client/Source/ui_add.h
+
+C:/Users/jason/Documents/GitHub/SE_Project/Client/Source/add.h
+QMainWindow
+-
+SE_winsock2.h
+C:/Users/jason/Documents/GitHub/SE_Project/Client/Source/SE_winsock2.h
+
 C:/Users/jason/Documents/GitHub/SE_Project/Client/Source/login.cpp
 login.h
 C:/Users/jason/Documents/GitHub/SE_Project/Client/Source/login.h
@@ -1613,6 +1637,8 @@ QTableWidget
 -
 SE_winsock2.h
 C:/Users/jason/Documents/GitHub/SE_Project/Client/Source/SE_winsock2.h
+add.h
+C:/Users/jason/Documents/GitHub/SE_Project/Client/Source/add.h
 
 C:/Users/jason/Documents/GitHub/SE_Project/Client/Source/setting.cpp
 setting.h
@@ -1625,6 +1651,30 @@ QMainWindow
 -
 SE_Definition.h
 C:/Users/jason/Documents/GitHub/SE_Project/Client/Source/SE_Definition.h
+
+C:/Users/jason/Documents/GitHub/SE_Project/Client/Source/ui_add.h
+QtCore/QVariant
+-
+QtWidgets/QAction
+-
+QtWidgets/QApplication
+-
+QtWidgets/QButtonGroup
+-
+QtWidgets/QComboBox
+-
+QtWidgets/QDialogButtonBox
+-
+QtWidgets/QGridLayout
+-
+QtWidgets/QHeaderView
+-
+QtWidgets/QLabel
+-
+QtWidgets/QLineEdit
+-
+QtWidgets/QWidget
+-
 
 C:/Users/jason/Documents/GitHub/SE_Project/Client/Source/ui_login.h
 QtCore/QVariant

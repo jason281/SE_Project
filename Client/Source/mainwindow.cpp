@@ -2,7 +2,7 @@
 #include "ui_mainwindow.h"
 
 MainWindow::MainWindow(QWidget *parent = NULL,SE_winsock2 *ptr = NULL) 
-	: QMainWindow(parent), ui(new Ui::MainWindow), socket_ptr(ptr)
+	: QMainWindow(parent), ui(new Ui::MainWindow), socket_ptr(ptr), add_window(parent, ptr, this)
 {
 	ui->setupUi(this);
 	connect(ui->tabWidget, SIGNAL (currentChanged(int)), this, SLOT(refresh_tab(int)));
@@ -14,6 +14,8 @@ MainWindow::MainWindow(QWidget *parent = NULL,SE_winsock2 *ptr = NULL)
 	connect(ui->approve_button, SIGNAL (released()), this, SLOT (approval()));
 	connect(ui->reject_button, SIGNAL (released()), this, SLOT (rejection()));
 	connect(ui->remove_button, SIGNAL (released()), this, SLOT (remove_employee()));
+	connect(ui->add_button, SIGNAL (released()), this, SLOT (add_employee()));
+	connect(ui->modify_button, SIGNAL (released()), this, SLOT (modify_employee()));
 }
 MainWindow::~MainWindow(){
 	delete ui;
@@ -158,6 +160,12 @@ void MainWindow::refresh_five(){
 		else if(information.Emp_position==3)
 			ui->tableWidget->item(i,3)->setText(QString(QString::fromWCharArray(L"員工")));
 		ui->tableWidget->item(i,4)->setText(QString(information.branch));
+		if(information.Default_time==1)
+			ui->tableWidget->item(i,5)->setText(QString(QString::fromWCharArray(L"日班")));
+		else if(information.Default_time==2)
+			ui->tableWidget->item(i,5)->setText(QString(QString::fromWCharArray(L"夜班")));
+		else if(information.Default_time==3)
+			ui->tableWidget->item(i,5)->setText(QString(QString::fromWCharArray(L"全天")));
 	}
 }
 void MainWindow::refresh_six(){
@@ -248,4 +256,35 @@ void MainWindow::remove_employee(){
 	socket_ptr->SE_send(&len,sizeof(size_t));
 	socket_ptr->SE_send(id.c_str(),len);
 	refresh_five();
+}
+void MainWindow::add_employee(){
+	add_window.Clear();
+	add_window.show();
+}
+void MainWindow::modify_employee(){
+	Client_Info i;
+	int row=ui->tableWidget->currentRow();
+	strcpy(i.ID,ui->tableWidget->item(row,0)->text().toUtf8().constData());
+	strcpy(i.Emp_Name,ui->tableWidget->item(row,1)->text().toUtf8().constData());
+	if(ui->tableWidget->item(row,2)->text()==QString::fromWCharArray(L"男"))
+		i.Gender=1;
+	else if(ui->tableWidget->item(row,2)->text()==QString::fromWCharArray(L"女"))
+		i.Gender=2;
+	else
+		i.Gender=0;
+	if(ui->tableWidget->item(row,3)->text()==QString::fromWCharArray(L"主任"))
+		i.Emp_position=1;
+	else if(ui->tableWidget->item(row,3)->text()==QString::fromWCharArray(L"領班"))
+		i.Emp_position=2;
+	else if(ui->tableWidget->item(row,3)->text()==QString::fromWCharArray(L"員工"))
+		i.Emp_position=3;
+	strcpy(i.branch,ui->tableWidget->item(row,4)->text().toUtf8().constData());
+	if(ui->tableWidget->item(row,5)->text()==QString::fromWCharArray(L"日班"))
+		i.Default_time=1;
+	else if(ui->tableWidget->item(row,5)->text()==QString::fromWCharArray(L"夜班"))
+		i.Default_time=2;
+	else if(ui->tableWidget->item(row,5)->text()==QString::fromWCharArray(L"全天"))
+		i.Default_time=3;
+	add_window.fetch_info(i);
+	add_window.show();
 }

@@ -4,12 +4,14 @@
 #include <QMainWindow>
 #include <QTableWidget>
 #include "SE_winsock2.h"
+#include "add.h"
 
 namespace Ui{
 	class MainWindow;
 }
 class MainWindow : public QMainWindow{
 	Q_OBJECT
+	//friend void Add::submit();
 public:
 	explicit MainWindow(QWidget *,SE_winsock2*);
 	~MainWindow();
@@ -31,10 +33,13 @@ private slots:
 	void approval();
 	void rejection();
 	void remove_employee();
+	void add_employee();
+	void modify_employee();
 private:
 	Client_Info info;
 	Ui::MainWindow *ui;
 	SE_winsock2* socket_ptr;
+	Add add_window;
 };
 
 #endif

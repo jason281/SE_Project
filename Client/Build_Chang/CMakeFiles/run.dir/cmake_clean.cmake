@@ -5,6 +5,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/run.dir/login.obj"
   "CMakeFiles/run.dir/mainwindow.obj"
   "CMakeFiles/run.dir/setting.obj"
+  "CMakeFiles/run.dir/add.obj"
   "CMakeFiles/run.dir/run_automoc.obj"
   "run.pdb"
   "run.exe"

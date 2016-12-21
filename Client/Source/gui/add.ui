@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>300</height>
+    <height>343</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,30 +16,13 @@
   <widget class="QWidget" name="gridLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>100</x>
-     <y>10</y>
+     <x>120</x>
+     <y>20</y>
      <width>181</width>
-     <height>221</height>
+     <height>241</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="0">
-     <widget class="QLabel" name="label_4">
-      <property name="text">
-       <string>ID:</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="1">
-     <widget class="QLineEdit" name="lineEdit_4">
-      <property name="maximumSize">
-       <size>
-        <width>100</width>
-        <height>16777215</height>
-       </size>
-      </property>
-     </widget>
-    </item>
     <item row="1" column="0">
      <widget class="QLabel" name="label_3">
       <property name="text">
@@ -47,19 +30,17 @@
       </property>
      </widget>
     </item>
-    <item row="0" column="1">
-     <widget class="QLineEdit" name="lineEdit_3">
-      <property name="enabled">
-       <bool>true</bool>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>50</width>
-        <height>16777215</height>
-       </size>
-      </property>
+    <item row="4" column="0">
+     <widget class="QLabel" name="label_7">
       <property name="text">
-       <string/>
+       <string>部門:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QLabel" name="label_4">
+      <property name="text">
+       <string>ID:</string>
       </property>
      </widget>
     </item>
@@ -70,14 +51,29 @@
       </property>
      </widget>
     </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="label_5">
+      <property name="text">
+       <string>性別:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QLineEdit" name="Emp_Name"/>
+    </item>
     <item row="2" column="1">
-     <widget class="QComboBox" name="comboBox">
+     <widget class="QComboBox" name="Gender">
       <property name="maximumSize">
        <size>
-        <width>50</width>
+        <width>60</width>
         <height>16777215</height>
        </size>
       </property>
+      <item>
+       <property name="text">
+        <string>請選擇</string>
+       </property>
+      </item>
       <item>
        <property name="text">
         <string>男</string>
@@ -90,25 +86,18 @@
       </item>
      </widget>
     </item>
-    <item row="2" column="0">
-     <widget class="QLabel" name="label_5">
+    <item row="0" column="1">
+     <widget class="QLineEdit" name="ID"/>
+    </item>
+    <item row="5" column="0">
+     <widget class="QLabel" name="label">
       <property name="text">
-       <string>性別:</string>
+       <string>預設班別:</string>
       </property>
      </widget>
-    </item>
-    <item row="4" column="0">
-     <widget class="QLabel" name="label_7">
-      <property name="text">
-       <string>部門:</string>
-      </property>
-     </widget>
-    </item>
-    <item row="4" column="1">
-     <widget class="QLineEdit" name="lineEdit_5"/>
     </item>
     <item row="3" column="1">
-     <widget class="QComboBox" name="comboBox_2">
+     <widget class="QComboBox" name="Emp_position">
       <property name="maximumSize">
        <size>
         <width>50</width>
@@ -132,13 +121,41 @@
       </item>
      </widget>
     </item>
+    <item row="4" column="1">
+     <widget class="QLineEdit" name="branch"/>
+    </item>
+    <item row="5" column="1">
+     <widget class="QComboBox" name="Default_time">
+      <property name="maximumSize">
+       <size>
+        <width>50</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <item>
+       <property name="text">
+        <string>日班</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>夜班</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>全天</string>
+       </property>
+      </item>
+     </widget>
+    </item>
    </layout>
   </widget>
   <widget class="QDialogButtonBox" name="buttonBox">
    <property name="geometry">
     <rect>
      <x>130</x>
-     <y>250</y>
+     <y>280</y>
      <width>156</width>
      <height>23</height>
     </rect>
@@ -147,6 +164,8 @@
     <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
    </property>
   </widget>
+  <zorder>buttonBox</zorder>
+  <zorder>gridLayoutWidget</zorder>
  </widget>
  <resources/>
  <connections/>

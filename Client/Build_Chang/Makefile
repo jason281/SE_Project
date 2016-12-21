@@ -151,6 +151,21 @@ SE_winsock2.s:
 .PHONY : SE_winsock2.s
 
 # target to build an object file
+add.obj:
+	$(MAKE) -f CMakeFiles\run.dir\build.make CMakeFiles/run.dir/add.obj
+.PHONY : add.obj
+
+# target to preprocess a source file
+add.i:
+	$(MAKE) -f CMakeFiles\run.dir\build.make CMakeFiles/run.dir/add.i
+.PHONY : add.i
+
+# target to generate assembly for a file
+add.s:
+	$(MAKE) -f CMakeFiles\run.dir\build.make CMakeFiles/run.dir/add.s
+.PHONY : add.s
+
+# target to build an object file
 login.obj:
 	$(MAKE) -f CMakeFiles\run.dir\build.make CMakeFiles/run.dir/login.obj
 .PHONY : login.obj
@@ -238,6 +253,9 @@ help:
 	@echo ... SE_winsock2.obj
 	@echo ... SE_winsock2.i
 	@echo ... SE_winsock2.s
+	@echo ... add.obj
+	@echo ... add.i
+	@echo ... add.s
 	@echo ... login.obj
 	@echo ... login.i
 	@echo ... login.s
