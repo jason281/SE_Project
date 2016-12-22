@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'mainwindoweK7524.ui'
+** Form generated from reading UI file 'mainwindowTx7524.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.6.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef MAINWINDOWEK7524_H
-#define MAINWINDOWEK7524_H
+#ifndef MAINWINDOWTX7524_H
+#define MAINWINDOWTX7524_H
 
 #include <QtCore/QDate>
 #include <QtCore/QVariant>
@@ -239,6 +239,7 @@ public:
 
         reason = new QTextEdit(gridWidget_2);
         reason->setObjectName(QStringLiteral("reason"));
+        reason->setLineWrapMode(QTextEdit::WidgetWidth);
 
         gridLayout_2->addWidget(reason, 4, 1, 1, 1);
 
@@ -800,4 +801,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // MAINWINDOWEK7524_H
+#endif // MAINWINDOWTX7524_H

@@ -226,7 +226,10 @@ CMakeFiles/run.dir/add.obj: C:/Qt/5.7/mingw53_32/include/QtWidgets/QHeaderView
 CMakeFiles/run.dir/add.obj: C:/Qt/5.7/mingw53_32/include/QtWidgets/QLabel
 CMakeFiles/run.dir/add.obj: C:/Qt/5.7/mingw53_32/include/QtWidgets/QLineEdit
 CMakeFiles/run.dir/add.obj: C:/Qt/5.7/mingw53_32/include/QtWidgets/QMainWindow
+CMakeFiles/run.dir/add.obj: C:/Qt/5.7/mingw53_32/include/QtWidgets/QMessageBox
+CMakeFiles/run.dir/add.obj: C:/Qt/5.7/mingw53_32/include/QtWidgets/QSpacerItem
 CMakeFiles/run.dir/add.obj: C:/Qt/5.7/mingw53_32/include/QtWidgets/QTableWidget
+CMakeFiles/run.dir/add.obj: C:/Qt/5.7/mingw53_32/include/QtWidgets/QVBoxLayout
 CMakeFiles/run.dir/add.obj: C:/Qt/5.7/mingw53_32/include/QtWidgets/QWidget
 CMakeFiles/run.dir/add.obj: C:/Qt/5.7/mingw53_32/include/QtWidgets/qabstractitemdelegate.h
 CMakeFiles/run.dir/add.obj: C:/Qt/5.7/mingw53_32/include/QtWidgets/qabstractitemview.h
@@ -240,6 +243,7 @@ CMakeFiles/run.dir/add.obj: C:/Qt/5.7/mingw53_32/include/QtWidgets/qboxlayout.h
 CMakeFiles/run.dir/add.obj: C:/Qt/5.7/mingw53_32/include/QtWidgets/qbuttongroup.h
 CMakeFiles/run.dir/add.obj: C:/Qt/5.7/mingw53_32/include/QtWidgets/qcombobox.h
 CMakeFiles/run.dir/add.obj: C:/Qt/5.7/mingw53_32/include/QtWidgets/qdesktopwidget.h
+CMakeFiles/run.dir/add.obj: C:/Qt/5.7/mingw53_32/include/QtWidgets/qdialog.h
 CMakeFiles/run.dir/add.obj: C:/Qt/5.7/mingw53_32/include/QtWidgets/qdialogbuttonbox.h
 CMakeFiles/run.dir/add.obj: C:/Qt/5.7/mingw53_32/include/QtWidgets/qframe.h
 CMakeFiles/run.dir/add.obj: C:/Qt/5.7/mingw53_32/include/QtWidgets/qgridlayout.h
@@ -249,6 +253,7 @@ CMakeFiles/run.dir/add.obj: C:/Qt/5.7/mingw53_32/include/QtWidgets/qlayout.h
 CMakeFiles/run.dir/add.obj: C:/Qt/5.7/mingw53_32/include/QtWidgets/qlayoutitem.h
 CMakeFiles/run.dir/add.obj: C:/Qt/5.7/mingw53_32/include/QtWidgets/qlineedit.h
 CMakeFiles/run.dir/add.obj: C:/Qt/5.7/mingw53_32/include/QtWidgets/qmainwindow.h
+CMakeFiles/run.dir/add.obj: C:/Qt/5.7/mingw53_32/include/QtWidgets/qmessagebox.h
 CMakeFiles/run.dir/add.obj: C:/Qt/5.7/mingw53_32/include/QtWidgets/qrubberband.h
 CMakeFiles/run.dir/add.obj: C:/Qt/5.7/mingw53_32/include/QtWidgets/qsizepolicy.h
 CMakeFiles/run.dir/add.obj: C:/Qt/5.7/mingw53_32/include/QtWidgets/qslider.h
@@ -383,8 +388,8 @@ CMakeFiles/run.dir/login.obj: C:/Qt/5.7/mingw53_32/include/QtWidgets/QHeaderView
 CMakeFiles/run.dir/login.obj: C:/Qt/5.7/mingw53_32/include/QtWidgets/QLineEdit
 CMakeFiles/run.dir/login.obj: C:/Qt/5.7/mingw53_32/include/QtWidgets/QMainWindow
 CMakeFiles/run.dir/login.obj: C:/Qt/5.7/mingw53_32/include/QtWidgets/QPushButton
-CMakeFiles/run.dir/login.obj: C:/Qt/5.7/mingw53_32/include/QtWidgets/QSplitter
 CMakeFiles/run.dir/login.obj: C:/Qt/5.7/mingw53_32/include/QtWidgets/QTableWidget
+CMakeFiles/run.dir/login.obj: C:/Qt/5.7/mingw53_32/include/QtWidgets/QVBoxLayout
 CMakeFiles/run.dir/login.obj: C:/Qt/5.7/mingw53_32/include/QtWidgets/QWidget
 CMakeFiles/run.dir/login.obj: C:/Qt/5.7/mingw53_32/include/QtWidgets/qabstractbutton.h
 CMakeFiles/run.dir/login.obj: C:/Qt/5.7/mingw53_32/include/QtWidgets/qabstractitemdelegate.h
@@ -410,7 +415,6 @@ CMakeFiles/run.dir/login.obj: C:/Qt/5.7/mingw53_32/include/QtWidgets/qpushbutton
 CMakeFiles/run.dir/login.obj: C:/Qt/5.7/mingw53_32/include/QtWidgets/qrubberband.h
 CMakeFiles/run.dir/login.obj: C:/Qt/5.7/mingw53_32/include/QtWidgets/qsizepolicy.h
 CMakeFiles/run.dir/login.obj: C:/Qt/5.7/mingw53_32/include/QtWidgets/qslider.h
-CMakeFiles/run.dir/login.obj: C:/Qt/5.7/mingw53_32/include/QtWidgets/qsplitter.h
 CMakeFiles/run.dir/login.obj: C:/Qt/5.7/mingw53_32/include/QtWidgets/qstyle.h
 CMakeFiles/run.dir/login.obj: C:/Qt/5.7/mingw53_32/include/QtWidgets/qstyleoption.h
 CMakeFiles/run.dir/login.obj: C:/Qt/5.7/mingw53_32/include/QtWidgets/qtabbar.h
@@ -992,7 +996,9 @@ CMakeFiles/run.dir/setting.obj: C:/Qt/5.7/mingw53_32/include/QtWidgets/QHeaderVi
 CMakeFiles/run.dir/setting.obj: C:/Qt/5.7/mingw53_32/include/QtWidgets/QLabel
 CMakeFiles/run.dir/setting.obj: C:/Qt/5.7/mingw53_32/include/QtWidgets/QLineEdit
 CMakeFiles/run.dir/setting.obj: C:/Qt/5.7/mingw53_32/include/QtWidgets/QMainWindow
+CMakeFiles/run.dir/setting.obj: C:/Qt/5.7/mingw53_32/include/QtWidgets/QSpacerItem
 CMakeFiles/run.dir/setting.obj: C:/Qt/5.7/mingw53_32/include/QtWidgets/QSpinBox
+CMakeFiles/run.dir/setting.obj: C:/Qt/5.7/mingw53_32/include/QtWidgets/QVBoxLayout
 CMakeFiles/run.dir/setting.obj: C:/Qt/5.7/mingw53_32/include/QtWidgets/QWidget
 CMakeFiles/run.dir/setting.obj: C:/Qt/5.7/mingw53_32/include/QtWidgets/qabstractitemdelegate.h
 CMakeFiles/run.dir/setting.obj: C:/Qt/5.7/mingw53_32/include/QtWidgets/qabstractitemview.h

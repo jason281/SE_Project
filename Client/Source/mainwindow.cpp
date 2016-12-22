@@ -17,6 +17,7 @@ MainWindow::MainWindow(QWidget *parent = NULL,SE_winsock2 *ptr = NULL)
 	connect(ui->add_button, SIGNAL (released()), this, SLOT (add_employee()));
 	connect(ui->modify_button, SIGNAL (released()), this, SLOT (modify_employee()));
 	connect(ui->dateEditWeek,SIGNAL(dateChanged(const QDate &)),this,SLOT(refresh_six(const QDate &)));
+	connect(ui->r_type,SIGNAL(currentIndexChanged(int)),this,SLOT(set_requirement(int)));
 	resizeEvent(NULL);
 }
 MainWindow::~MainWindow(){
@@ -142,8 +143,14 @@ void MainWindow::refresh_one(){
 	ui->end_date->setDate(QDate(now->tm_year + 1900,now->tm_mon + 1,now->tm_mday));
 	ui->start_time->setTime(QTime(0,0));
 	ui->end_time->setTime(QTime(23,59));
+	ui->start_date->setEnabled(false);
+	ui->end_date  ->setEnabled(false);
+	ui->start_time->setEnabled(false);
+	ui->end_time  ->setEnabled(false);
 	ui->reason->clear();
 	ui->ps->clear();
+	ui->reason->setEnabled(false);
+	ui->ps->setEnabled(false);
 }
 void MainWindow::refresh_two(){
 	short operation=5;
@@ -277,7 +284,7 @@ void MainWindow::refresh_six(const QDate & qd){
 void MainWindow::refresh_tab(int index){
 	switch(index){
 	case 0:	refresh_zero() ;	break;
-	case 1:	refresh_one()  ;	break;
+	case 1:	break;
 	case 2:	refresh_two()  ;	break;
 	case 3:	refresh_three();	break;
 	case 4:	refresh_four() ;	break;
@@ -295,6 +302,14 @@ void MainWindow::info_submit(){
 	socket_ptr->SE_send(&info,sizeof(Client_Info));
 }
 void MainWindow::record_submit(){
+	if(ui->r_type->currentIndex()==0){
+		ui->r_type->setStyleSheet("border: 1px solid red");
+		return;
+	}
+	if((ui->r_type->currentIndex()==2 || ui->r_type->currentIndex()==4) && ui->reason->toPlainText().isEmpty()){
+		ui->reason->setStyleSheet("border: 1px solid red");
+		return;
+	}
 	Record r;
 	r.ID=-1;
 	strcpy(r.applied_ID,info.ID);
@@ -390,4 +405,64 @@ void MainWindow::modify_employee(){
 		i.Default_time=3;
 	add_window.fetch_info(i);
 	add_window.show();
+}
+void MainWindow::set_requirement(int index){
+	ui->r_type->setStyleSheet(styleSheet());
+	if(index==0){
+		ui->start_date->setEnabled(false);
+		ui->end_date  ->setEnabled(false);
+		ui->start_time->setEnabled(false);
+		ui->end_time  ->setEnabled(false);
+		ui->reason->setEnabled(false);
+		ui->ps->setEnabled(false);
+	}
+	else if(index==1){			//病假
+		ui->ID_two->setText(QString(info.ID));
+		ui->ID_two->setEnabled(false);
+		time_t t = time(0);
+		struct tm * now = localtime( & t );
+		ui->start_date->setDate(QDate(now->tm_year + 1900,now->tm_mon + 1,now->tm_mday));
+		ui->end_date->setDate(QDate(now->tm_year + 1900,now->tm_mon + 1,now->tm_mday));
+		ui->start_time->setTime(QTime(0,0));
+		ui->end_time->setTime(QTime(23,59));
+		ui->start_date->setEnabled(false);
+		ui->end_date  ->setEnabled(false);
+		ui->start_time->setEnabled(false);
+		ui->end_time  ->setEnabled(false);
+		ui->reason->setStyleSheet(styleSheet());
+		ui->reason->setEnabled(true);
+		ui->ps->setEnabled(true);
+	}
+	else if(index==2){		//事假
+		ui->ID_two->setText(QString(info.ID));
+		ui->ID_two->setEnabled(false);
+		ui->start_date->setEnabled(true);
+		ui->end_date  ->setEnabled(true);
+		ui->start_time->setEnabled(true);
+		ui->end_time  ->setEnabled(true);
+		ui->reason->setStyleSheet(styleSheet());
+		ui->reason->setEnabled(true);
+		ui->ps->setEnabled(true);
+	}
+	else if(index==3){		//補修
+		ui->ID_two->setText(QString(info.ID));
+		ui->ID_two->setEnabled(false);
+		ui->start_date->setEnabled(true);
+		ui->end_date  ->setEnabled(true);
+		ui->start_time->setEnabled(true);
+		ui->end_time  ->setEnabled(true);
+		ui->reason->setStyleSheet(styleSheet());
+		ui->reason->setEnabled(true);
+		ui->ps->setEnabled(true);
+	}
+	else if(index==4){		//出差
+		ui->ID_two->setEnabled(true);
+		ui->start_date->setEnabled(true);
+		ui->end_date  ->setEnabled(true);
+		ui->start_time->setEnabled(true);
+		ui->end_time  ->setEnabled(true);
+		ui->reason->setStyleSheet(styleSheet());
+		ui->reason->setEnabled(true);
+		ui->ps->setEnabled(true);
+	}
 }

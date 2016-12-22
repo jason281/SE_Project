@@ -12,6 +12,7 @@ class Setting : public QMainWindow{
 public:
 	explicit Setting(QWidget *, string&, int&);
 	~Setting();
+	void resizeEvent(QResizeEvent*);
 private slots:
 	void confirm();
 private:

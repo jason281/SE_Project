@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'settingmU5864.ui'
+** Form generated from reading UI file 'settingrs7524.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.6.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef SETTINGMU5864_H
-#define SETTINGMU5864_H
+#ifndef SETTINGRS7524_H
+#define SETTINGRS7524_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
@@ -18,7 +18,9 @@
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
+#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QSpinBox>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -26,12 +28,14 @@ QT_BEGIN_NAMESPACE
 class Ui_Setting
 {
 public:
-    QWidget *gridLayoutWidget;
+    QWidget *verticalWidget;
+    QVBoxLayout *verticalLayout;
     QGridLayout *gridLayout;
     QLabel *label;
     QLineEdit *server_ip;
     QLabel *label_2;
     QSpinBox *server_port;
+    QSpacerItem *verticalSpacer;
     QDialogButtonBox *buttonBox;
 
     void setupUi(QWidget *Setting)
@@ -39,36 +43,46 @@ public:
         if (Setting->objectName().isEmpty())
             Setting->setObjectName(QStringLiteral("Setting"));
         Setting->resize(400, 300);
-        gridLayoutWidget = new QWidget(Setting);
-        gridLayoutWidget->setObjectName(QStringLiteral("gridLayoutWidget"));
-        gridLayoutWidget->setGeometry(QRect(110, 70, 160, 80));
-        gridLayout = new QGridLayout(gridLayoutWidget);
+        verticalWidget = new QWidget(Setting);
+        verticalWidget->setObjectName(QStringLiteral("verticalWidget"));
+        verticalWidget->setGeometry(QRect(100, 90, 160, 101));
+        verticalLayout = new QVBoxLayout(verticalWidget);
+        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        gridLayout = new QGridLayout();
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
-        gridLayout->setContentsMargins(0, 0, 0, 0);
-        label = new QLabel(gridLayoutWidget);
+        label = new QLabel(verticalWidget);
         label->setObjectName(QStringLiteral("label"));
 
         gridLayout->addWidget(label, 0, 0, 1, 1);
 
-        server_ip = new QLineEdit(gridLayoutWidget);
+        server_ip = new QLineEdit(verticalWidget);
         server_ip->setObjectName(QStringLiteral("server_ip"));
 
         gridLayout->addWidget(server_ip, 0, 1, 1, 1);
 
-        label_2 = new QLabel(gridLayoutWidget);
+        label_2 = new QLabel(verticalWidget);
         label_2->setObjectName(QStringLiteral("label_2"));
 
         gridLayout->addWidget(label_2, 1, 0, 1, 1);
 
-        server_port = new QSpinBox(gridLayoutWidget);
+        server_port = new QSpinBox(verticalWidget);
         server_port->setObjectName(QStringLiteral("server_port"));
 
         gridLayout->addWidget(server_port, 1, 1, 1, 1);
 
-        buttonBox = new QDialogButtonBox(Setting);
+
+        verticalLayout->addLayout(gridLayout);
+
+        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout->addItem(verticalSpacer);
+
+        buttonBox = new QDialogButtonBox(verticalWidget);
         buttonBox->setObjectName(QStringLiteral("buttonBox"));
-        buttonBox->setGeometry(QRect(110, 180, 156, 23));
         buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
+
+        verticalLayout->addWidget(buttonBox);
+
 
         retranslateUi(Setting);
 
@@ -90,4 +104,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // SETTINGMU5864_H
+#endif // SETTINGRS7524_H

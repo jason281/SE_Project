@@ -48,6 +48,10 @@ bool login(SE_winsock2::Client_Service* Client,SE_MySQL* database){
 void insert_record(SE_winsock2::Client_Service* Client,SE_MySQL* database){
 	Record r;
 	Client->SE_recv(&r,sizeof(Record));
+	if(r.r_type==4&&Client->info.Emp_position!=1)
+		return;
+	if(!strcmp(r.applied_ID,Client->info.ID)&&Client->info.Emp_position!=1)
+		return;
 	r.ID= ++database->record_ID;
 	string query("INSERT INTO se_database.record VALUES(");
 	query=query+std::to_string(r.ID)+",'"+r.applied_ID+"',"+std::to_string(r.r_type)+",'";
@@ -55,7 +59,10 @@ void insert_record(SE_winsock2::Client_Service* Client,SE_MySQL* database){
 	query=query+std::to_string(r.end.tm_year+1900)+"-"+std::to_string(r.end.tm_mon+1)+"-"+std::to_string(r.end.tm_mday)+" "+std::to_string(r.end.tm_hour)+":"+std::to_string(r.end.tm_min)+":"+std::to_string(r.end.tm_sec)+"','";
 	query=query+r.reason+"','"+r.ps+"','";
 	query=query+std::to_string(r.now.tm_year+1900)+"-"+std::to_string(r.now.tm_mon+1)+"-"+std::to_string(r.now.tm_mday)+" "+std::to_string(r.now.tm_hour)+":"+std::to_string(r.now.tm_min)+":"+std::to_string(r.now.tm_sec)+"',";
-	query=query+std::to_string(r.r_status)+");";
+	if(r.r_type==1)
+		query+="4);";
+	else	
+		query+="1);";
 	//cout<<query<<endl;
 	database->query(query);
 }
@@ -213,6 +220,7 @@ DWORD WINAPI Thread_Func(void* lpParam){
 			}
 		}
 		else if(operation==2){						//2 : Retrive Client Information
+			Client->info=database->get_Info(string(Client->info.ID));
 			Client->SE_send(&Client->info,sizeof(Client_Info));
 		}
 		else if(operation==3){						//3 : Modify personal information
@@ -279,7 +287,7 @@ DWORD WINAPI Thread_Func(void* lpParam){
 			query=query+i.ID+"';";
 			database->query(query);
 			char* result= database->retrive().at(0)[0];
-			if(strcmp(result,"0")){
+			if(strcmp(result,"0")|| Client->info.Emp_position!=1){
 				short status=0;
 				Client->SE_send(&status,sizeof(short));
 				continue;
@@ -328,7 +336,8 @@ DWORD WINAPI Thread_Func(void* lpParam){
 			time_t t = time(0);
 			struct tm * now = localtime( & t );
 			std::map<string,short> list;
-			query_worker(database,*now,list);
+			if(Client->info.Emp_position==1)
+				query_worker(database,*now,list);
 			size_t size=list.size();
 			Client->SE_send(&size,sizeof(size_t));
 			for(std::map<string,short>::iterator it=list.begin();it!=list.end();it++){
@@ -338,7 +347,7 @@ DWORD WINAPI Thread_Func(void* lpParam){
 				Client->SE_send(&it->second,sizeof(short));
 			}
 		}
-		else if(operation==15){
+		else if(operation==15){						//15: retrive someone info
 			short len;
 			Client->SE_recv(&len,sizeof(short));
 			char buff[256];
@@ -347,7 +356,7 @@ DWORD WINAPI Thread_Func(void* lpParam){
 			Client_Info i = database->get_Info(q_ID);
 			Client->SE_send(&i,sizeof(Client_Info));
 		}
-		else if(operation==16){
+		else if(operation==16){						//16: query oneday worker
 			struct tm date;
 			Client->SE_recv(&date,sizeof(tm));
 			std::map<string,short> list;

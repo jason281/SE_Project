@@ -1,3 +1,4 @@
+#include <QMessageBox>
 #include "add.h"
 #include "mainwindow.h"
 #include "ui_add.h"
@@ -12,9 +13,14 @@ Add::Add(QWidget* parent=NULL,SE_winsock2* ptr=NULL,MainWindow* p=NULL) : QMainW
 Add::~Add(){
 	delete ui;
 }
+void Add::resizeEvent(QResizeEvent* event){
+	QMainWindow::resizeEvent(event);
+	ui->verticalWidget->setGeometry((width()-ui->verticalWidget->width())/2,(height()-ui->verticalWidget->height())/2,ui->verticalWidget->width(),ui->verticalWidget->height());
+}
 void Add::Clear(){
 	ui->ID->clear();
 	ui->ID->setEnabled(true);
+	ui->ID->setStyleSheet(styleSheet());
 	ui->Emp_Name->clear();
 	ui->Gender->setCurrentIndex(0);
 	ui->Emp_position->setCurrentIndex(-1);
@@ -25,6 +31,7 @@ void Add::Clear(){
 void Add::fetch_info(Client_Info i){
 	ui->ID->setText(QString(i.ID));
 	ui->ID->setEnabled(false);
+	ui->ID->setStyleSheet(styleSheet());
 	ui->Emp_Name->setText(QString(i.Emp_Name));
 	ui->Gender->setCurrentIndex(i.Gender);
 	ui->Emp_position->setCurrentIndex(i.Emp_position-1);
@@ -63,6 +70,10 @@ void Add::submit(){
 	mainwindow->refresh_five();
 	if(status)
 		hide();
+	else{
+		ui->ID->setStyleSheet("border: 1px solid red");
+		QMessageBox::information( this, tr("Error"), tr("ID repeate!") );
+	}
 }
 void Add::setDefaultTime(int index){
 	ui->Default_time->clear();

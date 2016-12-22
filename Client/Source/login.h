@@ -15,6 +15,7 @@ public:
 	explicit Login(QWidget *,SE_winsock2*);
 	~Login();
 	void setMainWindow(MainWindow*);
+	void resizeEvent(QResizeEvent*);
 private slots:
 	void button_login_pressed();
 	void setting_show();

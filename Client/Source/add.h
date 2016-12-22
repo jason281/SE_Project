@@ -13,6 +13,7 @@ class Add : public QMainWindow{
 public:
 	explicit Add(QWidget *,SE_winsock2*,MainWindow*);
 	~Add();
+	void resizeEvent(QResizeEvent*);
 public slots:
 	void Clear();
 	void fetch_info(Client_Info);

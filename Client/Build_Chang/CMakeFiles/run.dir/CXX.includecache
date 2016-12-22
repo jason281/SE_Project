@@ -1140,6 +1140,10 @@ C:/Qt/5.7/mingw53_32/include/QtWidgets/QMenuBar
 qmenubar.h
 C:/Qt/5.7/mingw53_32/include/QtWidgets/qmenubar.h
 
+C:/Qt/5.7/mingw53_32/include/QtWidgets/QMessageBox
+qmessagebox.h
+C:/Qt/5.7/mingw53_32/include/QtWidgets/qmessagebox.h
+
 C:/Qt/5.7/mingw53_32/include/QtWidgets/QPushButton
 qpushbutton.h
 C:/Qt/5.7/mingw53_32/include/QtWidgets/qpushbutton.h
@@ -1151,10 +1155,6 @@ C:/Qt/5.7/mingw53_32/include/QtWidgets/qlayoutitem.h
 C:/Qt/5.7/mingw53_32/include/QtWidgets/QSpinBox
 qspinbox.h
 C:/Qt/5.7/mingw53_32/include/QtWidgets/qspinbox.h
-
-C:/Qt/5.7/mingw53_32/include/QtWidgets/QSplitter
-qsplitter.h
-C:/Qt/5.7/mingw53_32/include/QtWidgets/qsplitter.h
 
 C:/Qt/5.7/mingw53_32/include/QtWidgets/QStatusBar
 qstatusbar.h
@@ -1298,6 +1298,10 @@ C:/Qt/5.7/mingw53_32/include/QtWidgets/qdesktopwidget.h
 QtWidgets/qwidget.h
 -
 
+C:/Qt/5.7/mingw53_32/include/QtWidgets/qdialog.h
+QtWidgets/qwidget.h
+-
+
 C:/Qt/5.7/mingw53_32/include/QtWidgets/qdialogbuttonbox.h
 QtWidgets/qwidget.h
 -
@@ -1380,6 +1384,10 @@ C:/Qt/5.7/mingw53_32/include/QtWidgets/qmenubar.h
 QtWidgets/qmenu.h
 -
 
+C:/Qt/5.7/mingw53_32/include/QtWidgets/qmessagebox.h
+QtWidgets/qdialog.h
+-
+
 C:/Qt/5.7/mingw53_32/include/QtWidgets/qpushbutton.h
 QtWidgets/qabstractbutton.h
 -
@@ -1398,12 +1406,6 @@ QtWidgets/qabstractslider.h
 
 C:/Qt/5.7/mingw53_32/include/QtWidgets/qspinbox.h
 QtWidgets/qabstractspinbox.h
--
-
-C:/Qt/5.7/mingw53_32/include/QtWidgets/qsplitter.h
-QtWidgets/qframe.h
--
-QtWidgets/qsizepolicy.h
 -
 
 C:/Qt/5.7/mingw53_32/include/QtWidgets/qstatusbar.h
@@ -1589,6 +1591,8 @@ SE_Definition.h
 C:/Users/jason/Documents/GitHub/SE_Project/Client/Source/SE_Definition.h
 
 C:/Users/jason/Documents/GitHub/SE_Project/Client/Source/add.cpp
+QMessageBox
+-
 add.h
 C:/Users/jason/Documents/GitHub/SE_Project/Client/Source/add.h
 mainwindow.h
@@ -1603,6 +1607,8 @@ SE_winsock2.h
 C:/Users/jason/Documents/GitHub/SE_Project/Client/Source/SE_winsock2.h
 
 C:/Users/jason/Documents/GitHub/SE_Project/Client/Source/login.cpp
+fstream
+-
 login.h
 C:/Users/jason/Documents/GitHub/SE_Project/Client/Source/login.h
 ui_login.h
@@ -1645,6 +1651,8 @@ add.h
 C:/Users/jason/Documents/GitHub/SE_Project/Client/Source/add.h
 
 C:/Users/jason/Documents/GitHub/SE_Project/Client/Source/setting.cpp
+fstream
+-
 setting.h
 C:/Users/jason/Documents/GitHub/SE_Project/Client/Source/setting.h
 ui_setting.h
@@ -1677,6 +1685,10 @@ QtWidgets/QLabel
 -
 QtWidgets/QLineEdit
 -
+QtWidgets/QSpacerItem
+-
+QtWidgets/QVBoxLayout
+-
 QtWidgets/QWidget
 -
 
@@ -1699,7 +1711,7 @@ QtWidgets/QLineEdit
 -
 QtWidgets/QPushButton
 -
-QtWidgets/QSplitter
+QtWidgets/QVBoxLayout
 -
 QtWidgets/QWidget
 -
@@ -1773,7 +1785,11 @@ QtWidgets/QLabel
 -
 QtWidgets/QLineEdit
 -
+QtWidgets/QSpacerItem
+-
 QtWidgets/QSpinBox
+-
+QtWidgets/QVBoxLayout
 -
 QtWidgets/QWidget
 -

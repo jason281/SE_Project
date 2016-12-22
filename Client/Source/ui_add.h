@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'addBG7524.ui'
+** Form generated from reading UI file 'addpy7524.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.6.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef ADDBG7524_H
-#define ADDBG7524_H
+#ifndef ADDPY7524_H
+#define ADDPY7524_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
@@ -19,6 +19,8 @@
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
+#include <QtWidgets/QSpacerItem>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -26,7 +28,8 @@ QT_BEGIN_NAMESPACE
 class Ui_Add
 {
 public:
-    QWidget *gridLayoutWidget;
+    QWidget *verticalWidget;
+    QVBoxLayout *verticalLayout;
     QGridLayout *gridLayout;
     QLabel *label_3;
     QLabel *label_7;
@@ -40,6 +43,7 @@ public:
     QComboBox *Emp_position;
     QLineEdit *branch;
     QComboBox *Default_time;
+    QSpacerItem *verticalSpacer;
     QDialogButtonBox *buttonBox;
 
     void setupUi(QWidget *Add)
@@ -47,81 +51,91 @@ public:
         if (Add->objectName().isEmpty())
             Add->setObjectName(QStringLiteral("Add"));
         Add->resize(400, 343);
-        gridLayoutWidget = new QWidget(Add);
-        gridLayoutWidget->setObjectName(QStringLiteral("gridLayoutWidget"));
-        gridLayoutWidget->setGeometry(QRect(120, 20, 181, 241));
-        gridLayout = new QGridLayout(gridLayoutWidget);
+        verticalWidget = new QWidget(Add);
+        verticalWidget->setObjectName(QStringLiteral("verticalWidget"));
+        verticalWidget->setGeometry(QRect(110, 50, 160, 231));
+        verticalLayout = new QVBoxLayout(verticalWidget);
+        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        gridLayout = new QGridLayout();
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
-        gridLayout->setContentsMargins(0, 0, 0, 0);
-        label_3 = new QLabel(gridLayoutWidget);
+        gridLayout->setHorizontalSpacing(6);
+        gridLayout->setVerticalSpacing(10);
+        label_3 = new QLabel(verticalWidget);
         label_3->setObjectName(QStringLiteral("label_3"));
 
         gridLayout->addWidget(label_3, 1, 0, 1, 1);
 
-        label_7 = new QLabel(gridLayoutWidget);
+        label_7 = new QLabel(verticalWidget);
         label_7->setObjectName(QStringLiteral("label_7"));
 
         gridLayout->addWidget(label_7, 4, 0, 1, 1);
 
-        label_4 = new QLabel(gridLayoutWidget);
+        label_4 = new QLabel(verticalWidget);
         label_4->setObjectName(QStringLiteral("label_4"));
 
         gridLayout->addWidget(label_4, 0, 0, 1, 1);
 
-        label_6 = new QLabel(gridLayoutWidget);
+        label_6 = new QLabel(verticalWidget);
         label_6->setObjectName(QStringLiteral("label_6"));
 
         gridLayout->addWidget(label_6, 3, 0, 1, 1);
 
-        label_5 = new QLabel(gridLayoutWidget);
+        label_5 = new QLabel(verticalWidget);
         label_5->setObjectName(QStringLiteral("label_5"));
 
         gridLayout->addWidget(label_5, 2, 0, 1, 1);
 
-        Emp_Name = new QLineEdit(gridLayoutWidget);
+        Emp_Name = new QLineEdit(verticalWidget);
         Emp_Name->setObjectName(QStringLiteral("Emp_Name"));
 
         gridLayout->addWidget(Emp_Name, 1, 1, 1, 1);
 
-        Gender = new QComboBox(gridLayoutWidget);
+        Gender = new QComboBox(verticalWidget);
         Gender->setObjectName(QStringLiteral("Gender"));
         Gender->setMaximumSize(QSize(60, 16777215));
 
         gridLayout->addWidget(Gender, 2, 1, 1, 1);
 
-        ID = new QLineEdit(gridLayoutWidget);
+        ID = new QLineEdit(verticalWidget);
         ID->setObjectName(QStringLiteral("ID"));
 
         gridLayout->addWidget(ID, 0, 1, 1, 1);
 
-        label = new QLabel(gridLayoutWidget);
+        label = new QLabel(verticalWidget);
         label->setObjectName(QStringLiteral("label"));
 
         gridLayout->addWidget(label, 5, 0, 1, 1);
 
-        Emp_position = new QComboBox(gridLayoutWidget);
+        Emp_position = new QComboBox(verticalWidget);
         Emp_position->setObjectName(QStringLiteral("Emp_position"));
         Emp_position->setMaximumSize(QSize(50, 16777215));
 
         gridLayout->addWidget(Emp_position, 3, 1, 1, 1);
 
-        branch = new QLineEdit(gridLayoutWidget);
+        branch = new QLineEdit(verticalWidget);
         branch->setObjectName(QStringLiteral("branch"));
 
         gridLayout->addWidget(branch, 4, 1, 1, 1);
 
-        Default_time = new QComboBox(gridLayoutWidget);
+        Default_time = new QComboBox(verticalWidget);
         Default_time->setObjectName(QStringLiteral("Default_time"));
         Default_time->setMaximumSize(QSize(70, 16777215));
 
         gridLayout->addWidget(Default_time, 5, 1, 1, 1);
 
-        buttonBox = new QDialogButtonBox(Add);
+
+        verticalLayout->addLayout(gridLayout);
+
+        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout->addItem(verticalSpacer);
+
+        buttonBox = new QDialogButtonBox(verticalWidget);
         buttonBox->setObjectName(QStringLiteral("buttonBox"));
-        buttonBox->setGeometry(QRect(130, 280, 156, 23));
         buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
-        buttonBox->raise();
-        gridLayoutWidget->raise();
+
+        verticalLayout->addWidget(buttonBox);
+
 
         retranslateUi(Add);
 
@@ -165,4 +179,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // ADDBG7524_H
+#endif // ADDPY7524_H

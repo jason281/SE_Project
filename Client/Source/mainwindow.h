@@ -38,6 +38,7 @@ private slots:
 	void remove_employee();
 	void add_employee();
 	void modify_employee();
+	void set_requirement(int);
 private:
 	Client_Info info;
 	Ui::MainWindow *ui;
