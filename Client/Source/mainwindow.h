@@ -17,16 +17,19 @@ public:
 	~MainWindow();
 	void retrive_info();
 	void fetch_record(QTableWidget*);
+	void fetch_info(QTableWidget*,Client_Info);
+	void resizeEvent(QResizeEvent*);
+public slots:
 	void refresh();
+	void refresh_tab(int);
 	void refresh_zero();
 	void refresh_one();
 	void refresh_two();
 	void refresh_three();
 	void refresh_four();
 	void refresh_five();
-	void refresh_six();
+	void refresh_six(const QDate &);
 private slots:
-	void refresh_tab(int);
 	void info_submit();
 	void record_submit();
 	void cancellation();

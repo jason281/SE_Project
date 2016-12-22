@@ -691,6 +691,7 @@ CMakeFiles/run.dir/mainwindow.obj: C:/Qt/5.7/mingw53_32/include/QtWidgets/QTable
 CMakeFiles/run.dir/mainwindow.obj: C:/Qt/5.7/mingw53_32/include/QtWidgets/QTextEdit
 CMakeFiles/run.dir/mainwindow.obj: C:/Qt/5.7/mingw53_32/include/QtWidgets/QTimeEdit
 CMakeFiles/run.dir/mainwindow.obj: C:/Qt/5.7/mingw53_32/include/QtWidgets/QToolButton
+CMakeFiles/run.dir/mainwindow.obj: C:/Qt/5.7/mingw53_32/include/QtWidgets/QVBoxLayout
 CMakeFiles/run.dir/mainwindow.obj: C:/Qt/5.7/mingw53_32/include/QtWidgets/QWidget
 CMakeFiles/run.dir/mainwindow.obj: C:/Qt/5.7/mingw53_32/include/QtWidgets/qabstractbutton.h
 CMakeFiles/run.dir/mainwindow.obj: C:/Qt/5.7/mingw53_32/include/QtWidgets/qabstractitemdelegate.h

@@ -22,6 +22,7 @@ using std::cerr;
 using std::cin;
 using std::endl;
 using std::string;
+using std::vector;
 
 struct Client_Info{
 	char ID[256];

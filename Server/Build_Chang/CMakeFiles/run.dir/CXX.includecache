@@ -67,6 +67,8 @@ C:/Program Files (x86)/MySQL/MySQL Connector C 6.1/include/my_alloc.h
 C:/Users/jason/Documents/GitHub/SE_Project/Server/Source/Client_thread.cpp
 Client_thread.h
 C:/Users/jason/Documents/GitHub/SE_Project/Server/Source/Client_thread.h
+map
+-
 
 C:/Users/jason/Documents/GitHub/SE_Project/Server/Source/Client_thread.h
 SE_Definition.h
@@ -90,6 +92,8 @@ iostream
 stdio.h
 -
 cstdlib
+-
+ctime
 -
 vector
 -

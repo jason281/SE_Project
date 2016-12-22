@@ -14,6 +14,7 @@
 #include <iostream>
 #include <stdio.h>
 #include <cstdlib>
+#include <ctime>
 #include <vector>
 #include <string>
 #define DEFAULT_PORT 99

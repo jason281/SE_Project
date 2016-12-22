@@ -31,11 +31,11 @@ void Add::fetch_info(Client_Info i){
 	ui->branch->setText(QString(i.branch));
 	ui->Default_time->clear();
 	if(i.Emp_position==1)
-		ui->Default_time->insertItems(0, QStringList() << QApplication::translate("Add", "\345\205\250\345\244\251", 0));
+		ui->Default_time->insertItems(0, QStringList() << QApplication::translate("Add", "\345\233\272\345\256\232\346\227\251\347\217\255", 0));
 	else{
 		ui->Default_time->insertItems(0, QStringList()
-         << QApplication::translate("Add", "\346\227\245\347\217\255", 0)
-         << QApplication::translate("Add", "\345\244\234\347\217\255", 0));
+         << QApplication::translate("Add", "\346\227\251\347\217\255", 0)
+         << QApplication::translate("Add", "\346\231\232\347\217\255", 0));
 	}
 	if(i.Default_time==2)
 		ui->Default_time->setCurrentIndex(1);
@@ -50,11 +50,11 @@ void Add::submit(){
 	i.Gender=ui->Gender->currentIndex();
 	i.Emp_position=ui->Emp_position->currentIndex()+1;
 	strcpy(i.branch, ui->branch->text().toUtf8().constData());
-	if(ui->Default_time->currentText()==QApplication::translate("Add", "\346\227\245\347\217\255", 0))
+	if(ui->Default_time->currentText()==QApplication::translate("Add", "\346\227\251\347\217\255", 0))
 		i.Default_time=1;
-	else if(ui->Default_time->currentText()==QApplication::translate("Add", "\345\244\234\347\217\255", 0))
+	else if(ui->Default_time->currentText()==QApplication::translate("Add", "\346\231\232\347\217\255", 0))
 		i.Default_time=2;
-	else if(ui->Default_time->currentText()==QApplication::translate("Add", "\345\205\250\345\244\251", 0))
+	else if(ui->Default_time->currentText()==QApplication::translate("Add", "\345\233\272\345\256\232\346\227\251\347\217\255", 0))
 		i.Default_time=3;
 	socket_ptr->SE_send(&operation,sizeof(short));
 	socket_ptr->SE_send(&i,sizeof(Client_Info));
@@ -67,11 +67,11 @@ void Add::submit(){
 void Add::setDefaultTime(int index){
 	ui->Default_time->clear();
 	if(index==0)
-		ui->Default_time->insertItems(0, QStringList() << QApplication::translate("Add", "\345\205\250\345\244\251", 0));
+		ui->Default_time->insertItems(0, QStringList() << QApplication::translate("Add", "\345\233\272\345\256\232\346\227\251\347\217\255", 0));
 	else{
 		ui->Default_time->insertItems(0, QStringList()
-         << QApplication::translate("Add", "\346\227\245\347\217\255", 0)
-         << QApplication::translate("Add", "\345\244\234\347\217\255", 0));
+         << QApplication::translate("Add", "\346\227\251\347\217\255", 0)
+         << QApplication::translate("Add", "\346\231\232\347\217\255", 0));
 	}
 	ui->Default_time->setCurrentIndex(0);
 }

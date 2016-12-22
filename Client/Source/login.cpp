@@ -35,9 +35,9 @@ void Login::button_login_pressed(){
 	socket_ptr->SE_send(&size,sizeof(size_t));
 	socket_ptr->SE_send(ui->password->text().data(), size*sizeof(QChar));
 	
-	short status=0;
+	short status;
 	socket_ptr->SE_recv(&status, sizeof(short));
-	if(status){
+	if(status==0){
 		mainwindow_window->retrive_info();
 		mainwindow_window->refresh();
 		hide();

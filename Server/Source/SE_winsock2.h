@@ -14,7 +14,7 @@ public:
 		friend DWORD WINAPI Thread_Func(void*);
 		friend bool login(SE_winsock2::Client_Service* ,SE_MySQL*);
 		Client_Service(SOCKET,SOCKADDR_IN,SE_MySQL*);
-		bool SE_send(void*, size_t);
+		bool SE_send(const void*, size_t);
 		bool SE_recv(void*, size_t);
 	private:
 		SOCKET Client_Socket;

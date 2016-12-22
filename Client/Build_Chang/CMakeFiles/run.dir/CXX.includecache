@@ -1180,6 +1180,10 @@ C:/Qt/5.7/mingw53_32/include/QtWidgets/QToolButton
 qtoolbutton.h
 C:/Qt/5.7/mingw53_32/include/QtWidgets/qtoolbutton.h
 
+C:/Qt/5.7/mingw53_32/include/QtWidgets/QVBoxLayout
+qboxlayout.h
+C:/Qt/5.7/mingw53_32/include/QtWidgets/qboxlayout.h
+
 C:/Qt/5.7/mingw53_32/include/QtWidgets/QWidget
 qwidget.h
 C:/Qt/5.7/mingw53_32/include/QtWidgets/qwidget.h
@@ -1744,6 +1748,8 @@ QtWidgets/QTextEdit
 QtWidgets/QTimeEdit
 -
 QtWidgets/QToolButton
+-
+QtWidgets/QVBoxLayout
 -
 QtWidgets/QWidget
 -

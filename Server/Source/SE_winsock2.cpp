@@ -57,10 +57,10 @@ bool SE_winsock2::initialize(){
 SE_winsock2::Client_Service::Client_Service(SOCKET sock, SOCKADDR_IN addr,SE_MySQL* db):Client_Socket(sock),Client_addr(addr),database(db){
 	thread = CreateThread(NULL,0,Thread_Func,new thread_par(this,db),0,NULL);
 }
-bool SE_winsock2::Client_Service::SE_send(void* buf, size_t len){
+bool SE_winsock2::Client_Service::SE_send(const void* buf, size_t len){
 	int nLeft=len;
 	int idx=0, ret;
-	char* cbuf=(char*)buf;
+	const char* cbuf=(const char*)buf;
 	while(nLeft > 0){
 		ret = send(Client_Socket, &cbuf[idx], nLeft, 0);
 		if(ret == SOCKET_ERROR){

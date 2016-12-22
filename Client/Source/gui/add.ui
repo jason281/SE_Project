@@ -128,23 +128,23 @@
      <widget class="QComboBox" name="Default_time">
       <property name="maximumSize">
        <size>
-        <width>50</width>
+        <width>70</width>
         <height>16777215</height>
        </size>
       </property>
       <item>
        <property name="text">
-        <string>日班</string>
+        <string>早班</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>夜班</string>
+        <string>晚班</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>全天</string>
+        <string>固定早班</string>
        </property>
       </item>
      </widget>

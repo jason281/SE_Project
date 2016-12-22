@@ -1,4 +1,6 @@
 #include "Client_thread.h"
+#include <map>
+
 bool login(SE_winsock2::Client_Service* Client,SE_MySQL* database){
 	size_t len;
 	Client->SE_recv((void*)&len, sizeof(size_t));
@@ -25,15 +27,20 @@ bool login(SE_winsock2::Client_Service* Client,SE_MySQL* database){
 	if(result.size()){
 		if(!strcmp(result[0][0],temp2.c_str())){
 			wcout<<L"User "<<text<<L" login succeed!\n";
-			short status=1; //for login succeed
+			short status=0; //for login succeed
 			Client->SE_send(&status, sizeof(short));
 			//get client info
 			Client->info=database->get_Info(string(Client->info.ID));
 			return true;
 		}
+		else{
+			short status=2; 		//passwd incorrect
+			Client->SE_send(&status, sizeof(short));
+			return true;
+		}
 	}
 	else{
-		short status=0; //for login failed
+		short status=1;				 //user not fount
 		Client->SE_send(&status, sizeof(short));
 		return true;
 	}
@@ -49,7 +56,7 @@ void insert_record(SE_winsock2::Client_Service* Client,SE_MySQL* database){
 	query=query+r.reason+"','"+r.ps+"','";
 	query=query+std::to_string(r.now.tm_year+1900)+"-"+std::to_string(r.now.tm_mon+1)+"-"+std::to_string(r.now.tm_mday)+" "+std::to_string(r.now.tm_hour)+":"+std::to_string(r.now.tm_min)+":"+std::to_string(r.now.tm_sec)+"',";
 	query=query+std::to_string(r.r_status)+");";
-	cout<<query<<endl;
+	//cout<<query<<endl;
 	database->query(query);
 }
 void record_query(SE_winsock2::Client_Service* Client,SE_MySQL* database,const char* query_ID){
@@ -156,6 +163,37 @@ void query_all_info(SE_winsock2::Client_Service* Client,SE_MySQL* database){
 		Client_Info information=database->get_Info(string(result[i][0]));
 		Client->SE_send(&information,sizeof(Client_Info));
 	}
+}
+void query_worker(SE_MySQL* database, struct tm time, std::map<string,short>& list){
+	string date="'"+std::to_string(time.tm_year+1900)+"-"+std::to_string(time.tm_mon+1)+"-"+std::to_string(time.tm_mday)+"'";
+	database->query(string("SELECT ID FROM se_database.employee WHERE (Default_time-1 XOR (weekofyear("+date+") MOD 2))"));
+	vector<MYSQL_ROW> result=database->retrive();
+	for(int i=0;i<result.size();i++)
+		list[string(result[i][0])]=1;
+	database->query(string("SELECT ID FROM se_database.employee  WHERE NOT (Default_time-1 XOR (weekofyear("+date+") MOD 2))"));
+	result=database->retrive();
+	for(int i=0;i<result.size();i++)
+		list[string(result[i][0])]=2;
+	database->query(string("SELECT ID FROM se_database.employee WHERE Default_time=3"));
+	result=database->retrive();
+	for(int i=0;i<result.size();i++)
+		list[string(result[i][0])]=1;
+	database->query(string("SELECT DISTINCT applier_ID FROM se_database.record WHERE "+date+">=DATE(start_time) AND "+date+"<=DATE(end_time) AND r_status=4 AND r_type=4"));
+	result=database->retrive();
+	for(int i=0;i<result.size();i++)
+		list[string(result[i][0])]=6;
+	database->query(string("SELECT DISTINCT applier_ID FROM se_database.record WHERE "+date+">=DATE(start_time) AND "+date+"<=DATE(end_time) AND r_status=4 AND r_type=3"));
+	result=database->retrive();
+	for(int i=0;i<result.size();i++)
+		list[string(result[i][0])]=5;
+	database->query(string("SELECT DISTINCT applier_ID FROM se_database.record WHERE "+date+">=DATE(start_time) AND "+date+"<=DATE(end_time) AND r_status=4 AND r_type=2"));
+	result=database->retrive();
+	for(int i=0;i<result.size();i++)
+		list[string(result[i][0])]=4;
+	database->query(string("SELECT DISTINCT applier_ID FROM se_database.record WHERE "+date+">=DATE(start_time) AND "+date+"<=DATE(end_time) AND r_status=4 AND r_type=1"));
+	result=database->retrive();
+	for(int i=0;i<result.size();i++)
+		list[string(result[i][0])]=3;
 }
 
 DWORD WINAPI Thread_Func(void* lpParam){
@@ -285,6 +323,43 @@ DWORD WINAPI Thread_Func(void* lpParam){
 			database->query(query);
 			short status=1;
 			Client->SE_send(&status,sizeof(short));
+		}
+		else if(operation==14){						//14: query today worker
+			time_t t = time(0);
+			struct tm * now = localtime( & t );
+			std::map<string,short> list;
+			query_worker(database,*now,list);
+			size_t size=list.size();
+			Client->SE_send(&size,sizeof(size_t));
+			for(std::map<string,short>::iterator it=list.begin();it!=list.end();it++){
+				short len=it->first.size()+1;
+				Client->SE_send(&len,sizeof(short));
+				Client->SE_send(it->first.c_str(),len);
+				Client->SE_send(&it->second,sizeof(short));
+			}
+		}
+		else if(operation==15){
+			short len;
+			Client->SE_recv(&len,sizeof(short));
+			char buff[256];
+			Client->SE_recv(buff,len);
+			string q_ID(buff);
+			Client_Info i = database->get_Info(q_ID);
+			Client->SE_send(&i,sizeof(Client_Info));
+		}
+		else if(operation==16){
+			struct tm date;
+			Client->SE_recv(&date,sizeof(tm));
+			std::map<string,short> list;
+			query_worker(database,date,list);
+			size_t size=list.size();
+			Client->SE_send(&size,sizeof(size_t));
+			for(std::map<string,short>::iterator it=list.begin();it!=list.end();it++){
+				short len=it->first.size()+1;
+				Client->SE_send(&len,sizeof(short));
+				Client->SE_send(it->first.c_str(),len);
+				Client->SE_send(&it->second,sizeof(short));
+			}
 		}
 	}
 }

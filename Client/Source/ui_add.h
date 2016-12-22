@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'addNl7524.ui'
+** Form generated from reading UI file 'addBG7524.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.6.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef ADDNL7524_H
-#define ADDNL7524_H
+#ifndef ADDBG7524_H
+#define ADDBG7524_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
@@ -112,7 +112,7 @@ public:
 
         Default_time = new QComboBox(gridLayoutWidget);
         Default_time->setObjectName(QStringLiteral("Default_time"));
-        Default_time->setMaximumSize(QSize(50, 16777215));
+        Default_time->setMaximumSize(QSize(70, 16777215));
 
         gridLayout->addWidget(Default_time, 5, 1, 1, 1);
 
@@ -151,9 +151,9 @@ public:
         );
         Default_time->clear();
         Default_time->insertItems(0, QStringList()
-         << QApplication::translate("Add", "\346\227\245\347\217\255", 0)
-         << QApplication::translate("Add", "\345\244\234\347\217\255", 0)
-         << QApplication::translate("Add", "\345\205\250\345\244\251", 0)
+         << QApplication::translate("Add", "\346\227\251\347\217\255", 0)
+         << QApplication::translate("Add", "\346\231\232\347\217\255", 0)
+         << QApplication::translate("Add", "\345\233\272\345\256\232\346\227\251\347\217\255", 0)
         );
     } // retranslateUi
 
@@ -165,4 +165,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // ADDNL7524_H
+#endif // ADDBG7524_H
