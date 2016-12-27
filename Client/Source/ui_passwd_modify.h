@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'passwd_modifynv6476.ui'
+** Form generated from reading UI file 'passwd_modifyNl5616.ui'
 **
-** Created by: Qt User Interface Compiler version 5.7.0
+** Created by: Qt User Interface Compiler version 5.6.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef PASSWD_MODIFYNV6476_H
-#define PASSWD_MODIFYNV6476_H
+#ifndef PASSWD_MODIFYNL5616_H
+#define PASSWD_MODIFYNL5616_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
@@ -18,6 +18,8 @@
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
+#include <QtWidgets/QSpacerItem>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -25,14 +27,16 @@ QT_BEGIN_NAMESPACE
 class Ui_passwd_modify
 {
 public:
-    QWidget *gridLayoutWidget;
+    QWidget *verticalWidget;
+    QVBoxLayout *verticalLayout;
     QGridLayout *gridLayout;
     QLabel *label;
-    QLineEdit *lineEdit;
-    QLineEdit *lineEdit_2;
+    QLineEdit *old_passwd;
+    QLineEdit *new_passwd;
     QLabel *label_2;
     QLabel *label_3;
-    QLineEdit *lineEdit_3;
+    QLineEdit *new_passwd2;
+    QSpacerItem *verticalSpacer;
     QDialogButtonBox *buttonBox;
 
     void setupUi(QWidget *passwd_modify)
@@ -40,49 +44,60 @@ public:
         if (passwd_modify->objectName().isEmpty())
             passwd_modify->setObjectName(QStringLiteral("passwd_modify"));
         passwd_modify->resize(400, 300);
-        gridLayoutWidget = new QWidget(passwd_modify);
-        gridLayoutWidget->setObjectName(QStringLiteral("gridLayoutWidget"));
-        gridLayoutWidget->setGeometry(QRect(50, 50, 271, 151));
-        gridLayout = new QGridLayout(gridLayoutWidget);
+        verticalWidget = new QWidget(passwd_modify);
+        verticalWidget->setObjectName(QStringLiteral("verticalWidget"));
+        verticalWidget->setGeometry(QRect(80, 60, 231, 161));
+        verticalLayout = new QVBoxLayout(verticalWidget);
+        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        gridLayout = new QGridLayout();
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
-        gridLayout->setContentsMargins(0, 0, 0, 0);
-        label = new QLabel(gridLayoutWidget);
+        gridLayout->setVerticalSpacing(17);
+        label = new QLabel(verticalWidget);
         label->setObjectName(QStringLiteral("label"));
 
         gridLayout->addWidget(label, 0, 0, 1, 1);
 
-        lineEdit = new QLineEdit(gridLayoutWidget);
-        lineEdit->setObjectName(QStringLiteral("lineEdit"));
-        lineEdit->setEchoMode(QLineEdit::Password);
+        old_passwd = new QLineEdit(verticalWidget);
+        old_passwd->setObjectName(QStringLiteral("old_passwd"));
+        old_passwd->setEchoMode(QLineEdit::Password);
 
-        gridLayout->addWidget(lineEdit, 0, 1, 1, 1);
+        gridLayout->addWidget(old_passwd, 0, 1, 1, 1);
 
-        lineEdit_2 = new QLineEdit(gridLayoutWidget);
-        lineEdit_2->setObjectName(QStringLiteral("lineEdit_2"));
-        lineEdit_2->setEchoMode(QLineEdit::Password);
+        new_passwd = new QLineEdit(verticalWidget);
+        new_passwd->setObjectName(QStringLiteral("new_passwd"));
+        new_passwd->setEchoMode(QLineEdit::Password);
 
-        gridLayout->addWidget(lineEdit_2, 1, 1, 1, 1);
+        gridLayout->addWidget(new_passwd, 1, 1, 1, 1);
 
-        label_2 = new QLabel(gridLayoutWidget);
+        label_2 = new QLabel(verticalWidget);
         label_2->setObjectName(QStringLiteral("label_2"));
 
         gridLayout->addWidget(label_2, 1, 0, 1, 1);
 
-        label_3 = new QLabel(gridLayoutWidget);
+        label_3 = new QLabel(verticalWidget);
         label_3->setObjectName(QStringLiteral("label_3"));
 
         gridLayout->addWidget(label_3, 2, 0, 1, 1);
 
-        lineEdit_3 = new QLineEdit(gridLayoutWidget);
-        lineEdit_3->setObjectName(QStringLiteral("lineEdit_3"));
-        lineEdit_3->setEchoMode(QLineEdit::Password);
+        new_passwd2 = new QLineEdit(verticalWidget);
+        new_passwd2->setObjectName(QStringLiteral("new_passwd2"));
+        new_passwd2->setEchoMode(QLineEdit::Password);
 
-        gridLayout->addWidget(lineEdit_3, 2, 1, 1, 1);
+        gridLayout->addWidget(new_passwd2, 2, 1, 1, 1);
 
-        buttonBox = new QDialogButtonBox(passwd_modify);
+
+        verticalLayout->addLayout(gridLayout);
+
+        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout->addItem(verticalSpacer);
+
+        buttonBox = new QDialogButtonBox(verticalWidget);
         buttonBox->setObjectName(QStringLiteral("buttonBox"));
-        buttonBox->setGeometry(QRect(150, 230, 156, 23));
         buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
+
+        verticalLayout->addWidget(buttonBox);
+
 
         retranslateUi(passwd_modify);
 
@@ -105,4 +120,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // PASSWD_MODIFYNV6476_H
+#endif // PASSWD_MODIFYNL5616_H

@@ -14,7 +14,7 @@ find_package(Qt5Widgets)
 find_package(Qt5Core)
 #Qt
 
-ADD_EXECUTABLE(run main.cpp SE_winsock2.cpp login.cpp mainwindow.cpp setting.cpp add.cpp)
+ADD_EXECUTABLE(run main.cpp SE_winsock2.cpp login.cpp mainwindow.cpp setting.cpp add.cpp passwd_modify.cpp)
 if(WIN32)
 	TARGET_LINK_LIBRARIES(run wsock32 ws2_32)
 endif()

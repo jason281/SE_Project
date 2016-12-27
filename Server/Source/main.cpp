@@ -2,7 +2,7 @@
 #include "SE_Definition.h"
 #include "SE_winsock2.h"
 #include "SE_MySQL.h"
-
+vector<in_addr> SE_winsock2::Client_Service::black_list;
 int main(){
 	SE_MySQL database;
 	cout<<"Do you want to format the database(Y/N):";

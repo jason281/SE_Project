@@ -1,8 +1,11 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "login.h"
+#include <QResizeEvent>
+#include <QMessageBox>
 
-MainWindow::MainWindow(QWidget *parent = NULL,SE_winsock2 *ptr = NULL) 
-	: QMainWindow(parent), ui(new Ui::MainWindow), socket_ptr(ptr), add_window(parent, ptr, this)
+MainWindow::MainWindow(QWidget *parent = NULL,SE_winsock2 *ptr = NULL,Login* l=NULL) 
+	: QMainWindow(parent), ui(new Ui::MainWindow), socket_ptr(ptr), add_window(parent, ptr, this), passwd_modify_window(parent, ptr, &info), login_window(l)
 {
 	ui->setupUi(this);
 	connect(ui->tabWidget, SIGNAL (currentChanged(int)), this, SLOT(refresh_tab(int)));
@@ -18,25 +21,29 @@ MainWindow::MainWindow(QWidget *parent = NULL,SE_winsock2 *ptr = NULL)
 	connect(ui->modify_button, SIGNAL (released()), this, SLOT (modify_employee()));
 	connect(ui->dateEditWeek,SIGNAL(dateChanged(const QDate &)),this,SLOT(refresh_six(const QDate &)));
 	connect(ui->r_type,SIGNAL(currentIndexChanged(int)),this,SLOT(set_requirement(int)));
-	resizeEvent(NULL);
+	connect(ui->passwd_modify_button, SIGNAL (released()), this, SLOT (passwd_mod()));
+	connect(ui->actionLogout, SIGNAL(triggered()),this, SLOT(logout()));
+	connect(ui->record_query_button, SIGNAL (released()), this, SLOT (record_query()));
+	connect(ui->filter,SIGNAL(currentIndexChanged(int)),this,SLOT(record_filter(int)));
 }
 MainWindow::~MainWindow(){
 	delete ui;
 }
 void MainWindow::resizeEvent(QResizeEvent* event){
+	//cout<<"Resize Event "<<width()<<' '<<height()<<endl;
 	QMainWindow::resizeEvent(event);
 	ui->tabWidget->setGeometry(0,0,ui->centralwidget->width(),ui->centralwidget->height());
-	ui->gridWidget->setGeometry((ui->tabWidget->width()-ui->gridWidget->width())/2,(ui->tabWidget->height()-ui->gridWidget->height()-ui->widget->height()-20)/2,ui->gridWidget->width(),ui->gridWidget->height());
-	ui->widget->setGeometry((ui->tabWidget->width()-ui->widget->width())/2,(ui->tabWidget->height()+ui->gridWidget->height()-ui->widget->height()+50)/2,ui->widget->width(),ui->widget->height());
 	ui->gridWidget_2->setGeometry((ui->tabWidget->width()-ui->gridWidget_2->width())/2,(ui->tabWidget->height()-ui->gridWidget_2->height())/2,ui->gridWidget_2->width(),ui->gridWidget_2->height());
+	ui->verticalWidget_6->setGeometry((ui->tabWidget->width()-ui->verticalWidget_6->width())/2,(ui->tabWidget->height()-ui->verticalWidget_6->height())/2,ui->verticalWidget_6->width(),ui->verticalWidget_6->height());
 	ui->verticalWidget->setGeometry(0,0,ui->tabWidget->width(),ui->tabWidget->height()-24);
 	ui->verticalWidget_2->setGeometry(0,0,ui->tabWidget->width(),ui->tabWidget->height()-24);
-	ui->tableWidget_2->setGeometry(0,0,ui->tabWidget_2->width(),ui->tabWidget_2->height()-24);
-	ui->tableWidget_3->setGeometry(0,0,ui->tabWidget_2->width(),ui->tabWidget_2->height()-24);
-	ui->tableWidget_4->setGeometry(0,0,ui->tabWidget_2->width(),ui->tabWidget_2->height()-24);
+	ui->tableWidget_2->setGeometry(0,0,ui->verticalWidget_2->width()-24,ui->verticalWidget_2->height()-70);
+	ui->tableWidget_3->setGeometry(0,0,ui->verticalWidget_2->width()-24,ui->verticalWidget_2->height()-70);
+	ui->tableWidget_4->setGeometry(0,0,ui->verticalWidget_2->width()-24,ui->verticalWidget_2->height()-70);
 	ui->verticalWidget_3->setGeometry(0,0,ui->tabWidget->width(),ui->tabWidget->height()-24);
 	ui->verticalWidget_4->setGeometry(0,0,ui->tabWidget->width(),ui->tabWidget->height()-24);
 	ui->verticalWidget_5->setGeometry(0,0,ui->tabWidget->width(),ui->tabWidget->height()-24);
+	ui->tableWidget_7->horizontalHeader()->setDefaultSectionSize((ui->verticalWidget_4->width()-57)/7);
 }
 void MainWindow::retrive_info(){
 	short operation = 2;
@@ -47,6 +54,7 @@ void MainWindow::fetch_record(QTableWidget* table){
 	int count;
 	socket_ptr->SE_recv(&count,sizeof(int));
 	table->setRowCount( count );
+	ui->filter->setCurrentIndex(0);
 	for(int i=0;i<count;i++){
 		Record r;
 		socket_ptr->SE_recv(&r,sizeof(Record));
@@ -99,21 +107,30 @@ void MainWindow::fetch_info(QTableWidget* table,Client_Info i){
 	table->setItem(row,3,new QTableWidgetItem(QString(i.branch)));
 }
 void MainWindow::refresh(){
-	if(info.Emp_position!=1){
-		ui->tabWidget->removeTab(6);
-		ui->tabWidget->removeTab(5);
+	if(info.Emp_position==3){
+		ui->tabWidget->setTabEnabled(6,false);
+		ui->tabWidget->setTabEnabled(5,false);
+		ui->tabWidget->setTabEnabled(4,false);
 	}
-	if(info.Emp_position==3)
-		ui->tabWidget->removeTab(4);
+	else if(info.Emp_position==2){
+		ui->tabWidget->setTabEnabled(6,true);
+		ui->tabWidget->setTabEnabled(5,false);
+		ui->tabWidget->setTabEnabled(4,true);
+	}
+	else if(info.Emp_position==1){
+		ui->tabWidget->setTabEnabled(6,true);
+		ui->tabWidget->setTabEnabled(5,true);
+		ui->tabWidget->setTabEnabled(4,true);
+	}
 	refresh_zero();
 	refresh_one();
 	refresh_two();
 	refresh_three();
-	if(ui->tabWidget->count()>4)
+	if(info.Emp_position!=3)
 		refresh_four();
-	if(ui->tabWidget->count()>5)
+	if(info.Emp_position==1)
 		refresh_five();
-	if(ui->tabWidget->count()>6){
+	if(info.Emp_position!=3){
 		time_t t = time(0);
 		struct tm * now = localtime( & t );
 		ui->dateEditWeek->setDate(QDate(now->tm_year + 1900,now->tm_mon + 1,now->tm_mday));
@@ -133,6 +150,10 @@ void MainWindow::refresh_zero(){
 	ui->branch->setText(QString(info.branch));
 }
 void MainWindow::refresh_one(){
+	ui->start_date->setMinimumDate(QDate::currentDate());
+	ui->end_date->setMinimumDate(QDate::currentDate());
+	ui->end_date->setStyleSheet(styleSheet());
+	ui->r_type->setStyleSheet(styleSheet());
 	ui->ID_two->setText(QString(info.ID));
 	if(info.Emp_position!=1)
 		ui->r_type->removeItem(4);
@@ -243,16 +264,19 @@ void MainWindow::refresh_five(){
 void MainWindow::refresh_six(const QDate & qd){
 	QDate monday;
 	monday=qd.addDays((-1)*(qd.dayOfWeek()-1));
-	struct tm date;
-	date.tm_year=monday.year()-1900;
-	date.tm_mon=monday.month()-1;
 	vector<string> ID;
+	size_t size;
 	for(int i=0;i<7;i++){
-		date.tm_mday=monday.day()+i;
+		QDate today=monday.addDays(i);
+		ui->tableWidget_7->setHorizontalHeaderItem(i,new QTableWidgetItem);
+		ui->tableWidget_7->horizontalHeaderItem(i)->setText(QDate::shortDayName(i+1)+"("+today.toString(Qt::ISODate)+")");
+		struct tm date;
+		date.tm_year=today.year()-1900;
+		date.tm_mon=today.month()-1;
+		date.tm_mday=today.day();
 		short operation=16;
 		socket_ptr->SE_send(&operation,sizeof(short));
 		socket_ptr->SE_send(&date,sizeof(tm));
-		size_t size;
 		socket_ptr->SE_recv(&size,sizeof(size_t));
 		ui->tableWidget_7->setRowCount(size);
 		ID.resize(size);
@@ -278,7 +302,12 @@ void MainWindow::refresh_six(const QDate & qd){
 			case 5:	temp->setText(QString::fromWCharArray(L"補修"));	temp->setForeground(QBrush(QColor(255,0,0)));	break;
 			case 6:	temp->setText(QString::fromWCharArray(L"出差"));	temp->setForeground(QBrush(QColor(255,0,0)));	break;
 			}
+			temp->setTextAlignment(Qt::AlignCenter);
 		}
+	}
+	for(int i=0;i<size;i++){
+		ui->tableWidget_7->setVerticalHeaderItem(i,new QTableWidgetItem);
+		ui->tableWidget_7->verticalHeaderItem(i)->setText(QString(ID[i].c_str()));
 	}
 }
 void MainWindow::refresh_tab(int index){
@@ -302,17 +331,27 @@ void MainWindow::info_submit(){
 	socket_ptr->SE_send(&info,sizeof(Client_Info));
 }
 void MainWindow::record_submit(){
+	if(ui->start_date->date()>ui->end_date->date()||(ui->start_date->date()==ui->end_date->date()&&ui->start_time->time()>ui->end_time->time())){
+		ui->end_date->setStyleSheet("border: 1px solid red");
+		ui->reason->setStyleSheet(styleSheet());
+		QMessageBox::information( this, tr("Error"), QString::fromWCharArray(L"結束時間不得超過開始時間") );
+		return;
+	}
 	if(ui->r_type->currentIndex()==0){
 		ui->r_type->setStyleSheet("border: 1px solid red");
+		ui->end_date->setStyleSheet(styleSheet());
+		QMessageBox::information( this, tr("Error"), QString::fromWCharArray(L"請選擇請假種類") );
 		return;
 	}
 	if((ui->r_type->currentIndex()==2 || ui->r_type->currentIndex()==4) && ui->reason->toPlainText().isEmpty()){
 		ui->reason->setStyleSheet("border: 1px solid red");
+		ui->end_date->setStyleSheet(styleSheet());
+		QMessageBox::information( this, tr("Error"), QString::fromWCharArray(L"事假與出差必須填寫請假事由") );
 		return;
 	}
 	Record r;
 	r.ID=-1;
-	strcpy(r.applied_ID,info.ID);
+	strcpy(r.applied_ID,ui->ID_two->text().toUtf8().constData());
 	r.r_type=ui->r_type->currentIndex();
 	r.start.tm_year =ui->start_date->date().year()-1900;
 	r.start.tm_mon  =ui->start_date->date().month()-1;
@@ -407,6 +446,7 @@ void MainWindow::modify_employee(){
 	add_window.show();
 }
 void MainWindow::set_requirement(int index){
+	ui->end_date->setStyleSheet(styleSheet());
 	ui->r_type->setStyleSheet(styleSheet());
 	if(index==0){
 		ui->start_date->setEnabled(false);
@@ -465,4 +505,54 @@ void MainWindow::set_requirement(int index){
 		ui->reason->setEnabled(true);
 		ui->ps->setEnabled(true);
 	}
+}
+void MainWindow::passwd_mod(){
+	passwd_modify_window.show();
+}
+void MainWindow::logout(){
+	//short operation=0;
+	//socket_ptr->SE_send(&operation,sizeof(short));
+	login_window->show();
+	hide();
+}
+void MainWindow::record_query(){
+	ui->tabWidget->setCurrentIndex(2);
+	short operation=18;
+	socket_ptr->SE_send(&operation,sizeof(short));
+	size_t len=ui->tableWidget->item(ui->tableWidget->currentRow(),0)->text().size()+1;
+	socket_ptr->SE_send(&len,sizeof(size_t));
+	socket_ptr->SE_send(ui->tableWidget->item(ui->tableWidget->currentRow(),0)->text().toUtf8().constData(),len);
+	fetch_record(ui->tableWidget_6);
+	return;
+}
+void MainWindow::record_filter(int index){
+	QList<QTableWidgetItem *> pending,cancel,approve,reject;
+	pending=ui->tableWidget_6->findItems(QString::fromWCharArray(L"待審核"),Qt::MatchExactly);
+	cancel =ui->tableWidget_6->findItems(QString::fromWCharArray(L"已取消"),Qt::MatchExactly);
+	approve=ui->tableWidget_6->findItems(QString::fromWCharArray(L"通過")  ,Qt::MatchExactly);
+	reject =ui->tableWidget_6->findItems(QString::fromWCharArray(L"駁回")  ,Qt::MatchExactly);
+	if(index==0||index==1)
+		for(int i=0;i<pending.size();i++)
+			ui->tableWidget_6->setRowHidden(pending[i]->row(),false);
+	else
+		for(int i=0;i<pending.size();i++)
+			ui->tableWidget_6->setRowHidden(pending[i]->row(),true);
+	if(index==0||index==2)
+		for(int i=0;i<cancel.size();i++)
+			ui->tableWidget_6->setRowHidden(cancel[i]->row(),false);
+	else
+		for(int i=0;i<cancel.size();i++)
+			ui->tableWidget_6->setRowHidden(cancel[i]->row(),true);
+	if(index==0||index==3)
+		for(int i=0;i<approve.size();i++)
+			ui->tableWidget_6->setRowHidden(approve[i]->row(),false);
+	else
+		for(int i=0;i<approve.size();i++)
+			ui->tableWidget_6->setRowHidden(approve[i]->row(),true);
+	if(index==0||index==4)
+		for(int i=0;i<reject.size();i++)
+			ui->tableWidget_6->setRowHidden(reject[i]->row(),false);
+	else
+		for(int i=0;i<reject.size();i++)
+			ui->tableWidget_6->setRowHidden(reject[i]->row(),true);
 }

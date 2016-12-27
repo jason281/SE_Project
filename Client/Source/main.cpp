@@ -9,7 +9,7 @@ int main(int argc,char* argv[]){
 	QApplication a(argc,argv);
 	Login w(0, &my_sock);
 	w.show();
-	MainWindow m(0, &my_sock);
+	MainWindow m(0, &my_sock,&w);
 	w.setMainWindow(&m);
 	return a.exec();
 }

@@ -65,7 +65,7 @@ CMAKE_BINARY_DIR = C:\Users\jason\Documents\GitHub\SE_Project\Client\Build_Chang
 CMakeFiles/run.dir/all: CMakeFiles/run_automoc.dir/all
 	$(MAKE) -f CMakeFiles\run.dir\build.make CMakeFiles/run.dir/depend
 	$(MAKE) -f CMakeFiles\run.dir\build.make CMakeFiles/run.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\jason\Documents\GitHub\SE_Project\Client\Build_Chang\CMakeFiles --progress-num=1,2,3,4,5,6,7,8 "Built target run"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\jason\Documents\GitHub\SE_Project\Client\Build_Chang\CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9 "Built target run"
 .PHONY : CMakeFiles/run.dir/all
 
 # Include target in all.
@@ -75,7 +75,7 @@ all: CMakeFiles/run.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/run.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\jason\Documents\GitHub\SE_Project\Client\Build_Chang\CMakeFiles 9
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\jason\Documents\GitHub\SE_Project\Client\Build_Chang\CMakeFiles 10
 	$(MAKE) -f CMakeFiles\Makefile2 CMakeFiles/run.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\jason\Documents\GitHub\SE_Project\Client\Build_Chang\CMakeFiles 0
 .PHONY : CMakeFiles/run.dir/rule
@@ -102,7 +102,7 @@ clean: CMakeFiles/run.dir/clean
 CMakeFiles/run_automoc.dir/all:
 	$(MAKE) -f CMakeFiles\run_automoc.dir\build.make CMakeFiles/run_automoc.dir/depend
 	$(MAKE) -f CMakeFiles\run_automoc.dir\build.make CMakeFiles/run_automoc.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\jason\Documents\GitHub\SE_Project\Client\Build_Chang\CMakeFiles --progress-num=9 "Built target run_automoc"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\jason\Documents\GitHub\SE_Project\Client\Build_Chang\CMakeFiles --progress-num=10 "Built target run_automoc"
 .PHONY : CMakeFiles/run_automoc.dir/all
 
 # Build rule for subdir invocation for target.

@@ -11,12 +11,14 @@ public:
 	bool initialize();
 	class Client_Service{
 	public:
+		bool testifconnect();
 		friend DWORD WINAPI Thread_Func(void*);
 		friend bool login(SE_winsock2::Client_Service* ,SE_MySQL*);
 		friend void insert_record(SE_winsock2::Client_Service* ,SE_MySQL*);
 		Client_Service(SOCKET,SOCKADDR_IN,SE_MySQL*);
 		bool SE_send(const void*, size_t);
 		bool SE_recv(void*, size_t);
+		static vector<in_addr> black_list;
 	private:
 		SOCKET Client_Socket;
 		SOCKADDR_IN Client_addr;

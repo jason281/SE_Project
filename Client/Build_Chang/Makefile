@@ -211,6 +211,21 @@ mainwindow.s:
 .PHONY : mainwindow.s
 
 # target to build an object file
+passwd_modify.obj:
+	$(MAKE) -f CMakeFiles\run.dir\build.make CMakeFiles/run.dir/passwd_modify.obj
+.PHONY : passwd_modify.obj
+
+# target to preprocess a source file
+passwd_modify.i:
+	$(MAKE) -f CMakeFiles\run.dir\build.make CMakeFiles/run.dir/passwd_modify.i
+.PHONY : passwd_modify.i
+
+# target to generate assembly for a file
+passwd_modify.s:
+	$(MAKE) -f CMakeFiles\run.dir\build.make CMakeFiles/run.dir/passwd_modify.s
+.PHONY : passwd_modify.s
+
+# target to build an object file
 run_automoc.obj:
 	$(MAKE) -f CMakeFiles\run.dir\build.make CMakeFiles/run.dir/run_automoc.obj
 .PHONY : run_automoc.obj
@@ -265,6 +280,9 @@ help:
 	@echo ... mainwindow.obj
 	@echo ... mainwindow.i
 	@echo ... mainwindow.s
+	@echo ... passwd_modify.obj
+	@echo ... passwd_modify.i
+	@echo ... passwd_modify.s
 	@echo ... run_automoc.obj
 	@echo ... run_automoc.i
 	@echo ... run_automoc.s

@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "C:/Users/jason/Documents/GitHub/SE_Project/Client/Source/login.cpp" "C:/Users/jason/Documents/GitHub/SE_Project/Client/Build_Chang/CMakeFiles/run.dir/login.obj"
   "C:/Users/jason/Documents/GitHub/SE_Project/Client/Source/main.cpp" "C:/Users/jason/Documents/GitHub/SE_Project/Client/Build_Chang/CMakeFiles/run.dir/main.obj"
   "C:/Users/jason/Documents/GitHub/SE_Project/Client/Source/mainwindow.cpp" "C:/Users/jason/Documents/GitHub/SE_Project/Client/Build_Chang/CMakeFiles/run.dir/mainwindow.obj"
+  "C:/Users/jason/Documents/GitHub/SE_Project/Client/Source/passwd_modify.cpp" "C:/Users/jason/Documents/GitHub/SE_Project/Client/Build_Chang/CMakeFiles/run.dir/passwd_modify.obj"
   "C:/Users/jason/Documents/GitHub/SE_Project/Client/Build_Chang/run_automoc.cpp" "C:/Users/jason/Documents/GitHub/SE_Project/Client/Build_Chang/CMakeFiles/run.dir/run_automoc.obj"
   "C:/Users/jason/Documents/GitHub/SE_Project/Client/Source/setting.cpp" "C:/Users/jason/Documents/GitHub/SE_Project/Client/Build_Chang/CMakeFiles/run.dir/setting.obj"
   )

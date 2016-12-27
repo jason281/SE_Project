@@ -2,4 +2,5 @@
 #include "run_automoc.dir/moc_add.cpp"
 #include "run_automoc.dir/moc_login.cpp"
 #include "run_automoc.dir/moc_mainwindow.cpp"
+#include "run_automoc.dir/moc_passwd_modify.cpp"
 #include "run_automoc.dir/moc_setting.cpp"

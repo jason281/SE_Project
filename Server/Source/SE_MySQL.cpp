@@ -14,6 +14,8 @@ SE_MySQL::SE_MySQL(){
 		mysql_close(con);
 		return;
 	}
+	my_bool reconnect = 0;
+	mysql_options(con, MYSQL_OPT_RECONNECT, &reconnect);
 	cerr << "Database login succeed" << endl;
 }
 void SE_MySQL::initialize(){

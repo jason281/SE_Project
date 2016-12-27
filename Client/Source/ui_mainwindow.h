@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'mainwindowTx7524.ui'
+** Form generated from reading UI file 'mainwindowHp8160.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.6.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef MAINWINDOWTX7524_H
-#define MAINWINDOWTX7524_H
+#ifndef MAINWINDOWHP8160_H
+#define MAINWINDOWHP8160_H
 
 #include <QtCore/QDate>
 #include <QtCore/QVariant>
@@ -22,6 +22,7 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
+#include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
@@ -39,23 +40,25 @@ QT_BEGIN_NAMESPACE
 class Ui_MainWindow
 {
 public:
+    QAction *actionLogout;
     QWidget *centralwidget;
     QTabWidget *tabWidget;
     QWidget *tab_9;
-    QWidget *gridWidget;
-    QGridLayout *gridLayout;
+    QWidget *verticalWidget_6;
+    QVBoxLayout *verticalLayout_2;
+    QGridLayout *gridLayout_3;
+    QLabel *label_3;
+    QComboBox *Gender;
     QLineEdit *Emp_position;
-    QLineEdit *Emp_Name;
+    QLabel *label_6;
     QLabel *label_5;
     QLabel *label_4;
-    QLabel *label_3;
-    QLabel *label_7;
+    QLineEdit *Emp_Name;
     QLineEdit *ID;
-    QLabel *label_6;
+    QLabel *label_7;
     QLineEdit *branch;
-    QComboBox *Gender;
-    QWidget *widget;
-    QHBoxLayout *horizontalLayout;
+    QSpacerItem *verticalSpacer;
+    QHBoxLayout *horizontalLayout_5;
     QPushButton *info_save_button;
     QPushButton *passwd_modify_button;
     QWidget *tab;
@@ -87,6 +90,7 @@ public:
     QVBoxLayout *verticalLayout;
     QTableWidget *tableWidget_6;
     QHBoxLayout *horizontalLayout_6;
+    QComboBox *filter;
     QSpacerItem *horizontalSpacer_4;
     QPushButton *cancel_button;
     QWidget *tab_5;
@@ -119,7 +123,7 @@ public:
     QToolButton *remove_button;
     QToolButton *modify_button;
     QSpacerItem *horizontalSpacer_8;
-    QPushButton *pushButton_5;
+    QPushButton *record_query_button;
     QWidget *tab_10;
     QWidget *verticalWidget_4;
     QVBoxLayout *verticalLayout_5;
@@ -128,6 +132,7 @@ public:
     QDateEdit *dateEditWeek;
     QTableWidget *tableWidget_7;
     QMenuBar *menubar;
+    QMenu *menu;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *MainWindow)
@@ -135,6 +140,8 @@ public:
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
         MainWindow->resize(800, 588);
+        actionLogout = new QAction(MainWindow);
+        actionLogout->setObjectName(QStringLiteral("actionLogout"));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
         tabWidget = new QTabWidget(centralwidget);
@@ -145,86 +152,94 @@ public:
         tabWidget->setTabShape(QTabWidget::Rounded);
         tab_9 = new QWidget();
         tab_9->setObjectName(QStringLiteral("tab_9"));
-        gridWidget = new QWidget(tab_9);
-        gridWidget->setObjectName(QStringLiteral("gridWidget"));
-        gridWidget->setGeometry(QRect(280, 90, 191, 231));
-        gridLayout = new QGridLayout(gridWidget);
-        gridLayout->setObjectName(QStringLiteral("gridLayout"));
-        Emp_position = new QLineEdit(gridWidget);
+        verticalWidget_6 = new QWidget(tab_9);
+        verticalWidget_6->setObjectName(QStringLiteral("verticalWidget_6"));
+        verticalWidget_6->setGeometry(QRect(240, 130, 171, 221));
+        verticalLayout_2 = new QVBoxLayout(verticalWidget_6);
+        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
+        gridLayout_3 = new QGridLayout();
+        gridLayout_3->setObjectName(QStringLiteral("gridLayout_3"));
+        gridLayout_3->setHorizontalSpacing(6);
+        gridLayout_3->setVerticalSpacing(13);
+        label_3 = new QLabel(verticalWidget_6);
+        label_3->setObjectName(QStringLiteral("label_3"));
+
+        gridLayout_3->addWidget(label_3, 2, 0, 1, 1);
+
+        Gender = new QComboBox(verticalWidget_6);
+        Gender->setObjectName(QStringLiteral("Gender"));
+        Gender->setMaximumSize(QSize(60, 16777215));
+
+        gridLayout_3->addWidget(Gender, 1, 1, 1, 1);
+
+        Emp_position = new QLineEdit(verticalWidget_6);
         Emp_position->setObjectName(QStringLiteral("Emp_position"));
         Emp_position->setEnabled(false);
+        Emp_position->setMaximumSize(QSize(50, 16777215));
 
-        gridLayout->addWidget(Emp_position, 3, 1, 1, 1);
+        gridLayout_3->addWidget(Emp_position, 3, 1, 1, 1);
 
-        Emp_Name = new QLineEdit(gridWidget);
+        label_6 = new QLabel(verticalWidget_6);
+        label_6->setObjectName(QStringLiteral("label_6"));
+
+        gridLayout_3->addWidget(label_6, 3, 0, 1, 1);
+
+        label_5 = new QLabel(verticalWidget_6);
+        label_5->setObjectName(QStringLiteral("label_5"));
+
+        gridLayout_3->addWidget(label_5, 1, 0, 1, 1);
+
+        label_4 = new QLabel(verticalWidget_6);
+        label_4->setObjectName(QStringLiteral("label_4"));
+
+        gridLayout_3->addWidget(label_4, 0, 0, 1, 1);
+
+        Emp_Name = new QLineEdit(verticalWidget_6);
         Emp_Name->setObjectName(QStringLiteral("Emp_Name"));
         Emp_Name->setMaximumSize(QSize(100, 16777215));
 
-        gridLayout->addWidget(Emp_Name, 1, 1, 1, 1);
+        gridLayout_3->addWidget(Emp_Name, 2, 1, 1, 1);
 
-        label_5 = new QLabel(gridWidget);
-        label_5->setObjectName(QStringLiteral("label_5"));
-
-        gridLayout->addWidget(label_5, 2, 0, 1, 1);
-
-        label_4 = new QLabel(gridWidget);
-        label_4->setObjectName(QStringLiteral("label_4"));
-
-        gridLayout->addWidget(label_4, 0, 0, 1, 1);
-
-        label_3 = new QLabel(gridWidget);
-        label_3->setObjectName(QStringLiteral("label_3"));
-
-        gridLayout->addWidget(label_3, 1, 0, 1, 1);
-
-        label_7 = new QLabel(gridWidget);
-        label_7->setObjectName(QStringLiteral("label_7"));
-
-        gridLayout->addWidget(label_7, 4, 0, 1, 1);
-
-        ID = new QLineEdit(gridWidget);
+        ID = new QLineEdit(verticalWidget_6);
         ID->setObjectName(QStringLiteral("ID"));
         ID->setEnabled(false);
         ID->setMaximumSize(QSize(50, 16777215));
 
-        gridLayout->addWidget(ID, 0, 1, 1, 1);
+        gridLayout_3->addWidget(ID, 0, 1, 1, 1);
 
-        label_6 = new QLabel(gridWidget);
-        label_6->setObjectName(QStringLiteral("label_6"));
+        label_7 = new QLabel(verticalWidget_6);
+        label_7->setObjectName(QStringLiteral("label_7"));
 
-        gridLayout->addWidget(label_6, 3, 0, 1, 1);
+        gridLayout_3->addWidget(label_7, 4, 0, 1, 1);
 
-        branch = new QLineEdit(gridWidget);
+        branch = new QLineEdit(verticalWidget_6);
         branch->setObjectName(QStringLiteral("branch"));
 
-        gridLayout->addWidget(branch, 4, 1, 1, 1);
+        gridLayout_3->addWidget(branch, 4, 1, 1, 1);
 
-        Gender = new QComboBox(gridWidget);
-        Gender->setObjectName(QStringLiteral("Gender"));
-        Gender->setMaximumSize(QSize(60, 16777215));
 
-        gridLayout->addWidget(Gender, 2, 1, 1, 1);
+        verticalLayout_2->addLayout(gridLayout_3);
 
-        widget = new QWidget(tab_9);
-        widget->setObjectName(QStringLiteral("widget"));
-        widget->setGeometry(QRect(290, 350, 157, 50));
-        horizontalLayout = new QHBoxLayout(widget);
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        info_save_button = new QPushButton(widget);
+        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout_2->addItem(verticalSpacer);
+
+        horizontalLayout_5 = new QHBoxLayout();
+        horizontalLayout_5->setObjectName(QStringLiteral("horizontalLayout_5"));
+        info_save_button = new QPushButton(verticalWidget_6);
         info_save_button->setObjectName(QStringLiteral("info_save_button"));
 
-        horizontalLayout->addWidget(info_save_button);
+        horizontalLayout_5->addWidget(info_save_button);
 
-        passwd_modify_button = new QPushButton(widget);
+        passwd_modify_button = new QPushButton(verticalWidget_6);
         passwd_modify_button->setObjectName(QStringLiteral("passwd_modify_button"));
 
-        horizontalLayout->addWidget(passwd_modify_button);
+        horizontalLayout_5->addWidget(passwd_modify_button);
+
+
+        verticalLayout_2->addLayout(horizontalLayout_5);
 
         tabWidget->addTab(tab_9, QString());
-        gridWidget->raise();
-        info_save_button->raise();
-        passwd_modify_button->raise();
-        widget->raise();
         tab = new QWidget();
         tab->setObjectName(QStringLiteral("tab"));
         gridWidget_2 = new QWidget(tab);
@@ -266,6 +281,7 @@ public:
 
         label_9 = new QLabel(gridWidget_2);
         label_9->setObjectName(QStringLiteral("label_9"));
+        label_9->setTextFormat(Qt::PlainText);
 
         gridLayout_2->addWidget(label_9, 1, 0, 1, 1);
 
@@ -345,8 +361,6 @@ public:
         gridLayout_2->addLayout(horizontalLayout_3, 6, 1, 1, 1);
 
         tabWidget->addTab(tab, QString());
-        gridWidget_2->raise();
-        ps->raise();
         tab_8 = new QWidget();
         tab_8->setObjectName(QStringLiteral("tab_8"));
         verticalWidget = new QWidget(tab_8);
@@ -382,6 +396,12 @@ public:
 
         horizontalLayout_6 = new QHBoxLayout();
         horizontalLayout_6->setObjectName(QStringLiteral("horizontalLayout_6"));
+        filter = new QComboBox(verticalWidget);
+        filter->setObjectName(QStringLiteral("filter"));
+        filter->setDuplicatesEnabled(true);
+
+        horizontalLayout_6->addWidget(filter);
+
         horizontalSpacer_4 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_6->addItem(horizontalSpacer_4);
@@ -435,7 +455,7 @@ public:
         QTableWidgetItem *__qtablewidgetitem12 = new QTableWidgetItem();
         tableWidget_2->setHorizontalHeaderItem(3, __qtablewidgetitem12);
         tableWidget_2->setObjectName(QStringLiteral("tableWidget_2"));
-        tableWidget_2->setGeometry(QRect(0, 0, 721, 421));
+        tableWidget_2->setGeometry(QRect(0, 0, 707, 411));
         tableWidget_2->setRowCount(0);
         tableWidget_2->setColumnCount(4);
         tabWidget_2->addTab(tab_4, QString());
@@ -581,10 +601,10 @@ public:
 
         horizontalLayout_10->addItem(horizontalSpacer_8);
 
-        pushButton_5 = new QPushButton(verticalWidget_5);
-        pushButton_5->setObjectName(QStringLiteral("pushButton_5"));
+        record_query_button = new QPushButton(verticalWidget_5);
+        record_query_button->setObjectName(QStringLiteral("record_query_button"));
 
-        horizontalLayout_10->addWidget(pushButton_5);
+        horizontalLayout_10->addWidget(record_query_button);
 
 
         verticalLayout_6->addLayout(horizontalLayout_10);
@@ -630,7 +650,7 @@ public:
         QTableWidgetItem *__qtablewidgetitem43 = new QTableWidgetItem();
         tableWidget_7->setHorizontalHeaderItem(6, __qtablewidgetitem43);
         tableWidget_7->setObjectName(QStringLiteral("tableWidget_7"));
-        tableWidget_7->horizontalHeader()->setDefaultSectionSize(90);
+        tableWidget_7->horizontalHeader()->setDefaultSectionSize(103);
 
         verticalLayout_5->addWidget(tableWidget_7);
 
@@ -639,10 +659,15 @@ public:
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QStringLiteral("menubar"));
         menubar->setGeometry(QRect(0, 0, 800, 21));
+        menu = new QMenu(menubar);
+        menu->setObjectName(QStringLiteral("menu"));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QStringLiteral("statusbar"));
         MainWindow->setStatusBar(statusbar);
+
+        menubar->addAction(menu->menuAction());
+        menu->addAction(actionLogout);
 
         retranslateUi(MainWindow);
 
@@ -656,19 +681,21 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
-        Emp_position->setText(QApplication::translate("MainWindow", "\344\270\273\344\273\273", 0));
-        label_5->setText(QApplication::translate("MainWindow", "\346\200\247\345\210\245:", 0));
-        label_4->setText(QApplication::translate("MainWindow", "ID:", 0));
+        actionLogout->setText(QApplication::translate("MainWindow", "Logout", 0));
+        actionLogout->setShortcut(QApplication::translate("MainWindow", "Ctrl+L", 0));
         label_3->setText(QApplication::translate("MainWindow", "\345\247\223\345\220\215:", 0));
-        label_7->setText(QApplication::translate("MainWindow", "\351\203\250\351\226\200:", 0));
-        ID->setText(QApplication::translate("MainWindow", "A001", 0));
-        label_6->setText(QApplication::translate("MainWindow", "\350\201\267\344\275\215:", 0));
         Gender->clear();
         Gender->insertItems(0, QStringList()
          << QApplication::translate("MainWindow", "\350\253\213\351\201\270\346\223\207", 0)
          << QApplication::translate("MainWindow", "\347\224\267", 0)
          << QApplication::translate("MainWindow", "\345\245\263", 0)
         );
+        Emp_position->setText(QApplication::translate("MainWindow", "\344\270\273\344\273\273", 0));
+        label_6->setText(QApplication::translate("MainWindow", "\350\201\267\344\275\215:", 0));
+        label_5->setText(QApplication::translate("MainWindow", "\346\200\247\345\210\245:", 0));
+        label_4->setText(QApplication::translate("MainWindow", "ID:", 0));
+        ID->setText(QApplication::translate("MainWindow", "A001", 0));
+        label_7->setText(QApplication::translate("MainWindow", "\351\203\250\351\226\200:", 0));
         info_save_button->setText(QApplication::translate("MainWindow", "\345\204\262\345\255\230", 0));
         passwd_modify_button->setText(QApplication::translate("MainWindow", "\344\277\256\346\224\271\345\257\206\347\242\274", 0));
         tabWidget->setTabText(tabWidget->indexOf(tab_9), QApplication::translate("MainWindow", "\345\200\213\344\272\272\350\263\207\346\226\231", 0));
@@ -706,6 +733,14 @@ public:
         ___qtablewidgetitem7->setText(QApplication::translate("MainWindow", "\347\224\263\350\253\213\346\231\202\351\226\223", 0));
         QTableWidgetItem *___qtablewidgetitem8 = tableWidget_6->horizontalHeaderItem(8);
         ___qtablewidgetitem8->setText(QApplication::translate("MainWindow", "\347\213\200\346\205\213", 0));
+        filter->clear();
+        filter->insertItems(0, QStringList()
+         << QApplication::translate("MainWindow", "\346\211\200\346\234\211", 0)
+         << QApplication::translate("MainWindow", "\345\276\205\345\257\251\346\240\270", 0)
+         << QApplication::translate("MainWindow", "\345\267\262\345\217\226\346\266\210", 0)
+         << QApplication::translate("MainWindow", "\351\200\232\351\201\216", 0)
+         << QApplication::translate("MainWindow", "\351\247\201\345\233\236", 0)
+        );
         cancel_button->setText(QApplication::translate("MainWindow", "\345\217\226\346\266\210\347\224\263\350\253\213", 0));
         tabWidget->setTabText(tabWidget->indexOf(tab_8), QApplication::translate("MainWindow", "\350\253\213\345\201\207\347\264\200\351\214\204", 0));
         QTableWidgetItem *___qtablewidgetitem9 = tableWidget_2->horizontalHeaderItem(0);
@@ -774,7 +809,7 @@ public:
         add_button->setText(QApplication::translate("MainWindow", "Add", 0));
         remove_button->setText(QApplication::translate("MainWindow", "Remove", 0));
         modify_button->setText(QApplication::translate("MainWindow", "Modify", 0));
-        pushButton_5->setText(QApplication::translate("MainWindow", "\350\253\213\345\201\207\347\264\200\351\214\204", 0));
+        record_query_button->setText(QApplication::translate("MainWindow", "\350\253\213\345\201\207\347\264\200\351\214\204", 0));
         tabWidget->setTabText(tabWidget->indexOf(tab_3), QApplication::translate("MainWindow", "\345\223\241\345\267\245\344\270\200\350\246\275\350\241\250", 0));
         QTableWidgetItem *___qtablewidgetitem37 = tableWidget_7->horizontalHeaderItem(0);
         ___qtablewidgetitem37->setText(QApplication::translate("MainWindow", "\351\200\261\344\270\200", 0));
@@ -791,6 +826,7 @@ public:
         QTableWidgetItem *___qtablewidgetitem43 = tableWidget_7->horizontalHeaderItem(6);
         ___qtablewidgetitem43->setText(QApplication::translate("MainWindow", "\351\200\261\346\227\245", 0));
         tabWidget->setTabText(tabWidget->indexOf(tab_10), QApplication::translate("MainWindow", "\347\225\266\345\221\250\344\270\212\347\217\255\345\223\241\345\267\245", 0));
+        menu->setTitle(QApplication::translate("MainWindow", "\351\201\270\351\240\205", 0));
     } // retranslateUi
 
 };
@@ -801,4 +837,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // MAINWINDOWTX7524_H
+#endif // MAINWINDOWHP8160_H

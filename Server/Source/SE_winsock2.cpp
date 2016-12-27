@@ -43,7 +43,17 @@ bool SE_winsock2::initialize(){
 		cerr<<"Waiting for client to connect...\n";
 		if ( ClientSocket = accept(ListenSocket, (SOCKADDR*)&Client_addr, &addr_size) ) {
 			cerr<<"got connection from "<<inet_ntoa(Client_addr.sin_addr)<<endl;
-			Client_List.push_back(new Client_Service(ClientSocket,Client_addr,database));
+			bool isbanned=false;
+			for(int i=0;i<SE_winsock2::Client_Service::black_list.size();i++){
+				if(Client_addr.sin_addr.s_addr==SE_winsock2::Client_Service::black_list[i].s_addr){
+					cout<<inet_ntoa(Client_addr.sin_addr)<<" already banned"<<endl;
+					closesocket(ClientSocket);
+					isbanned=true;
+					break;
+				}
+			}
+			if(!isbanned)
+				Client_List.push_back(new Client_Service(ClientSocket,Client_addr,database));
 		}
 		else{
 		    cerr<<"accept failed: "<< WSAGetLastError()<<endl;
@@ -57,7 +67,12 @@ bool SE_winsock2::initialize(){
 SE_winsock2::Client_Service::Client_Service(SOCKET sock, SOCKADDR_IN addr,SE_MySQL* db):Client_Socket(sock),Client_addr(addr),database(db){
 	thread = CreateThread(NULL,0,Thread_Func,new thread_par(this,db),0,NULL);
 }
+bool SE_winsock2::Client_Service::testifconnect(){
+	return (Client_Socket!=INVALID_SOCKET);
+}
 bool SE_winsock2::Client_Service::SE_send(const void* buf, size_t len){
+	if(!testifconnect())
+		return false;
 	int nLeft=len;
 	int idx=0, ret;
 	const char* cbuf=(const char*)buf;
@@ -73,6 +88,8 @@ bool SE_winsock2::Client_Service::SE_send(const void* buf, size_t len){
 	return true;
 }
 bool SE_winsock2::Client_Service::SE_recv(void* buf, size_t len){
+	if(!testifconnect())
+		return false;
 	int nLeft=len;
 	int idx=0, ret;
 	char* cbuf=(char*)buf;

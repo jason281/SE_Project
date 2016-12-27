@@ -20,6 +20,7 @@
 #define DEFAULT_PORT 99
 #define MYSQL_USER_NAME "SE_Server"
 #define MYSQL_PASSWORD "000000"
+#define MAX_LOGIN_TRY 20
 using std::cout;
 using std::wcout;
 using std::cerr;

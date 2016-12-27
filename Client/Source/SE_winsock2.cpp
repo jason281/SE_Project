@@ -3,6 +3,8 @@
 SE_winsock2::SE_winsock2(){
 }
 bool SE_winsock2::initialize(const char* server_addr=DEFAULT_IP,int server_port=DEFAULT_PORT){
+	if(testifconnect())
+		closesocket(ConnectSocket);
 	ServerAddr.sin_family = AF_INET;
 	ServerAddr.sin_port = htons(server_port);
 	ServerAddr.sin_addr.s_addr = inet_addr(server_addr);
@@ -37,6 +39,8 @@ bool SE_winsock2::testifconnect(){
 	return (ConnectSocket!=INVALID_SOCKET);
 }
 bool SE_winsock2::SE_send(const void* buf, size_t len){
+	if(!testifconnect())
+		return false;
 	int nLeft=len;
 	int idx=0, ret;
 	const char* cbuf=(const char*)buf;
@@ -52,6 +56,8 @@ bool SE_winsock2::SE_send(const void* buf, size_t len){
 	return true;
 }
 bool SE_winsock2::SE_recv(void* buf, size_t len){
+	if(!testifconnect())
+		return false;
 	int nLeft=len;
 	int idx=0, ret;
 	char* cbuf=(char*)buf;

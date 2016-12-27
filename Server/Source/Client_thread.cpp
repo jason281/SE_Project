@@ -1,32 +1,32 @@
 #include "Client_thread.h"
+
 #include <map>
 
 bool login(SE_winsock2::Client_Service* Client,SE_MySQL* database){
 	size_t len;
 	Client->SE_recv((void*)&len, sizeof(size_t));
-	cout<<"Recv len:"<<len<<endl;
-	wchar_t text[len];
-	Client->SE_recv((void*)text, len*sizeof(wchar_t));
+	//cout<<"Recv len:"<<len<<endl;
+	char text[len];
+	Client->SE_recv((void*)text, len);
 	
-	wstring q(text);
+	string q(text);
 	string t=string(q.begin(),q.end());
 	strcpy(Client->info.ID, t.c_str());
-	q=L"SELECT Passwd FROM se_database.employee WHERE ID = '"+q+L"'";
+	q="SELECT Passwd FROM se_database.employee WHERE ID = '"+q+"'";
 	database->query(q);
-	//wcout<<q<<endl;
 	vector<MYSQL_ROW> result=database->retrive();
-	//cout<<result[0][0]<<endl;
 	
 	Client->SE_recv((void*)&len, sizeof(size_t));
 	//cout<<"Passwd len:"<<len<<endl;
-	wchar_t passwd_r[len];
-	Client->SE_recv((void*)passwd_r, len*sizeof(wchar_t));
-	wstring temp(passwd_r);
-	string temp2(temp.begin(),temp.end());
+	char passwd_r[len];
+	Client->SE_recv((void*)passwd_r, len);
+	for(int i=0;i<len;i++)
+		passwd_r[i]=passwd_r[i]^(char)len;
+	string temp(passwd_r);
 	
 	if(result.size()){
-		if(!strcmp(result[0][0],temp2.c_str())){
-			wcout<<L"User "<<text<<L" login succeed!\n";
+		if(!strcmp(result[0][0],temp.c_str())){
+			cout<<"User "<<text<<" login succeed!\n";
 			short status=0; //for login succeed
 			Client->SE_send(&status, sizeof(short));
 			//get client info
@@ -36,13 +36,13 @@ bool login(SE_winsock2::Client_Service* Client,SE_MySQL* database){
 		else{
 			short status=2; 		//passwd incorrect
 			Client->SE_send(&status, sizeof(short));
-			return true;
+			return false;
 		}
 	}
 	else{
 		short status=1;				 //user not fount
 		Client->SE_send(&status, sizeof(short));
-		return true;
+		return false;
 	}
 }
 void insert_record(SE_winsock2::Client_Service* Client,SE_MySQL* database){
@@ -50,7 +50,8 @@ void insert_record(SE_winsock2::Client_Service* Client,SE_MySQL* database){
 	Client->SE_recv(&r,sizeof(Record));
 	if(r.r_type==4&&Client->info.Emp_position!=1)
 		return;
-	if(!strcmp(r.applied_ID,Client->info.ID)&&Client->info.Emp_position!=1)
+	//cout<<Client->info.ID<<endl;
+	if(strcmp(r.applied_ID,Client->info.ID)&&Client->info.Emp_position!=1)
 		return;
 	r.ID= ++database->record_ID;
 	string query("INSERT INTO se_database.record VALUES(");
@@ -202,8 +203,14 @@ void query_worker(SE_MySQL* database, struct tm time, std::map<string,short>& li
 	for(int i=0;i<result.size();i++)
 		list[string(result[i][0])]=3;
 }
-
+DWORD WINAPI Timing(void* lpParam){
+	vector<in_addr>::iterator* it=(vector<in_addr>::iterator*)lpParam;
+	Sleep(10*60*1000);
+	SE_winsock2::Client_Service::black_list.erase(*it);
+	return 0;
+}
 DWORD WINAPI Thread_Func(void* lpParam){
+	int count=0;
 	thread_par* par= (thread_par*)lpParam;
 	SE_winsock2::Client_Service* Client = par->sock;
 	SE_MySQL* database = par->database;
@@ -212,10 +219,22 @@ DWORD WINAPI Thread_Func(void* lpParam){
 		operation=0;
 		Client->SE_recv(&operation,sizeof(short));
 		cout<<"Operation : "<<operation<<endl;
-		if(operation==0)							//0 : Leave
+		//test SQL server
+		
+		
+		if(operation==0){							//0 : Leave
+			closesocket(Client->Client_Socket);
 			return 0;
+		}
 		else if(operation==1){						//1 : Login
-			if(!login(Client,database)){
+			if(!login(Client,database))
+				count++;
+			if(count==MAX_LOGIN_TRY){
+				SE_winsock2::Client_Service::black_list.push_back(Client->Client_addr.sin_addr);
+				vector<in_addr>::iterator it=SE_winsock2::Client_Service::black_list.end();
+				CreateThread(NULL,0,Timing,&it,0,NULL);
+				closesocket(Client->Client_Socket);
+				cout<<"BANNED "<<inet_ntoa(Client->Client_addr.sin_addr)<<endl;
 				return 1;
 			}
 		}
@@ -336,8 +355,7 @@ DWORD WINAPI Thread_Func(void* lpParam){
 			time_t t = time(0);
 			struct tm * now = localtime( & t );
 			std::map<string,short> list;
-			if(Client->info.Emp_position==1)
-				query_worker(database,*now,list);
+			query_worker(database,*now,list);
 			size_t size=list.size();
 			Client->SE_send(&size,sizeof(size_t));
 			for(std::map<string,short>::iterator it=list.begin();it!=list.end();it++){
@@ -369,6 +387,26 @@ DWORD WINAPI Thread_Func(void* lpParam){
 				Client->SE_send(it->first.c_str(),len);
 				Client->SE_send(&it->second,sizeof(short));
 			}
+		}
+		else if(operation==17){						//17: modify passwd
+			if(!login(Client,database))
+				continue;
+			size_t len;
+			Client->SE_recv(&len, sizeof(size_t));
+			char new_passwd[len];
+			Client->SE_recv(new_passwd, len);
+			string query("UPDATE se_database.employee SET Passwd='");
+			query=query+new_passwd+"' WHERE ID='"+Client->info.ID+"';";
+			//cout<<query<<endl;
+			database->query(query);
+		}
+		else if(operation==18){						//18: record query
+			size_t len;
+			Client->SE_recv(&len, sizeof(size_t));
+			char ID[len];
+			Client->SE_recv(ID, len);
+			if(Client->info.Emp_position==1)
+				record_query(Client,database,ID);
 		}
 	}
 }

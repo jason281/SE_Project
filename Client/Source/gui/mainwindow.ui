@@ -39,147 +39,164 @@
      <attribute name="title">
       <string>個人資料</string>
      </attribute>
-     <widget class="QWidget" name="gridWidget" native="true">
+     <widget class="QWidget" name="verticalWidget_6" native="true">
       <property name="geometry">
        <rect>
-        <x>280</x>
-        <y>90</y>
-        <width>191</width>
-        <height>231</height>
+        <x>240</x>
+        <y>130</y>
+        <width>171</width>
+        <height>221</height>
        </rect>
       </property>
-      <layout class="QGridLayout" name="gridLayout">
-       <item row="3" column="1">
-        <widget class="QLineEdit" name="Emp_position">
-         <property name="enabled">
-          <bool>false</bool>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <layout class="QGridLayout" name="gridLayout_3">
+         <property name="horizontalSpacing">
+          <number>6</number>
          </property>
-         <property name="text">
-          <string>主任</string>
+         <property name="verticalSpacing">
+          <number>13</number>
          </property>
-        </widget>
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_3">
+           <property name="text">
+            <string>姓名:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QComboBox" name="Gender">
+           <property name="maximumSize">
+            <size>
+             <width>60</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <item>
+            <property name="text">
+             <string>請選擇</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>男</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>女</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QLineEdit" name="Emp_position">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>主任</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0">
+          <widget class="QLabel" name="label_6">
+           <property name="text">
+            <string>職位:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_5">
+           <property name="text">
+            <string>性別:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_4">
+           <property name="text">
+            <string>ID:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QLineEdit" name="Emp_Name">
+           <property name="maximumSize">
+            <size>
+             <width>100</width>
+             <height>16777215</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLineEdit" name="ID">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>A001</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="0">
+          <widget class="QLabel" name="label_7">
+           <property name="text">
+            <string>部門:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="1">
+          <widget class="QLineEdit" name="branch"/>
+         </item>
+        </layout>
        </item>
-       <item row="1" column="1">
-        <widget class="QLineEdit" name="Emp_Name">
-         <property name="maximumSize">
+       <item>
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
           <size>
-           <width>100</width>
-           <height>16777215</height>
+           <width>20</width>
+           <height>40</height>
           </size>
          </property>
-        </widget>
+        </spacer>
        </item>
-       <item row="2" column="0">
-        <widget class="QLabel" name="label_5">
-         <property name="text">
-          <string>性別:</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="0">
-        <widget class="QLabel" name="label_4">
-         <property name="text">
-          <string>ID:</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="QLabel" name="label_3">
-         <property name="text">
-          <string>姓名:</string>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="0">
-        <widget class="QLabel" name="label_7">
-         <property name="text">
-          <string>部門:</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="1">
-        <widget class="QLineEdit" name="ID">
-         <property name="enabled">
-          <bool>false</bool>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>50</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>A001</string>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="0">
-        <widget class="QLabel" name="label_6">
-         <property name="text">
-          <string>職位:</string>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="1">
-        <widget class="QLineEdit" name="branch"/>
-       </item>
-       <item row="2" column="1">
-        <widget class="QComboBox" name="Gender">
-         <property name="maximumSize">
-          <size>
-           <width>60</width>
-           <height>16777215</height>
-          </size>
-         </property>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_5">
          <item>
-          <property name="text">
-           <string>請選擇</string>
-          </property>
+          <widget class="QPushButton" name="info_save_button">
+           <property name="text">
+            <string>儲存</string>
+           </property>
+          </widget>
          </item>
          <item>
-          <property name="text">
-           <string>男</string>
-          </property>
+          <widget class="QPushButton" name="passwd_modify_button">
+           <property name="text">
+            <string>修改密碼</string>
+           </property>
+          </widget>
          </item>
-         <item>
-          <property name="text">
-           <string>女</string>
-          </property>
-         </item>
-        </widget>
+        </layout>
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="widget" native="true">
-      <property name="geometry">
-       <rect>
-        <x>290</x>
-        <y>350</y>
-        <width>157</width>
-        <height>50</height>
-       </rect>
-      </property>
-      <layout class="QHBoxLayout" name="horizontalLayout">
-       <item>
-        <widget class="QPushButton" name="info_save_button">
-         <property name="text">
-          <string>儲存</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="passwd_modify_button">
-         <property name="text">
-          <string>修改密碼</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-     <zorder>gridWidget</zorder>
-     <zorder>info_save_button</zorder>
-     <zorder>passwd_modify_button</zorder>
-     <zorder>widget</zorder>
     </widget>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -203,7 +220,11 @@
         </widget>
        </item>
        <item row="4" column="1">
-        <widget class="QTextEdit" name="reason"/>
+        <widget class="QTextEdit" name="reason">
+         <property name="lineWrapMode">
+          <enum>QTextEdit::WidgetWidth</enum>
+         </property>
+        </widget>
        </item>
        <item row="4" column="0">
         <widget class="QLabel" name="label_10">
@@ -265,6 +286,9 @@
         <widget class="QLabel" name="label_9">
          <property name="text">
           <string>請假類別</string>
+         </property>
+         <property name="textFormat">
+          <enum>Qt::PlainText</enum>
          </property>
         </widget>
        </item>
@@ -397,8 +421,6 @@
        </item>
       </layout>
      </widget>
-     <zorder>gridWidget_2</zorder>
-     <zorder>ps</zorder>
     </widget>
     <widget class="QWidget" name="tab_8">
      <attribute name="title">
@@ -468,6 +490,38 @@
        </item>
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_6">
+         <item>
+          <widget class="QComboBox" name="filter">
+           <property name="duplicatesEnabled">
+            <bool>true</bool>
+           </property>
+           <item>
+            <property name="text">
+             <string>所有</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>待審核</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>已取消</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>通過</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>駁回</string>
+            </property>
+           </item>
+          </widget>
+         </item>
          <item>
           <spacer name="horizontalSpacer_4">
            <property name="orientation">
@@ -555,8 +609,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>721</width>
-             <height>421</height>
+             <width>707</width>
+             <height>411</height>
             </rect>
            </property>
            <property name="rowCount">
@@ -864,7 +918,7 @@
           </spacer>
          </item>
          <item>
-          <widget class="QPushButton" name="pushButton_5">
+          <widget class="QPushButton" name="record_query_button">
            <property name="text">
             <string>請假紀錄</string>
            </property>
@@ -916,7 +970,7 @@
        <item>
         <widget class="QTableWidget" name="tableWidget_7">
          <attribute name="horizontalHeaderDefaultSectionSize">
-          <number>90</number>
+          <number>103</number>
          </attribute>
          <column>
           <property name="text">
@@ -969,8 +1023,23 @@
      <height>21</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>選項</string>
+    </property>
+    <addaction name="actionLogout"/>
+   </widget>
+   <addaction name="menu"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionLogout">
+   <property name="text">
+    <string>Logout</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+L</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>
