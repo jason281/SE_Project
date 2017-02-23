@@ -51,6 +51,11 @@ void Add::fetch_info(Client_Info i){
 	operation=13;
 }
 void Add::submit(){
+	if(!ui->ID->text().size()){
+		return;
+	}
+	if(ui->Emp_position->currentIndex()!=0||ui->Emp_position->currentIndex()!=1||ui->Emp_position->currentIndex()!=2)
+		return;
 	Client_Info i;
 	strcpy(i.ID, ui->ID->text().toUtf8().constData());
 	strcpy(i.Emp_Name, ui->Emp_Name->text().toUtf8().constData());
